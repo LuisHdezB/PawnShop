@@ -5,8 +5,8 @@ import android.util.Log;
 import es.ulpgc.eite.clean.mvp.GenericModel;
 
 
-public class DummyModel
-    extends GenericModel<Dummy.ModelToPresenter> implements Dummy.PresenterToModel {
+public class ChatModel
+    extends GenericModel<Chat.ModelToPresenter> implements Chat.PresenterToModel {
 
 
   private String dummyText;
@@ -23,7 +23,7 @@ public class DummyModel
    * @param presenter Presenter interface
    */
   @Override
-  public void onCreate(Dummy.ModelToPresenter presenter) {
+  public void onCreate(Chat.ModelToPresenter presenter) {
     super.onCreate(presenter);
     Log.d(TAG, "calling onCreate()");
 
