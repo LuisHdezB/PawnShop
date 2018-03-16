@@ -11,9 +11,9 @@ import android.widget.TextView;
 import es.ulpgc.eite.clean.mvp.GenericActivity;
 import es.ulpgc.eite.clean.mvp.sample.R;
 
-public class DummyView
-    extends GenericActivity<Dummy.PresenterToView, Dummy.ViewToPresenter, DummyPresenter>
-    implements Dummy.PresenterToView {
+public class MapsView
+    extends GenericActivity<Maps.PresenterToView, Maps.ViewToPresenter, MapsPresenter>
+    implements Maps.PresenterToView {
 
   private Toolbar toolbar;
   private Button button;
@@ -46,7 +46,7 @@ public class DummyView
   @SuppressLint("MissingSuperCall")
   @Override
   protected void onResume() {
-    super.onResume(DummyPresenter.class, this);
+    super.onResume(MapsPresenter.class, this);
   }
 
   @Override

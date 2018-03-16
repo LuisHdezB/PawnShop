@@ -1,4 +1,4 @@
-package es.ulpgc.eite.clean.mvp.sample.home;
+package es.ulpgc.eite.clean.mvp.sample.calendar;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -11,9 +11,9 @@ import android.widget.TextView;
 import es.ulpgc.eite.clean.mvp.GenericActivity;
 import es.ulpgc.eite.clean.mvp.sample.R;
 
-public class DummyView
-    extends GenericActivity<Dummy.PresenterToView, Dummy.ViewToPresenter, DummyPresenter>
-    implements Dummy.PresenterToView {
+public class CalendarView
+    extends GenericActivity<Calendar.PresenterToView, Calendar.ViewToPresenter, CalendarPresenter>
+    implements Calendar.PresenterToView {
 
   private Toolbar toolbar;
   private Button button;
@@ -46,7 +46,7 @@ public class DummyView
   @SuppressLint("MissingSuperCall")
   @Override
   protected void onResume() {
-    super.onResume(DummyPresenter.class, this);
+    super.onResume(CalendarPresenter.class, this);
   }
 
   @Override

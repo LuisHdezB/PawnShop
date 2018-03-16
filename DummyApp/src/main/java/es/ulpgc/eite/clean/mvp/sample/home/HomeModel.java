@@ -1,12 +1,12 @@
-package es.ulpgc.eite.clean.mvp.sample.maps;
+package es.ulpgc.eite.clean.mvp.sample.home;
 
 import android.util.Log;
 
 import es.ulpgc.eite.clean.mvp.GenericModel;
 
 
-public class DummyModel
-    extends GenericModel<Dummy.ModelToPresenter> implements Dummy.PresenterToModel {
+public class HomeModel
+    extends GenericModel<Home.ModelToPresenter> implements Home.PresenterToModel {
 
 
   private String dummyText;
@@ -23,7 +23,7 @@ public class DummyModel
    * @param presenter Presenter interface
    */
   @Override
-  public void onCreate(Dummy.ModelToPresenter presenter) {
+  public void onCreate(Home.ModelToPresenter presenter) {
     super.onCreate(presenter);
     Log.d(TAG, "calling onCreate()");
 

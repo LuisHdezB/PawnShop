@@ -1,4 +1,4 @@
-package es.ulpgc.eite.clean.mvp.sample.home;
+package es.ulpgc.eite.clean.mvp.sample.maps;
 
 import android.content.Context;
 
@@ -10,7 +10,7 @@ import es.ulpgc.eite.clean.mvp.Presenter;
  * Created by Luis on 12/11/16.
  */
 
-public interface Dummy {
+public interface Maps {
 
 
   ///////////////////////////////////////////////////////////////////////////////////

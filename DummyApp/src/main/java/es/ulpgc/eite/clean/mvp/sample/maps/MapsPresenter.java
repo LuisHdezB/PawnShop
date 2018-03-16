@@ -9,10 +9,10 @@ import es.ulpgc.eite.clean.mvp.GenericActivity;
 import es.ulpgc.eite.clean.mvp.GenericPresenter;
 import es.ulpgc.eite.clean.mvp.sample.app.Mediator;
 
-public class DummyPresenter
+public class MapsPresenter
     extends GenericPresenter
-        <Dummy.PresenterToView, Dummy.PresenterToModel, Dummy.ModelToPresenter, DummyModel>
-    implements Dummy.ViewToPresenter, Dummy.ModelToPresenter, Dummy.DummyTo, Dummy.ToDummy {
+        <Maps.PresenterToView, Maps.PresenterToModel, Maps.ModelToPresenter, MapsModel>
+    implements Maps.ViewToPresenter, Maps.ModelToPresenter, Maps.DummyTo, Maps.ToDummy {
 
   private boolean toolbarVisible;
   private boolean buttonClicked;
@@ -27,8 +27,8 @@ public class DummyPresenter
    * @param view The current VIEW instance
    */
   @Override
-  public void onCreate(Dummy.PresenterToView view) {
-    super.onCreate(DummyModel.class, this);
+  public void onCreate(Maps.PresenterToView view) {
+    super.onCreate(MapsModel.class, this);
     setView(view);
     Log.d(TAG, "calling onCreate()");
 
@@ -45,7 +45,7 @@ public class DummyPresenter
    * @param view The current VIEW instance
    */
   @Override
-  public void onResume(Dummy.PresenterToView view) {
+  public void onResume(Maps.PresenterToView view) {
     setView(view);
     Log.d(TAG, "calling onResume()");
 
