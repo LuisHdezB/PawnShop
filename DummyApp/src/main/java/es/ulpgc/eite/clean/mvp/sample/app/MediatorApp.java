@@ -5,8 +5,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
+import es.ulpgc.eite.clean.mvp.sample.calendar.Calendar;
+import es.ulpgc.eite.clean.mvp.sample.chat.Chat;
 import es.ulpgc.eite.clean.mvp.sample.dummy.Dummy;
 import es.ulpgc.eite.clean.mvp.sample.dummy.DummyView;
+import es.ulpgc.eite.clean.mvp.sample.home.Home;
+import es.ulpgc.eite.clean.mvp.sample.maps.Maps;
+import es.ulpgc.eite.clean.mvp.sample.webshop.Webshop;
 
 
 public class MediatorApp extends Application implements Mediator.Lifecycle, Mediator.Navigation {
@@ -68,6 +73,56 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
     presenter.onScreenResumed();
   }
 
+  @Override
+  public void startingScreen(Maps.ToDummy presenter) {
+
+  }
+
+  @Override
+  public void resumingScreen(Maps.DummyTo presenter) {
+
+  }
+
+  @Override
+  public void startingScreen(Home.ToDummy presenter) {
+
+  }
+
+  @Override
+  public void resumingScreen(Home.DummyTo presenter) {
+
+  }
+
+  @Override
+  public void startingScreen(Calendar.ToDummy presenter) {
+
+  }
+
+  @Override
+  public void resumingScreen(Calendar.DummyTo presenter) {
+
+  }
+
+  @Override
+  public void startingScreen(Chat.ToDummy presenter) {
+
+  }
+
+  @Override
+  public void resumingScreen(Chat.DummyTo presenter) {
+
+  }
+
+  @Override
+  public void startingScreen(Webshop.ToDummy presenter) {
+
+  }
+
+  @Override
+  public void resumingScreen(Webshop.DummyTo presenter) {
+
+  }
+
 
   ///////////////////////////////////////////////////////////////////////////////////
   // Navigation ////////////////////////////////////////////////////////////////////
@@ -79,6 +134,56 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
     dummyToState = new DummyState();
     dummyToState.textVisibility = true;
     dummyToState.toolbarVisibility = false;
+  }
+
+  @Override
+  public void goToNextScreen(Maps.DummyTo presenter) {
+
+  }
+
+  @Override
+  public void backToPreviousScreen(Maps.DummyTo presenter) {
+
+  }
+
+  @Override
+  public void goToNextScreen(Home.DummyTo presenter) {
+
+  }
+
+  @Override
+  public void backToPreviousScreen(Home.DummyTo presenter) {
+
+  }
+
+  @Override
+  public void goToNextScreen(Calendar.DummyTo presenter) {
+
+  }
+
+  @Override
+  public void backToPreviousScreen(Calendar.DummyTo presenter) {
+
+  }
+
+  @Override
+  public void goToNextScreen(Chat.DummyTo presenter) {
+
+  }
+
+  @Override
+  public void backToPreviousScreen(Chat.DummyTo presenter) {
+
+  }
+
+  @Override
+  public void goToNextScreen(Webshop.DummyTo presenter) {
+
+  }
+
+  @Override
+  public void backToPreviousScreen(Webshop.DummyTo presenter) {
+
   }
 
   @Override
