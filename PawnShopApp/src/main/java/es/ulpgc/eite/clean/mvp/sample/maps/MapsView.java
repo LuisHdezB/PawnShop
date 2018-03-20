@@ -11,6 +11,10 @@ import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.MapsInitializer;
+
 import es.ulpgc.eite.clean.mvp.GenericActivity;
 import es.ulpgc.eite.clean.mvp.sample.R;
 import es.ulpgc.eite.clean.mvp.sample.calendar.CalendarView;
@@ -38,6 +42,19 @@ public class MapsView
     ImageButton webMenuImage = (ImageButton) findViewById(R.id.m_shop);
     menuImage = (ImageButton) findViewById(R.id.m_maps);
 
+    toolbar = (Toolbar) findViewById(R.id.toolbar);
+    setSupportActionBar(toolbar);
+
+    MapView mapView = (MapView) findViewById(R.id.cm_mapview);
+    mapView.onCreate(savedInstanceState);
+
+    /*
+    GoogleMap map = mapView.getMap();
+    map.getUiSettings().setMyLocationButtonEnabled(false);
+    map.setMyLocationEnabled(true);
+    */
+
+    MapsInitializer.initialize(this);
     // Listeners del menú
     chatMenuImage.setOnClickListener(new View.OnClickListener() {
       @Override
