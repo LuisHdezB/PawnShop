@@ -1,15 +1,18 @@
 package es.ulpgc.eite.clean.mvp.sample.home;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import es.ulpgc.eite.clean.mvp.GenericActivity;
 import es.ulpgc.eite.clean.mvp.sample.R;
+import es.ulpgc.eite.clean.mvp.sample.maps.MapsView;
 
 public class HomeView
     extends GenericActivity<Home.PresenterToView, Home.ViewToPresenter, HomePresenter>
@@ -22,7 +25,7 @@ public class HomeView
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_dummy);
+    setContentView(R.layout.activity_home);
     Log.d(TAG, "calling onCreate()");
 
     text = (TextView) findViewById(R.id.text);
@@ -30,11 +33,12 @@ public class HomeView
     toolbar = (Toolbar) findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
 
-    button = (Button) findViewById(R.id.button);
-    button.setOnClickListener(new View.OnClickListener() {
+    RelativeLayout mapsMenuView = (RelativeLayout) findViewById(R.id.m_maps);
+    mapsMenuView.setOnClickListener(new View.OnClickListener() {
       @Override
-      public void onClick(View view) {
-        getPresenter().onButtonClicked();
+      public void onClick(View v) {
+        Intent i = new Intent(HomeView.this, MapsView.class);
+        startActivity(i);
       }
     });
   }
@@ -93,6 +97,6 @@ public class HomeView
 
   @Override
   public void setLabel(String txt) {
-    button.setText(txt);
+
   }
 }

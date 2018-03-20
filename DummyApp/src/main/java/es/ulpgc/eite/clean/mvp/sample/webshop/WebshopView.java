@@ -22,21 +22,13 @@ public class WebshopView
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_dummy);
+    setContentView(R.layout.activity_home);
     Log.d(TAG, "calling onCreate()");
 
     text = (TextView) findViewById(R.id.text);
 
     toolbar = (Toolbar) findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
-
-    button = (Button) findViewById(R.id.button);
-    button.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        getPresenter().onButtonClicked();
-      }
-    });
   }
 
   /**

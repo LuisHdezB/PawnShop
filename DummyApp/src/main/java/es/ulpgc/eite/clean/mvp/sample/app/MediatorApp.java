@@ -75,47 +75,47 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
 
   @Override
   public void startingScreen(Maps.ToDummy presenter) {
-
+    presenter.onScreenStarted();
   }
 
   @Override
   public void resumingScreen(Maps.DummyTo presenter) {
-
+    presenter.onScreenResumed();
   }
 
   @Override
   public void startingScreen(Home.ToDummy presenter) {
-
+    presenter.onScreenStarted();
   }
 
   @Override
   public void resumingScreen(Home.DummyTo presenter) {
-
+    presenter.onScreenResumed();
   }
 
   @Override
   public void startingScreen(Calendar.ToDummy presenter) {
-
+    presenter.onScreenStarted();
   }
 
   @Override
   public void resumingScreen(Calendar.DummyTo presenter) {
-
+    presenter.onScreenResumed();
   }
 
   @Override
   public void startingScreen(Chat.ToDummy presenter) {
-
+    presenter.onScreenStarted();
   }
 
   @Override
   public void resumingScreen(Chat.DummyTo presenter) {
-
+    presenter.onScreenResumed();
   }
 
   @Override
   public void startingScreen(Webshop.ToDummy presenter) {
-
+    presenter.onScreenStarted();
   }
 
   @Override
