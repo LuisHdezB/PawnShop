@@ -59,8 +59,8 @@ public class HomeView
         startActivity(i);
       }
     });
-    RelativeLayout homeMenuView = (RelativeLayout) findViewById(R.id.m_home);
-    homeMenuView.setOnClickListener(new View.OnClickListener() {
+    RelativeLayout chatMenuView = (RelativeLayout) findViewById(R.id.m_chat);
+    chatMenuView.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
         Intent i = new Intent(HomeView.this, WebshopView.class);
