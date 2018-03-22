@@ -1,15 +1,20 @@
 package es.ulpgc.eite.clean.mvp.sample.webshop;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import es.ulpgc.eite.clean.mvp.GenericActivity;
 import es.ulpgc.eite.clean.mvp.sample.R;
+import es.ulpgc.eite.clean.mvp.sample.calendar.CalendarView;
+import es.ulpgc.eite.clean.mvp.sample.chat.ChatView;
+import es.ulpgc.eite.clean.mvp.sample.maps.MapsView;
 
 public class WebshopView
     extends GenericActivity<Webshop.PresenterToView, Webshop.ViewToPresenter, WebshopPresenter>
@@ -29,6 +34,43 @@ public class WebshopView
 
     toolbar = (Toolbar) findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
+
+    RelativeLayout mapsMenuView = (RelativeLayout) findViewById(R.id.m_maps);
+    mapsMenuView.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        Intent i = new Intent(WebshopView.this, MapsView.class);
+        startActivity(i);
+      }
+    });
+    // Comento la línea de mi botón
+    /*
+    RelativeLayout shopMenuView = (RelativeLayout) findViewById(R.id.m_shop);
+    shopMenuView.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent i = new Intent(CalendarView.this, WebshopView.class);
+        startActivity(i);
+      }
+    });*/
+
+    RelativeLayout calendarMenuView = (RelativeLayout) findViewById(R.id.m_calendar);
+    calendarMenuView.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent i = new Intent(WebshopView.this, CalendarView.class);
+        startActivity(i);
+      }
+    });
+
+    RelativeLayout chatMenuView = (RelativeLayout) findViewById(R.id.m_chat);
+    chatMenuView.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent i = new Intent(WebshopView.this, ChatView.class);
+        startActivity(i);
+      }
+    });
   }
 
   /**

@@ -1,15 +1,20 @@
 package es.ulpgc.eite.clean.mvp.sample.chat;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import es.ulpgc.eite.clean.mvp.GenericActivity;
 import es.ulpgc.eite.clean.mvp.sample.R;
+import es.ulpgc.eite.clean.mvp.sample.calendar.CalendarView;
+import es.ulpgc.eite.clean.mvp.sample.maps.MapsView;
+import es.ulpgc.eite.clean.mvp.sample.webshop.WebshopView;
 
 public class ChatView
     extends GenericActivity<Chat.PresenterToView, Chat.ViewToPresenter, ChatPresenter>
@@ -29,6 +34,44 @@ public class ChatView
 
     toolbar = (Toolbar) findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
+
+    RelativeLayout mapsMenuView = (RelativeLayout) findViewById(R.id.m_maps);
+    mapsMenuView.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        Intent i = new Intent(ChatView.this, MapsView.class);
+        startActivity(i);
+      }
+    });
+
+    RelativeLayout shopMenuView = (RelativeLayout) findViewById(R.id.m_shop);
+    shopMenuView.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent i = new Intent(ChatView.this, WebshopView.class);
+        startActivity(i);
+      }
+    });
+
+    RelativeLayout calendarMenuView = (RelativeLayout) findViewById(R.id.m_calendar);
+    calendarMenuView.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent i = new Intent(ChatView.this, CalendarView.class);
+        startActivity(i);
+      }
+    });
+
+    // Comento la línea de mi botón
+    /*
+    RelativeLayout chatMenuView = (RelativeLayout) findViewById(R.id.m_chat);
+    chatMenuView.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent i = new Intent(CalendarView.this, ChatView.class);
+        startActivity(i);
+      }
+    });*/
   }
 
   /**
@@ -85,6 +128,5 @@ public class ChatView
 
   @Override
   public void setLabel(String txt) {
-    //button.setText(txt);
   }
 }
