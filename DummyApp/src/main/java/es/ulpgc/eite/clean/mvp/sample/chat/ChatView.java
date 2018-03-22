@@ -85,6 +85,6 @@ public class ChatView
 
   @Override
   public void setLabel(String txt) {
-    button.setText(txt);
+    //button.setText(txt);
   }
 }

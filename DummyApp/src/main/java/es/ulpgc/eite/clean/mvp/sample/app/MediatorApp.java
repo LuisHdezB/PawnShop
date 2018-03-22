@@ -120,7 +120,7 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
 
   @Override
   public void resumingScreen(Webshop.DummyTo presenter) {
-
+    presenter.onScreenResumed();
   }
 
 

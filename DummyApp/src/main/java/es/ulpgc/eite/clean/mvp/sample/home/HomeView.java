@@ -13,6 +13,7 @@ import android.widget.TextView;
 import es.ulpgc.eite.clean.mvp.GenericActivity;
 import es.ulpgc.eite.clean.mvp.sample.R;
 import es.ulpgc.eite.clean.mvp.sample.maps.MapsView;
+import es.ulpgc.eite.clean.mvp.sample.webshop.WebshopView;
 
 public class HomeView
     extends GenericActivity<Home.PresenterToView, Home.ViewToPresenter, HomePresenter>
@@ -38,6 +39,31 @@ public class HomeView
       @Override
       public void onClick(View v) {
         Intent i = new Intent(HomeView.this, MapsView.class);
+        startActivity(i);
+      }
+    });
+
+    RelativeLayout shopMenuView = (RelativeLayout) findViewById(R.id.m_shop);
+    shopMenuView.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent i = new Intent(HomeView.this, WebshopView.class);
+        startActivity(i);
+      }
+    });
+    RelativeLayout calendarMenuView = (RelativeLayout) findViewById(R.id.m_calendar);
+    calendarMenuView.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent i = new Intent(HomeView.this, WebshopView.class);
+        startActivity(i);
+      }
+    });
+    RelativeLayout homeMenuView = (RelativeLayout) findViewById(R.id.m_home);
+    homeMenuView.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent i = new Intent(HomeView.this, WebshopView.class);
         startActivity(i);
       }
     });

@@ -21,6 +21,16 @@
         <activity
             android:name=".maps.MapsView"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".webshop.WebshopView"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".calendar.CalendarView"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".chat.ChatView"
+            android:theme="@style/AppTheme.NoActionBar" />
+
     </application>
 
 </manifest>

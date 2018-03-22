@@ -22,7 +22,7 @@ public class WebshopView
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_home);
+    setContentView(R.layout.activity_shop);
     Log.d(TAG, "calling onCreate()");
 
     text = (TextView) findViewById(R.id.text);
@@ -85,6 +85,6 @@ public class WebshopView
 
   @Override
   public void setLabel(String txt) {
-    button.setText(txt);
+    //button.setText(txt);
   }
 }
