@@ -23,12 +23,10 @@
             android:text="@string/screen_text"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-        <TextView
-            android:id="@+id/textView2"
+        <WebView
+            android:id="@+id/webview_shop"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="pantalla de tienda"
-            android:textSize="24sp" />
+            android:layout_height="537dp" />
 
         <Space
             android:layout_width="wrap_content"

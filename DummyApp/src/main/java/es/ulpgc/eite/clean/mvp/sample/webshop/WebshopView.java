@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -23,6 +26,7 @@ public class WebshopView
   private Toolbar toolbar;
   private Button button;
   private TextView text;
+  private WebView webView_shop;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +36,14 @@ public class WebshopView
 
     text = (TextView) findViewById(R.id.text);
 
+    //WEBVIEW
+    webView_shop = (WebView) findViewById(R.id.webview_shop);
+    WebSettings webSettings = webView_shop.getSettings();
+    webSettings.setJavaScriptEnabled(true);
+    webView_shop.loadUrl("https://canarias.cashconverters.es/");
+    webView_shop.setWebViewClient(new WebViewClient());
+
+    //TOOLBAR
     toolbar = (Toolbar) findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
 
