@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import es.ulpgc.eite.clean.mvp.GenericActivity;
@@ -21,7 +23,6 @@ public class HomeView
     extends GenericActivity<Home.PresenterToView, Home.ViewToPresenter, HomePresenter>
     implements Home.PresenterToView {
 
-  private Toolbar toolbar;
   private Button button;
   private TextView text;
 
@@ -31,11 +32,34 @@ public class HomeView
     setContentView(R.layout.activity_home);
     Log.d(TAG, "calling onCreate()");
 
-    text = (TextView) findViewById(R.id.text);
+    text = (TextView) findViewById(R.id.text); //Sin uso, pero para que no fallen los métodos
+    button = (Button) findViewById(R.id.button);
 
+    button.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        Intent i = new Intent(HomeView.this, MapsView.class);
+        startActivity(i);
+      }
+    });
+
+
+    // Inicialización del Spinner
+
+    Spinner spinner = (Spinner) findViewById(R.id.spinner);
+    // Create an ArrayAdapter using the string array and a default spinner layout
+    ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+            R.array.spinner, android.R.layout.simple_spinner_item);
+    // Specify the layout to use when the list of choices appears
+    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+    // Apply the adapter to the spinner
+    spinner.setAdapter(adapter);
+
+
+    //Sin uso:
+  /*
     toolbar = (Toolbar) findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
-
     RelativeLayout mapsMenuView = (RelativeLayout) findViewById(R.id.m_maps);
     mapsMenuView.setOnClickListener(new View.OnClickListener() {
       @Override
@@ -69,6 +93,7 @@ public class HomeView
         startActivity(i);
       }
     });
+    */
   }
 
   /**
@@ -104,9 +129,7 @@ public class HomeView
   }
 
   @Override
-  public void hideToolbar() {
-    toolbar.setVisibility(View.GONE);
-  }
+  public void hideToolbar() {}
 
   @Override
   public void hideText() {
