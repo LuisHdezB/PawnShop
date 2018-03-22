@@ -20,13 +20,13 @@
             android:id="@+id/text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Calentario de Citas"
+            android:text="@string/calendar_text"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:srcCompat="?android:attr/textSelectHandle" />
+            app:srcCompat="@drawable/calendar" />
 
         <Space
             android:layout_width="wrap_content"
