@@ -1,1 +1,1 @@
-include ':DummyApp', ':CleanMvpLib'
+include ':PawnShopApp', ':CleanMvpLib'
