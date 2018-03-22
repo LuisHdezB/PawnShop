@@ -7,12 +7,12 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CalendarView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import es.ulpgc.eite.clean.mvp.GenericActivity;
 import es.ulpgc.eite.clean.mvp.sample.R;
+import es.ulpgc.eite.clean.mvp.sample.calendar.CalendarView;
 import es.ulpgc.eite.clean.mvp.sample.chat.ChatView;
 import es.ulpgc.eite.clean.mvp.sample.maps.MapsView;
 import es.ulpgc.eite.clean.mvp.sample.webshop.WebshopView;
