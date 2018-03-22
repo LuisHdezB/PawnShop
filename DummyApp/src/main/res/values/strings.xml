@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Dummy</string>
-    <string name="dummy_screen_title">Dummy</string>
+    <string name="app_name">CashConvertersApp</string>
+    <string name="dummy_screen_title">Screen Title</string>
     <string name="action_settings">Settings</string>
-    <string name="screen_text">Text</string>
+    <string name="screen_text">Test Text</string>
     <string name="button_label">Button</string>
 </resources>

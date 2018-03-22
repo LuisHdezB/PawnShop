@@ -7,11 +7,13 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import es.ulpgc.eite.clean.mvp.GenericActivity;
 import es.ulpgc.eite.clean.mvp.sample.R;
+import es.ulpgc.eite.clean.mvp.sample.chat.ChatView;
 import es.ulpgc.eite.clean.mvp.sample.maps.MapsView;
 import es.ulpgc.eite.clean.mvp.sample.webshop.WebshopView;
 
@@ -55,7 +57,7 @@ public class HomeView
     calendarMenuView.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        Intent i = new Intent(HomeView.this, WebshopView.class);
+        Intent i = new Intent(HomeView.this, CalendarView.class);
         startActivity(i);
       }
     });
@@ -63,7 +65,7 @@ public class HomeView
     chatMenuView.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        Intent i = new Intent(HomeView.this, WebshopView.class);
+        Intent i = new Intent(HomeView.this, ChatView.class);
         startActivity(i);
       }
     });

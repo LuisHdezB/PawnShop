@@ -84,7 +84,5 @@ public class MapsView
   }
 
   @Override
-  public void setLabel(String txt) {
-
-  }
+  public void setLabel(String txt) {  }
 }

@@ -22,7 +22,7 @@ public class CalendarView
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_home);
+    setContentView(R.layout.activity_calendar);
     Log.d(TAG, "calling onCreate()");
 
     text = (TextView) findViewById(R.id.text);
@@ -84,7 +84,5 @@ public class CalendarView
   }
 
   @Override
-  public void setLabel(String txt) {
-    button.setText(txt);
-  }
+  public void setLabel(String txt) { button.setText(txt); }
 }
