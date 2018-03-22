@@ -25,6 +25,7 @@ public class HomeView
 
   private Button button;
   private TextView text;
+  private Toolbar toolbar;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +56,8 @@ public class HomeView
     // Apply the adapter to the spinner
     spinner.setAdapter(adapter);
 
+    //Toolbar
+    toolbar = (Toolbar) findViewById(R.id.toolbar);
 
     //Sin uso:
   /*
@@ -129,7 +132,7 @@ public class HomeView
   }
 
   @Override
-  public void hideToolbar() {}
+  public void hideToolbar() { toolbar.setVisibility(View.GONE); }
 
   @Override
   public void hideText() {
