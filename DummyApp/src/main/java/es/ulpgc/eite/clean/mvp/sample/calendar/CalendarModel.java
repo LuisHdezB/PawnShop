@@ -15,6 +15,7 @@ public class CalendarModel
   private int maxNumOfTimes;
   private String msgText;
 
+  //Cambio esta línea para subir el nuevo .gitignore
 
   /**
    * Method that recovers a reference to the PRESENTER
