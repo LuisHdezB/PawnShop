@@ -43,10 +43,10 @@
 
     <com.google.android.gms.maps.MapView
         android:id="@+id/cm_mapview"
-        android:layout_above="@id/cm_menu"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ffaaff"/>
+        android:layout_above="@id/cm_menu"
+        android:background="#ffaaff" />
 
 
 
