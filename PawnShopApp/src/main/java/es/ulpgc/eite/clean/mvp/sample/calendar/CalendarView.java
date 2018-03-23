@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -15,30 +16,54 @@ import android.widget.TextView;
 import es.ulpgc.eite.clean.mvp.GenericActivity;
 import es.ulpgc.eite.clean.mvp.sample.R;
 import es.ulpgc.eite.clean.mvp.sample.chat.ChatView;
-import es.ulpgc.eite.clean.mvp.sample.home.HomeView;
 import es.ulpgc.eite.clean.mvp.sample.maps.MapsView;
 import es.ulpgc.eite.clean.mvp.sample.webshop.WebshopView;
-
-import static es.ulpgc.eite.clean.mvp.sample.R.drawable.*;
-import static es.ulpgc.eite.clean.mvp.sample.R.drawable.calendar_icon_r;
 
 public class CalendarView
     extends GenericActivity<Calendar.PresenterToView, Calendar.ViewToPresenter, CalendarPresenter>
     implements Calendar.PresenterToView {
 
-  private Toolbar toolbar;
-  private ImageView image;
+  //private Toolbar toolbar;
+  ImageButton calMenuImage;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_calendar);
+    setContentView(R.layout.activity_calendarnew);
     Log.d(TAG, "calling onCreate()");
 
+    //toolbar = (Toolbar) findViewById(R.id.toolbar);
+    //setSupportActionBar(toolbar);
 
-    toolbar = (Toolbar) findViewById(R.id.toolbar);
-    setSupportActionBar(toolbar);
-    RelativeLayout mapsMenuView = (RelativeLayout) findViewById(R.id.m_maps);
+    ImageButton mapsMenuImage = (ImageButton) findViewById(R.id.m_maps);
+    ImageButton chatMenuImage = (ImageButton) findViewById(R.id.m_chat);
+    ImageButton webMenuImage = (ImageButton) findViewById(R.id.m_shop);
+    calMenuImage = (ImageButton) findViewById(R.id.m_calendar);
+
+    mapsMenuImage.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        Intent i = new Intent(CalendarView.this, MapsView.class);
+        startActivity(i);
+      }
+    });
+    chatMenuImage.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        Intent i = new Intent(CalendarView.this, ChatView.class);
+        startActivity(i);
+      }
+    });
+    webMenuImage.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        Intent i = new Intent(CalendarView.this, WebshopView.class);
+        startActivity(i);
+      }
+    });
+
+    //De la antigua forma:
+/*    RelativeLayout mapsMenuView = (RelativeLayout) findViewById(R.id.m_maps);
     mapsMenuView.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
@@ -55,8 +80,9 @@ public class CalendarView
         startActivity(i);
       }
     });
+
     // Comento la línea de mi botón
-    /*
+    *//*
     RelativeLayout calendarMenuView = (RelativeLayout) findViewById(R.id.m_calendar);
     calendarMenuView.setOnClickListener(new View.OnClickListener() {
       @Override
@@ -65,7 +91,7 @@ public class CalendarView
         startActivity(i);
       }
     });
-    */
+    *//*
     RelativeLayout chatMenuView = (RelativeLayout) findViewById(R.id.m_chat);
     chatMenuView.setOnClickListener(new View.OnClickListener() {
       @Override
@@ -73,14 +99,10 @@ public class CalendarView
         Intent i = new Intent(CalendarView.this, ChatView.class);
         startActivity(i);
       }
-    });
+    });*/
 
-    this.image = (ImageView) findViewById(R.id.i_calendar);
 
   }
-
-  // Para asignar color
-
 
   /**
    * Method that initialized MVP objects
@@ -90,7 +112,7 @@ public class CalendarView
   @Override
   protected void onResume() {
     super.onResume(CalendarPresenter.class, this);
-    this.image.setImageResource(R.drawable.calendar_icon_r);
+    calMenuImage.setImageResource(R.drawable.calendar_icon_r);
   }
 
   @Override
@@ -117,7 +139,7 @@ public class CalendarView
 
   @Override
   public void hideToolbar() {
-    toolbar.setVisibility(View.GONE);
+    //toolbar.setVisibility(View.GONE);
   }
 
   @Override
