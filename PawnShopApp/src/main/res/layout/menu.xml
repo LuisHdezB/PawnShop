@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
+    android:layout_height="60dp"
     android:orientation="horizontal">
 
     <LinearLayout
@@ -16,11 +16,18 @@
             android:layout_height="match_parent"
             android:layout_weight="0.5">
 
-            <TextView
+
+            <ImageView
+                android:id="@+id/i_maps"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/maps_icon_b" />
+
+            <!--<TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="Maps" />
+                android:text="Maps" />-->
 
         </RelativeLayout>
 
@@ -32,11 +39,17 @@
             android:layout_alignParentTop="true"
             android:layout_weight="0.5">
 
-            <TextView
+            <ImageView
+                android:id="@+id/i_chat"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/chat_icon_b" />
+
+            <!--<TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="Chat" />
+                android:text="Chat" />-->
 
         </RelativeLayout>
 
@@ -56,11 +69,17 @@
             android:layout_alignParentTop="true"
             android:layout_weight="0.5">
 
-            <TextView
+            <ImageView
+                android:id="@+id/i_shop"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/shop_icon_b" />
+
+            <!--<TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="Store" />
+                android:text="Store" />-->
 
         </RelativeLayout>
 
@@ -70,11 +89,17 @@
             android:layout_height="match_parent"
             android:layout_weight="0.5">
 
-            <TextView
+            <ImageView
+                android:id="@+id/i_calendar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:srcCompat="@drawable/calendar_icon_b" />
+
+            <!--<TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="Calendar" />
+                android:text="Calendar" />-->
 
         </RelativeLayout>
 

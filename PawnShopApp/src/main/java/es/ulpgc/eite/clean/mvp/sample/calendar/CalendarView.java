@@ -2,11 +2,13 @@ package es.ulpgc.eite.clean.mvp.sample.calendar;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -17,11 +19,15 @@ import es.ulpgc.eite.clean.mvp.sample.home.HomeView;
 import es.ulpgc.eite.clean.mvp.sample.maps.MapsView;
 import es.ulpgc.eite.clean.mvp.sample.webshop.WebshopView;
 
+import static es.ulpgc.eite.clean.mvp.sample.R.drawable.*;
+import static es.ulpgc.eite.clean.mvp.sample.R.drawable.calendar_icon_r;
+
 public class CalendarView
     extends GenericActivity<Calendar.PresenterToView, Calendar.ViewToPresenter, CalendarPresenter>
     implements Calendar.PresenterToView {
 
   private Toolbar toolbar;
+  private ImageView image;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +74,13 @@ public class CalendarView
         startActivity(i);
       }
     });
+
+    this.image = (ImageView) findViewById(R.id.i_calendar);
+
   }
+
+  // Para asignar color
+
 
   /**
    * Method that initialized MVP objects
@@ -78,6 +90,7 @@ public class CalendarView
   @Override
   protected void onResume() {
     super.onResume(CalendarPresenter.class, this);
+    this.image.setImageResource(R.drawable.calendar_icon_r);
   }
 
   @Override
