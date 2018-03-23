@@ -3,8 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CleanMvpLib/CleanMvpLib.iml" filepath="$PROJECT_DIR$/CleanMvpLib/CleanMvpLib.iml" />
-      <module fileurl="file://$PROJECT_DIR$/PawnShop.iml" filepath="$PROJECT_DIR$/PawnShop.iml" />
       <module fileurl="file://$PROJECT_DIR$/PawnShopApp/DummyApp.iml" filepath="$PROJECT_DIR$/PawnShopApp/DummyApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PawnShop.iml" filepath="$PROJECT_DIR$/PawnShop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PawnShopApp/PawnShopApp.iml" filepath="$PROJECT_DIR$/PawnShopApp/PawnShopApp.iml" />
     </modules>
   </component>
 </project>
