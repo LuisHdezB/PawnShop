@@ -10,6 +10,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -23,7 +24,7 @@ public class WebshopView
     extends GenericActivity<Webshop.PresenterToView, Webshop.ViewToPresenter, WebshopPresenter>
     implements Webshop.PresenterToView {
 
-  private Toolbar toolbar;
+  //private Toolbar toolbar;
   private Button button;
   private TextView text;
   private WebView webView_shop;
@@ -34,7 +35,7 @@ public class WebshopView
     setContentView(R.layout.activity_shop);
     Log.d(TAG, "calling onCreate()");
 
-    text = (TextView) findViewById(R.id.text);
+    //text = (TextView) findViewById(R.id.text);
 
     //WEBVIEW
     webView_shop = (WebView) findViewById(R.id.webview_shop);
@@ -44,10 +45,10 @@ public class WebshopView
     webView_shop.setWebViewClient(new WebViewClient());
 
     //TOOLBAR
-    toolbar = (Toolbar) findViewById(R.id.toolbar);
-    setSupportActionBar(toolbar);
+    //toolbar = (Toolbar) findViewById(R.id.toolbar);
+    //setSupportActionBar(toolbar);
 
-    RelativeLayout mapsMenuView = (RelativeLayout) findViewById(R.id.m_maps);
+    ImageButton mapsMenuView = (ImageButton) findViewById(R.id.m_maps);
     mapsMenuView.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
@@ -57,7 +58,7 @@ public class WebshopView
     });
     // Comento la línea de mi botón
     /*
-    RelativeLayout shopMenuView = (RelativeLayout) findViewById(R.id.m_shop);
+    ImageButton shopMenuView = (ImageButton) findViewById(R.id.m_shop);
     shopMenuView.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
@@ -66,7 +67,7 @@ public class WebshopView
       }
     });*/
 
-    RelativeLayout calendarMenuView = (RelativeLayout) findViewById(R.id.m_calendar);
+    ImageButton calendarMenuView = (ImageButton) findViewById(R.id.m_calendar);
     calendarMenuView.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
@@ -75,7 +76,7 @@ public class WebshopView
       }
     });
 
-    RelativeLayout chatMenuView = (RelativeLayout) findViewById(R.id.m_chat);
+    ImageButton chatMenuView = (ImageButton) findViewById(R.id.m_chat);
     chatMenuView.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
@@ -119,22 +120,22 @@ public class WebshopView
 
   @Override
   public void hideToolbar() {
-    toolbar.setVisibility(View.GONE);
+    //toolbar.setVisibility(View.GONE);
   }
 
   @Override
   public void hideText() {
-    text.setVisibility(View.GONE);
+    //text.setVisibility(View.GONE);
   }
 
   @Override
   public void showText() {
-    text.setVisibility(View.VISIBLE);
+    //text.setVisibility(View.VISIBLE);
   }
 
   @Override
   public void setText(String txt) {
-    text.setText(txt);
+    //text.setText(txt);
   }
 
   @Override

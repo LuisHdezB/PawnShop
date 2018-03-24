@@ -1,4 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:showIn="@layout/activity_chat">
+
+<!--    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/screen_text"
+        tools:context="es.ulpgc.eite.clean.mvp.sample.chat.ChatView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />-->
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="pantalla de chat"
+        android:textSize="24sp" />
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+
+</LinearLayout>
+
+<!-- antigua versión
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -53,8 +84,9 @@
 
     <include
         android:id="@+id/cm_menu"
-        layout="@layout/menu"
+        layout="@layout/OLDmenu"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         android:layout_alignParentBottom="true" />
 </RelativeLayout>
+-->

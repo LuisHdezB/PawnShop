@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -20,7 +21,7 @@ public class MapsView
     extends GenericActivity<Maps.PresenterToView, Maps.ViewToPresenter, MapsPresenter>
     implements Maps.PresenterToView {
 
-  private Toolbar toolbar;
+  //private Toolbar toolbar;
   private Button button;
   private TextView text;
 
@@ -32,12 +33,12 @@ public class MapsView
 
     text = (TextView) findViewById(R.id.text);
 
-    toolbar = (Toolbar) findViewById(R.id.toolbar);
-    setSupportActionBar(toolbar);
+    //toolbar = (Toolbar) findViewById(R.id.toolbar);
+    //setSupportActionBar(toolbar);
 
     // Comento la línea de mi botón
     /*
-    RelativeLayout mapsMenuView = (RelativeLayout) findViewById(R.id.m_maps);
+    ImageButton mapsMenuView = (ImageButton) findViewById(R.id.m_maps);
     mapsMenuView.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
@@ -46,7 +47,7 @@ public class MapsView
       }
     });*/
 
-    RelativeLayout shopMenuView = (RelativeLayout) findViewById(R.id.m_shop);
+    ImageButton shopMenuView = (ImageButton) findViewById(R.id.m_shop);
     shopMenuView.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
@@ -55,7 +56,7 @@ public class MapsView
       }
     });
 
-    RelativeLayout calendarMenuView = (RelativeLayout) findViewById(R.id.m_calendar);
+    ImageButton calendarMenuView = (ImageButton) findViewById(R.id.m_calendar);
     calendarMenuView.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
@@ -64,7 +65,7 @@ public class MapsView
       }
     });
 
-    RelativeLayout chatMenuView = (RelativeLayout) findViewById(R.id.m_chat);
+    ImageButton chatMenuView = (ImageButton) findViewById(R.id.m_chat);
     chatMenuView.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
@@ -108,7 +109,7 @@ public class MapsView
 
   @Override
   public void hideToolbar() {
-    toolbar.setVisibility(View.GONE);
+    //toolbar.setVisibility(View.GONE);
   }
 
   @Override
