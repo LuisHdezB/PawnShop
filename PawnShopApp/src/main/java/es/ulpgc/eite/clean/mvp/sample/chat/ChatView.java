@@ -22,8 +22,10 @@ public class ChatView
     implements Chat.PresenterToView {
 
   //private Toolbar toolbar;
-  private Button button;
-  private TextView text;
+  //private Button button;
+  //private TextView text;
+  private ImageButton menuImage;
+
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +33,8 @@ public class ChatView
     setContentView(R.layout.activity_chat);
     Log.d(TAG, "calling onCreate()");
 
-    text = (TextView) findViewById(R.id.text);
-
+    //text = (TextView) findViewById(R.id.text);
+    menuImage = (ImageButton) findViewById(R.id.m_chat);
     //toolbar = (Toolbar) findViewById(R.id.toolbar);
     //setSupportActionBar(toolbar);
 
@@ -83,6 +85,7 @@ public class ChatView
   @Override
   protected void onResume() {
     super.onResume(ChatPresenter.class, this);
+    menuImage.setImageResource(R.drawable.chat_icon_r);
   }
 
   @Override
@@ -114,17 +117,17 @@ public class ChatView
 
   @Override
   public void hideText() {
-    text.setVisibility(View.GONE);
+    //text.setVisibility(View.GONE);
   }
 
   @Override
   public void showText() {
-    text.setVisibility(View.VISIBLE);
+    //text.setVisibility(View.VISIBLE);
   }
 
   @Override
   public void setText(String txt) {
-    text.setText(txt);
+    //text.setText(txt);
   }
 
   @Override

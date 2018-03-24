@@ -18,7 +18,7 @@ public class CalendarView
     implements Calendar.PresenterToView {
 
   //private Toolbar toolbar;
-  ImageButton calMenuImage;
+  private ImageButton menuImage;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +32,7 @@ public class CalendarView
     ImageButton mapsMenuImage = (ImageButton) findViewById(R.id.m_maps);
     ImageButton chatMenuImage = (ImageButton) findViewById(R.id.m_chat);
     ImageButton webMenuImage = (ImageButton) findViewById(R.id.m_shop);
-    calMenuImage = (ImageButton) findViewById(R.id.m_calendar);
+    menuImage = (ImageButton) findViewById(R.id.m_calendar);
 
     mapsMenuImage.setOnClickListener(new View.OnClickListener() {
       @Override
@@ -106,7 +106,7 @@ public class CalendarView
   @Override
   protected void onResume() {
     super.onResume(CalendarPresenter.class, this);
-    calMenuImage.setImageResource(R.drawable.calendar_icon_r);
+    menuImage.setImageResource(R.drawable.calendar_icon_r);
   }
 
   @Override

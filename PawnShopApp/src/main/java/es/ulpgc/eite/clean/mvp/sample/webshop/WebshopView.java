@@ -28,6 +28,8 @@ public class WebshopView
   private Button button;
   private TextView text;
   private WebView webView_shop;
+  private ImageButton menuImage;
+
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ public class WebshopView
     Log.d(TAG, "calling onCreate()");
 
     //text = (TextView) findViewById(R.id.text);
+    menuImage = (ImageButton) findViewById(R.id.m_shop);
 
     //WEBVIEW
     webView_shop = (WebView) findViewById(R.id.webview_shop);
@@ -94,6 +97,7 @@ public class WebshopView
   @Override
   protected void onResume() {
     super.onResume(WebshopPresenter.class, this);
+    menuImage.setImageResource(R.drawable.shop_icon_r);
   }
 
   @Override

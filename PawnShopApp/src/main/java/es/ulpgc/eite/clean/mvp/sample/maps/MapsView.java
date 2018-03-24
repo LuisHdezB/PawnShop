@@ -24,6 +24,8 @@ public class MapsView
   //private Toolbar toolbar;
   private Button button;
   private TextView text;
+  private ImageButton menuImage;
+
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +37,7 @@ public class MapsView
 
     //toolbar = (Toolbar) findViewById(R.id.toolbar);
     //setSupportActionBar(toolbar);
-
+    menuImage = (ImageButton) findViewById(R.id.m_maps);
     // Comento la línea de mi botón
     /*
     ImageButton mapsMenuView = (ImageButton) findViewById(R.id.m_maps);
@@ -83,6 +85,7 @@ public class MapsView
   @Override
   protected void onResume() {
     super.onResume(MapsPresenter.class, this);
+    menuImage.setImageResource(R.drawable.maps_icon_r);
   }
 
   @Override
