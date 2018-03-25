@@ -6,9 +6,6 @@ import es.ulpgc.eite.clean.mvp.sample.home.Home;
 import es.ulpgc.eite.clean.mvp.sample.maps.Maps;
 import es.ulpgc.eite.clean.mvp.sample.webshop.Webshop;
 
-/**
- * Created by imac on 23/1/18.
- */
 
 public interface Mediator {
 
@@ -20,8 +17,8 @@ public interface Mediator {
     void startingScreen(Home.ToDummy presenter);
     void resumingScreen(Home.DummyTo presenter);
 
-    void startingScreen(Calendar.ToDummy presenter);
-    void resumingScreen(Calendar.DummyTo presenter);
+    void startingScreen(Calendar.ToCalendar presenter);
+    void resumingScreen(Calendar.CalendarTo presenter);
 
     void startingScreen(Chat.ToDummy presenter);
     void resumingScreen(Chat.DummyTo presenter);
@@ -38,8 +35,8 @@ public interface Mediator {
     void goToNextScreen(Home.DummyTo presenter);
     void backToPreviousScreen(Home.DummyTo presenter);
 
-    void goToNextScreen(Calendar.DummyTo presenter);
-    void backToPreviousScreen(Calendar.DummyTo presenter);
+    void goToNextScreen(Calendar.CalendarTo presenter);
+    void backToPreviousScreen(Calendar.CalendarTo presenter);
 
     void goToNextScreen(Chat.DummyTo presenter);
     void backToPreviousScreen(Chat.DummyTo presenter);

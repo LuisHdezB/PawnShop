@@ -6,10 +6,6 @@ import es.ulpgc.eite.clean.mvp.ContextView;
 import es.ulpgc.eite.clean.mvp.Model;
 import es.ulpgc.eite.clean.mvp.Presenter;
 
-/**
- * Created by Luis on 12/11/16.
- */
-
 public interface Home {
 
 
@@ -17,8 +13,8 @@ public interface Home {
   // State /////////////////////////////////////////////////////////////////////////
 
   interface State {
-    void setToolbarVisibility(boolean visible);
-    void setTextVisibility(boolean visible);
+    //void setToolbarVisibility(boolean visible);
+    //void setTextVisibility(boolean visible);
   }
 
   interface ToDummy extends State {
@@ -28,8 +24,8 @@ public interface Home {
   interface DummyTo extends State{
     Context getManagedContext();
     void destroyView();
-    boolean isToolbarVisible();
-    boolean isTextVisible();
+    //boolean isToolbarVisible();
+    //boolean isTextVisible();
     void onScreenResumed();
   }
 
@@ -48,22 +44,22 @@ public interface Home {
    */
   interface PresenterToView extends ContextView {
     void finishScreen();
-    void hideToolbar();
-    void hideText();
-    void showText();
-    void setText(String txt);
-    void setLabel(String txt);
+    //void hideToolbar();
+    //void hideText();
+    //void showText();
+    //void setText(String txt);
+    //void setLabel(String txt);
   }
 
   /**
    * Methods offered to MODEL to communicate with PRESENTER
    */
   interface PresenterToModel extends Model<ModelToPresenter> {
-    boolean isNumOfTimesCompleted();
-    void changeMsgByBtnClicked();
-    String getText();
-    String getLabel();
-    void resetMsgByBtnClicked();
+    //boolean isNumOfTimesCompleted();
+    //void changeMsgByBtnClicked();
+    //String getText();
+    //String getLabel();
+    //void resetMsgByBtnClicked();
   }
 
   /**

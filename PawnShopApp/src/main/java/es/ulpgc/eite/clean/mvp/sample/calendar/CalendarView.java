@@ -131,6 +131,7 @@ public class CalendarView
     finish();
   }
 
+/* Heredado de Dummy
   @Override
   public void hideToolbar() {
     //toolbar.setVisibility(View.GONE);
@@ -152,4 +153,5 @@ public class CalendarView
 
   @Override
   public void setLabel(String txt) { }
+  */
 }

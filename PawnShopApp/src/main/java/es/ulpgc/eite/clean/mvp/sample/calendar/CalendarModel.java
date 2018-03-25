@@ -9,13 +9,14 @@ public class CalendarModel
     extends GenericModel<Calendar.ModelToPresenter> implements Calendar.PresenterToModel {
 
 
+/*  Heredado de Dummy
   private String dummyText;
   private String dummyLabel;
   private int numOfTimes;
   private int maxNumOfTimes;
   private String msgText;
+  */
 
-  //Cambio esta línea para subir el nuevo .gitignore
 
   /**
    * Method that recovers a reference to the PRESENTER
@@ -27,10 +28,6 @@ public class CalendarModel
   public void onCreate(Calendar.ModelToPresenter presenter) {
     super.onCreate(presenter);
     Log.d(TAG, "calling onCreate()");
-
-    dummyLabel = "Click Me!";
-    dummyText = "Hello World!";
-    maxNumOfTimes = 3;
   }
 
   /**
@@ -48,6 +45,13 @@ public class CalendarModel
   ///////////////////////////////////////////////////////////////////////////////////
   // Presenter To Model ////////////////////////////////////////////////////////////
 
+
+
+
+
+
+
+/* Heredado de Dummy, borrar al crear los métodos de Calendar
   @Override
   public boolean isNumOfTimesCompleted() {
     if(numOfTimes == maxNumOfTimes) {
@@ -80,5 +84,6 @@ public class CalendarModel
     numOfTimes = 1;
     msgText = dummyText;
   }
+  */
 
 }

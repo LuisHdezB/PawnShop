@@ -14,9 +14,10 @@ public class HomePresenter
         <Home.PresenterToView, Home.PresenterToModel, Home.ModelToPresenter, HomeModel>
     implements Home.ViewToPresenter, Home.ModelToPresenter, Home.DummyTo, Home.ToDummy {
 
-  private boolean toolbarVisible;
-  private boolean buttonClicked;
-  private boolean textVisible;
+/*  private boolean toolbarVisible;
+  private boolean textVisible;*/
+    private boolean buttonClicked;
+
 
   /**
    * Operation called during VIEW creation in {@link GenericActivity#onResume(Class, Object)}
@@ -92,6 +93,7 @@ public class HomePresenter
   @Override
   public void onButtonClicked() {
     Log.d(TAG, "calling onButtonClicked()");
+    /* Hererado de Dummy
     if(getModel().isNumOfTimesCompleted()){
 
       getModel().resetMsgByBtnClicked(); // reseteamos el estado al cumplirse la condición
@@ -109,6 +111,7 @@ public class HomePresenter
       buttonClicked = true;
       checkTextVisibility();
     }
+    */
 
   }
 
@@ -117,6 +120,7 @@ public class HomePresenter
   // State /////////////////////////////////////////////////////////////////////////
 
 
+/* Hererado de Dummy
   @Override
   public void setToolbarVisibility(boolean visible) {
     toolbarVisible = visible;
@@ -126,10 +130,11 @@ public class HomePresenter
   public void setTextVisibility(boolean visible) {
     textVisible = visible;
   }
+  */
 
 
   ///////////////////////////////////////////////////////////////////////////////////
-  // To Dummy //////////////////////////////////////////////////////////////////////
+  // To Home ///////////////////////////////////////////////////////////////////////
 
   @Override
   public void onScreenStarted() {
@@ -143,7 +148,8 @@ public class HomePresenter
 
     setCurrentState();
     if (buttonClicked) {
-      getView().setText(getModel().getText());
+      // Hererado de Dummy
+      //getView().setText(getModel().getText());
     }
   }
 
@@ -164,6 +170,7 @@ public class HomePresenter
     }
   }
 
+/* Hererado de Dummy
   @Override
   public boolean isToolbarVisible() {
     return toolbarVisible;
@@ -173,6 +180,7 @@ public class HomePresenter
   public boolean isTextVisible() {
     return textVisible;
   }
+  */
 
 
   ///////////////////////////////////////////////////////////////////////////////////
@@ -181,13 +189,15 @@ public class HomePresenter
   private void setCurrentState() {
     Log.d(TAG, "calling setCurrentState()");
 
+/* Hererado de Dummy
     if(isViewRunning()) {
       getView().setLabel(getModel().getLabel());
     }
     checkToolbarVisibility();
-    checkTextVisibility();
+    checkTextVisibility();*/
   }
 
+/*
   private void checkToolbarVisibility(){
     if(isViewRunning()) {
       if (!toolbarVisible) {
@@ -205,5 +215,6 @@ public class HomePresenter
       }
     }
   }
+  */
 
 }

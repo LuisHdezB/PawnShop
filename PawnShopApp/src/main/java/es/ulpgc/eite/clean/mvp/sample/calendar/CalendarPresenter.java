@@ -12,7 +12,7 @@ import es.ulpgc.eite.clean.mvp.sample.app.Mediator;
 public class CalendarPresenter
     extends GenericPresenter
         <Calendar.PresenterToView, Calendar.PresenterToModel, Calendar.ModelToPresenter, CalendarModel>
-    implements Calendar.ViewToPresenter, Calendar.ModelToPresenter, Calendar.DummyTo, Calendar.ToDummy {
+    implements Calendar.ViewToPresenter, Calendar.ModelToPresenter, Calendar.CalendarTo, Calendar.ToCalendar {
 
   private boolean toolbarVisible;
   private boolean buttonClicked;
@@ -92,6 +92,7 @@ public class CalendarPresenter
   @Override
   public void onButtonClicked() {
     Log.d(TAG, "calling onButtonClicked()");
+    /* Heredado de Dummy
     if(getModel().isNumOfTimesCompleted()){
 
       getModel().resetMsgByBtnClicked(); // reseteamos el estado al cumplirse la condición
@@ -109,6 +110,7 @@ public class CalendarPresenter
       buttonClicked = true;
       checkTextVisibility();
     }
+    */
 
   }
 
@@ -117,6 +119,7 @@ public class CalendarPresenter
   // State /////////////////////////////////////////////////////////////////////////
 
 
+/* Heredado de Dummy
   @Override
   public void setToolbarVisibility(boolean visible) {
     toolbarVisible = visible;
@@ -126,6 +129,7 @@ public class CalendarPresenter
   public void setTextVisibility(boolean visible) {
     textVisible = visible;
   }
+  */
 
 
   ///////////////////////////////////////////////////////////////////////////////////
@@ -142,9 +146,11 @@ public class CalendarPresenter
     Log.d(TAG, "calling onScreenResumed()");
 
     setCurrentState();
+    /* Heredado de Dummy
     if (buttonClicked) {
       getView().setText(getModel().getText());
     }
+    */
   }
 
 
@@ -164,6 +170,7 @@ public class CalendarPresenter
     }
   }
 
+/* Heredado de Dummy
   @Override
   public boolean isToolbarVisible() {
     return toolbarVisible;
@@ -172,7 +179,7 @@ public class CalendarPresenter
   @Override
   public boolean isTextVisible() {
     return textVisible;
-  }
+  }*/
 
 
   ///////////////////////////////////////////////////////////////////////////////////
@@ -180,14 +187,18 @@ public class CalendarPresenter
 
   private void setCurrentState() {
     Log.d(TAG, "calling setCurrentState()");
-
+    /* Hererado de Dummy
     if(isViewRunning()) {
+
       getView().setLabel(getModel().getLabel());
+
     }
     checkToolbarVisibility();
     checkTextVisibility();
+    */
   }
 
+/* Heredado de Dummy
   private void checkToolbarVisibility(){
     if(isViewRunning()) {
       if (!toolbarVisible) {
@@ -205,5 +216,6 @@ public class CalendarPresenter
       }
     }
   }
+  */
 
 }

@@ -52,12 +52,12 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
   }
 
   @Override
-  public void startingScreen(Calendar.ToDummy presenter) {
+  public void startingScreen(Calendar.ToCalendar presenter) {
     presenter.onScreenStarted();
   }
 
   @Override
-  public void resumingScreen(Calendar.DummyTo presenter) {
+  public void resumingScreen(Calendar.CalendarTo presenter) {
     presenter.onScreenResumed();
   }
 
@@ -107,12 +107,12 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
   }
 
   @Override
-  public void goToNextScreen(Calendar.DummyTo presenter) {
+  public void goToNextScreen(Calendar.CalendarTo presenter) {
 
   }
 
   @Override
-  public void backToPreviousScreen(Calendar.DummyTo presenter) {
+  public void backToPreviousScreen(Calendar.CalendarTo presenter) {
 
   }
 

@@ -7,15 +7,6 @@ import es.ulpgc.eite.clean.mvp.GenericModel;
 
 public class HomeModel
     extends GenericModel<Home.ModelToPresenter> implements Home.PresenterToModel {
-
-
-  private String dummyText;
-  private String dummyLabel;
-  private int numOfTimes;
-  private int maxNumOfTimes;
-  private String msgText;
-
-
   /**
    * Method that recovers a reference to the PRESENTER
    * You must ALWAYS call {@link super#onCreate(Object)} here
@@ -26,10 +17,6 @@ public class HomeModel
   public void onCreate(Home.ModelToPresenter presenter) {
     super.onCreate(presenter);
     Log.d(TAG, "calling onCreate()");
-
-    dummyLabel = "Click Me!";
-    dummyText = "Hello World!";
-    maxNumOfTimes = 3;
   }
 
   /**
@@ -47,6 +34,7 @@ public class HomeModel
   ///////////////////////////////////////////////////////////////////////////////////
   // Presenter To Model ////////////////////////////////////////////////////////////
 
+/* Heredado de Dummy
   @Override
   public boolean isNumOfTimesCompleted() {
     if(numOfTimes == maxNumOfTimes) {
@@ -79,5 +67,6 @@ public class HomeModel
     numOfTimes = 1;
     msgText = dummyText;
   }
+  */
 
 }

@@ -24,8 +24,7 @@ public class HomeView
     implements Home.PresenterToView {
 
   private Button button;
-  private TextView text;
-  private Toolbar toolbar;
+
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +32,6 @@ public class HomeView
     setContentView(R.layout.activity_home);
     Log.d(TAG, "calling onCreate()");
 
-    text = (TextView) findViewById(R.id.text); //Sin uso, pero para que no fallen los métodos
     button = (Button) findViewById(R.id.button);
 
     button.setOnClickListener(new View.OnClickListener() {
@@ -55,48 +53,6 @@ public class HomeView
     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
     // Apply the adapter to the spinner
     spinner.setAdapter(adapter);
-
-    //Toolbar
-    toolbar = (Toolbar) findViewById(R.id.toolbar);
-
-    //Sin uso:
-  /*
-    toolbar = (Toolbar) findViewById(R.id.toolbar);
-    setSupportActionBar(toolbar);
-    RelativeLayout mapsMenuView = (RelativeLayout) findViewById(R.id.m_maps);
-    mapsMenuView.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        Intent i = new Intent(HomeView.this, MapsView.class);
-        startActivity(i);
-      }
-    });
-
-    RelativeLayout shopMenuView = (RelativeLayout) findViewById(R.id.m_shop);
-    shopMenuView.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        Intent i = new Intent(HomeView.this, WebshopView.class);
-        startActivity(i);
-      }
-    });
-    RelativeLayout calendarMenuView = (RelativeLayout) findViewById(R.id.m_calendar);
-    calendarMenuView.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        Intent i = new Intent(HomeView.this, CalendarView.class);
-        startActivity(i);
-      }
-    });
-    RelativeLayout chatMenuView = (RelativeLayout) findViewById(R.id.m_chat);
-    chatMenuView.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        Intent i = new Intent(HomeView.this, ChatView.class);
-        startActivity(i);
-      }
-    });
-    */
   }
 
   /**
@@ -131,6 +87,8 @@ public class HomeView
     finish();
   }
 
+/*   Heredado de Dummy
+
   @Override
   public void hideToolbar() { toolbar.setVisibility(View.GONE); }
 
@@ -150,7 +108,6 @@ public class HomeView
   }
 
   @Override
-  public void setLabel(String txt) {
-
-  }
+  public void setLabel(String txt) {  }
+  */
 }
