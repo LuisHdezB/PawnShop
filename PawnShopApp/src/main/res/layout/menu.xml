@@ -12,7 +12,7 @@
     <ImageButton
     android:id="@+id/m_maps"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:layout_weight="1"
     app:srcCompat="@drawable/ic_maps_icon"
         tools:ignore="VectorDrawableCompat" />
@@ -20,7 +20,7 @@
     <ImageButton
         android:id="@+id/m_chat"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         app:srcCompat="@drawable/ic_chat_icon"
         tools:ignore="VectorDrawableCompat" />
@@ -28,7 +28,7 @@
     <ImageButton
         android:id="@+id/m_shop"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         app:srcCompat="@drawable/ic_shop_icon"
         tools:ignore="VectorDrawableCompat" />
@@ -36,7 +36,7 @@
     <ImageButton
         android:id="@+id/m_calendar"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
         app:srcCompat="@drawable/ic_calendar_icon"
         tools:ignore="VectorDrawableCompat" />

@@ -2,7 +2,6 @@ package es.ulpgc.eite.clean.mvp.sample.app;
 
 import es.ulpgc.eite.clean.mvp.sample.calendar.Calendar;
 import es.ulpgc.eite.clean.mvp.sample.chat.Chat;
-import es.ulpgc.eite.clean.mvp.sample.dummy.Dummy;
 import es.ulpgc.eite.clean.mvp.sample.home.Home;
 import es.ulpgc.eite.clean.mvp.sample.maps.Maps;
 import es.ulpgc.eite.clean.mvp.sample.webshop.Webshop;
@@ -14,8 +13,6 @@ import es.ulpgc.eite.clean.mvp.sample.webshop.Webshop;
 public interface Mediator {
 
   interface Lifecycle {
-    void startingScreen(Dummy.ToDummy presenter);
-    void resumingScreen(Dummy.DummyTo presenter);
 
     void startingScreen(Maps.ToDummy presenter);
     void resumingScreen(Maps.DummyTo presenter);
@@ -34,8 +31,6 @@ public interface Mediator {
   }
 
   interface Navigation {
-    void goToNextScreen(Dummy.DummyTo presenter);
-    void backToPreviousScreen(Dummy.DummyTo presenter);
 
     void goToNextScreen(Maps.DummyTo presenter);
     void backToPreviousScreen(Maps.DummyTo presenter);
