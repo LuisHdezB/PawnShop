@@ -97,7 +97,7 @@ public class WebshopView
   @Override
   protected void onResume() {
     super.onResume(WebshopPresenter.class, this);
-    menuImage.setImageResource(R.drawable.shop_icon_r);
+    menuImage.setImageResource(R.drawable.ic_shop_icon_m);
   }
 
   @Override

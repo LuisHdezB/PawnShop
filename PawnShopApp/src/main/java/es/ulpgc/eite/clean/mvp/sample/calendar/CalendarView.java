@@ -106,7 +106,7 @@ public class CalendarView
   @Override
   protected void onResume() {
     super.onResume(CalendarPresenter.class, this);
-    menuImage.setImageResource(R.drawable.calendar_icon_r);
+    menuImage.setImageResource(R.drawable.ic_calendar_icon_m);
   }
 
   @Override

@@ -85,7 +85,7 @@ public class MapsView
   @Override
   protected void onResume() {
     super.onResume(MapsPresenter.class, this);
-    menuImage.setImageResource(R.drawable.maps_icon_r);
+    menuImage.setImageResource(R.drawable.ic_maps_icon_m);
   }
 
   @Override
