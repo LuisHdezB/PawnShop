@@ -18,8 +18,8 @@ public class MapsPresenter
   private boolean buttonClicked;
   private boolean textVisible;
   private boolean shopClicked;
-  private boolean webClicked;
-  private boolean CalendarClicked;
+  private boolean chatClicked;
+  private boolean calendarClicked;
 
   /**
    * Operation called during VIEW creation in {@link GenericActivity#onResume(Class, Object)}

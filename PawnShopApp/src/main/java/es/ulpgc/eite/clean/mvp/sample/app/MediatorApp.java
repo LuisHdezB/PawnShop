@@ -25,11 +25,7 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
     Log.d(TAG, "calling onCreate()");
 
     Log.d(TAG, "calling creatingInitialState()");
-    /* Heradado de Dummy
-    toDummyState = new DummyState();
-    toDummyState.toolbarVisibility = false;
-    toDummyState.textVisibility = false;
-    */
+
   }
 
   ///////////////////////////////////////////////////////////////////////////////////
@@ -121,7 +117,33 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
 
   @Override
   public void goToNextScreen(Calendar.CalendarTo presenter) {
-
+    if (presenter.isChatClicked()){
+      // TODO: Guardar estado
+      Context view = presenter.getManagedContext();
+      if (view != null) {
+        Log.d(TAG, "calling startingWebshopScreen()");
+        view.startActivity(new Intent(view, WebshopView.class));
+        presenter.destroyView();
+      }
+    }
+    if (presenter.isShopClicked()){
+      // TODO: Guardar estado
+      Context view = presenter.getManagedContext();
+      if (view != null) {
+        Log.d(TAG, "calling startingWebshopScreen()");
+        view.startActivity(new Intent(view, WebshopView.class));
+        presenter.destroyView();
+      }
+    }
+    if (presenter.isMapsClicked()){
+      // TODO: Guardar estado
+      Context view = presenter.getManagedContext();
+      if (view != null) {
+        Log.d(TAG, "calling startingWebshopScreen()");
+        view.startActivity(new Intent(view, WebshopView.class));
+        presenter.destroyView();
+      }
+    }
   }
 
   @Override

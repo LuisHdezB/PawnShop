@@ -34,22 +34,19 @@ public class CalendarView
     mapsMenuImage.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        Intent i = new Intent(CalendarView.this, MapsView.class);
-        startActivity(i);
+        getPresenter().onMapsButtonClicked();
       }
     });
     chatMenuImage.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        Intent i = new Intent(CalendarView.this, ChatView.class);
-        startActivity(i);
+        getPresenter().onChatButtonClicked();
       }
     });
     webMenuImage.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        Intent i = new Intent(CalendarView.this, WebshopView.class);
-        startActivity(i);
+        getPresenter().onShopButtonClicked();
       }
     });
   }

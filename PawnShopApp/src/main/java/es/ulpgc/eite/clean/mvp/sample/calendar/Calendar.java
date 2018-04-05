@@ -24,6 +24,9 @@ public interface Calendar {
     Context getManagedContext();
     void destroyView();
     void onScreenResumed();
+    boolean isShopClicked();
+    boolean isChatClicked();
+    boolean isMapsClicked();
   }
 
   ///////////////////////////////////////////////////////////////////////////////////
@@ -33,6 +36,9 @@ public interface Calendar {
    * Methods offered to VIEW to communicate with PRESENTER
    */
   interface ViewToPresenter extends Presenter<PresenterToView> {
+    void onShopButtonClicked();
+    void onMapsButtonClicked();
+    void onChatButtonClicked();
   }
 
   /**

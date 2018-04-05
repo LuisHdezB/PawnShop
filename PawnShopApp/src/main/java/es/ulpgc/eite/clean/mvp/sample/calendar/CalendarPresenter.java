@@ -14,6 +14,9 @@ public class CalendarPresenter
         <Calendar.PresenterToView, Calendar.PresenterToModel, Calendar.ModelToPresenter, CalendarModel>
     implements Calendar.ViewToPresenter, Calendar.ModelToPresenter, Calendar.CalendarTo, Calendar.ToCalendar {
 
+  private boolean shopClicked;
+  private boolean chatClicked;
+  private boolean mapsClicked;
 
   /**
    * Operation called during VIEW creation in {@link GenericActivity#onResume(Class, Object)}
@@ -87,10 +90,33 @@ public class CalendarPresenter
   // View To Presenter /////////////////////////////////////////////////////////////
 
   @Override
-  public void onButtonClicked() {
-    Log.d(TAG, "calling onButtonClicked()");
+  public void onShopButtonClicked() {
+    Log.d(TAG, "calling onShopButtonClicked()");
+    //TODO: Poner estado
+    shopClicked = true;
 
+    Mediator.Navigation mediator = (Mediator.Navigation) getApplication();
+    mediator.goToNextScreen(this);
+  }
 
+  @Override
+  public void onMapsButtonClicked() {
+    Log.d(TAG, "calling onMapsButtonClicked()");
+    //TODO: Poner estado
+    chatClicked = true;
+
+    Mediator.Navigation mediator = (Mediator.Navigation) getApplication();
+    mediator.goToNextScreen(this);
+  }
+
+  @Override
+  public void onChatButtonClicked() {
+    Log.d(TAG, "calling onMapsButtonClicked()");
+    //TODO: Poner estado
+    mapsClicked = true;
+
+    Mediator.Navigation mediator = (Mediator.Navigation) getApplication();
+    mediator.goToNextScreen(this);
   }
 
 
@@ -113,6 +139,21 @@ public class CalendarPresenter
     Log.d(TAG, "calling onScreenResumed()");
 
     setCurrentState();
+  }
+
+  @Override
+  public boolean isShopClicked() {
+    return shopClicked;
+  }
+
+  @Override
+  public boolean isChatClicked() {
+    return chatClicked;
+  }
+
+  @Override
+  public boolean isMapsClicked() {
+    return mapsClicked;
   }
 
   ///////////////////////////////////////////////////////////////////////////////////
