@@ -7,8 +7,10 @@ import android.util.Log;
 
 import es.ulpgc.eite.clean.mvp.sample.calendar.Calendar;
 import es.ulpgc.eite.clean.mvp.sample.chat.Chat;
+import es.ulpgc.eite.clean.mvp.sample.chat.ChatView;
 import es.ulpgc.eite.clean.mvp.sample.home.Home;
 import es.ulpgc.eite.clean.mvp.sample.maps.Maps;
+import es.ulpgc.eite.clean.mvp.sample.maps.MapsView;
 import es.ulpgc.eite.clean.mvp.sample.webshop.Webshop;
 import es.ulpgc.eite.clean.mvp.sample.webshop.WebshopView;
 
@@ -121,8 +123,9 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
       // TODO: Guardar estado
       Context view = presenter.getManagedContext();
       if (view != null) {
-        Log.d(TAG, "calling startingWebshopScreen()");
-        view.startActivity(new Intent(view, WebshopView.class));
+        Log.d(TAG, "calling startingChatScreen()");
+        view.startActivity(new Intent(view, ChatView.class));
+        Log.d(TAG, "calling destroyView()");
         presenter.destroyView();
       }
     }
@@ -132,6 +135,7 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
       if (view != null) {
         Log.d(TAG, "calling startingWebshopScreen()");
         view.startActivity(new Intent(view, WebshopView.class));
+        Log.d(TAG, "calling destroyView()");
         presenter.destroyView();
       }
     }
@@ -139,8 +143,9 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
       // TODO: Guardar estado
       Context view = presenter.getManagedContext();
       if (view != null) {
-        Log.d(TAG, "calling startingWebshopScreen()");
-        view.startActivity(new Intent(view, WebshopView.class));
+        Log.d(TAG, "calling startingMapsScreen()");
+        view.startActivity(new Intent(view, MapsView.class));
+        Log.d(TAG, "calling destroyView()");
         presenter.destroyView();
       }
     }

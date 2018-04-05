@@ -166,6 +166,7 @@ public class CalendarPresenter
 
   @Override
   public void destroyView(){
+    Log.d(TAG, "destroyView: calling finishScreen");
     if(isViewRunning()) {
       getView().finishScreen();
     }
