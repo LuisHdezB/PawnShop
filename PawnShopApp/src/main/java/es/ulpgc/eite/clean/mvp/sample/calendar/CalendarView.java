@@ -17,7 +17,6 @@ public class CalendarView
     extends GenericActivity<Calendar.PresenterToView, Calendar.ViewToPresenter, CalendarPresenter>
     implements Calendar.PresenterToView {
 
-  //private Toolbar toolbar;
   private ImageButton menuImage;
 
   @Override
@@ -26,8 +25,6 @@ public class CalendarView
     setContentView(R.layout.activity_calendar);
     Log.d(TAG, "calling onCreate()");
 
-    //toolbar = (Toolbar) findViewById(R.id.toolbar);
-    //setSupportActionBar(toolbar);
 
     ImageButton mapsMenuImage = (ImageButton) findViewById(R.id.m_maps);
     ImageButton chatMenuImage = (ImageButton) findViewById(R.id.m_chat);
@@ -55,47 +52,6 @@ public class CalendarView
         startActivity(i);
       }
     });
-
-    //De la antigua forma:
-/*    RelativeLayout mapsMenuView = (RelativeLayout) findViewById(R.id.m_maps);
-    mapsMenuView.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        Intent i = new Intent(CalendarView.this, MapsView.class);
-        startActivity(i);
-      }
-    });
-
-    RelativeLayout shopMenuView = (RelativeLayout) findViewById(R.id.m_shop);
-    shopMenuView.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        Intent i = new Intent(CalendarView.this, WebshopView.class);
-        startActivity(i);
-      }
-    });
-
-    // Comento la línea de mi botón
-    *//*
-    RelativeLayout calendarMenuView = (RelativeLayout) findViewById(R.id.m_calendar);
-    calendarMenuView.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        Intent i = new Intent(CalendarView.this, CalendarView.class);
-        startActivity(i);
-      }
-    });
-    *//*
-    RelativeLayout chatMenuView = (RelativeLayout) findViewById(R.id.m_chat);
-    chatMenuView.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        Intent i = new Intent(CalendarView.this, ChatView.class);
-        startActivity(i);
-      }
-    });*/
-
-
   }
 
   /**
@@ -131,27 +87,4 @@ public class CalendarView
     finish();
   }
 
-/* Heredado de Dummy
-  @Override
-  public void hideToolbar() {
-    //toolbar.setVisibility(View.GONE);
-  }
-
-  @Override
-  public void hideText() {
-
-  }
-
-  @Override
-  public void showText() {
-
-  }
-
-  @Override
-  public void setText(String txt) {
-  }
-
-  @Override
-  public void setLabel(String txt) { }
-  */
 }

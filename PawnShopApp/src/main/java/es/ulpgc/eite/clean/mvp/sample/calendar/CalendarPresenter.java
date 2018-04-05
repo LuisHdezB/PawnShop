@@ -14,9 +14,6 @@ public class CalendarPresenter
         <Calendar.PresenterToView, Calendar.PresenterToModel, Calendar.ModelToPresenter, CalendarModel>
     implements Calendar.ViewToPresenter, Calendar.ModelToPresenter, Calendar.CalendarTo, Calendar.ToCalendar {
 
-  private boolean toolbarVisible;
-  private boolean buttonClicked;
-  private boolean textVisible;
 
   /**
    * Operation called during VIEW creation in {@link GenericActivity#onResume(Class, Object)}
@@ -92,25 +89,7 @@ public class CalendarPresenter
   @Override
   public void onButtonClicked() {
     Log.d(TAG, "calling onButtonClicked()");
-    /* Heredado de Dummy
-    if(getModel().isNumOfTimesCompleted()){
 
-      getModel().resetMsgByBtnClicked(); // reseteamos el estado al cumplirse la condición
-
-      Log.d(TAG, "calling goToNextScreen()");
-      Mediator.Navigation mediator = (Mediator.Navigation) getApplication();
-      mediator.goToNextScreen(this);
-      return;
-    }
-
-    if(isViewRunning()) {
-      getModel().changeMsgByBtnClicked();
-      getView().setText(getModel().getText());
-      textVisible = true;
-      buttonClicked = true;
-      checkTextVisibility();
-    }
-    */
 
   }
 
@@ -119,21 +98,9 @@ public class CalendarPresenter
   // State /////////////////////////////////////////////////////////////////////////
 
 
-/* Heredado de Dummy
-  @Override
-  public void setToolbarVisibility(boolean visible) {
-    toolbarVisible = visible;
-  }
-
-  @Override
-  public void setTextVisibility(boolean visible) {
-    textVisible = visible;
-  }
-  */
-
 
   ///////////////////////////////////////////////////////////////////////////////////
-  // To Dummy //////////////////////////////////////////////////////////////////////
+  // To Calendar //////////////////////////////////////////////////////////////////////
 
   @Override
   public void onScreenStarted() {
@@ -146,17 +113,10 @@ public class CalendarPresenter
     Log.d(TAG, "calling onScreenResumed()");
 
     setCurrentState();
-    /* Heredado de Dummy
-    if (buttonClicked) {
-      getView().setText(getModel().getText());
-    }
-    */
   }
 
-
   ///////////////////////////////////////////////////////////////////////////////////
-  // Dummy To //////////////////////////////////////////////////////////////////////
-
+  // Calendar To //////////////////////////////////////////////////////////////////////
 
   @Override
   public Context getManagedContext(){
@@ -170,52 +130,12 @@ public class CalendarPresenter
     }
   }
 
-/* Heredado de Dummy
-  @Override
-  public boolean isToolbarVisible() {
-    return toolbarVisible;
-  }
-
-  @Override
-  public boolean isTextVisible() {
-    return textVisible;
-  }*/
-
-
   ///////////////////////////////////////////////////////////////////////////////////
 
 
   private void setCurrentState() {
     Log.d(TAG, "calling setCurrentState()");
-    /* Hererado de Dummy
-    if(isViewRunning()) {
 
-      getView().setLabel(getModel().getLabel());
-
-    }
-    checkToolbarVisibility();
-    checkTextVisibility();
-    */
   }
-
-/* Heredado de Dummy
-  private void checkToolbarVisibility(){
-    if(isViewRunning()) {
-      if (!toolbarVisible) {
-        getView().hideToolbar();
-      }
-    }
-  }
-
-  private void checkTextVisibility(){
-    if(isViewRunning()) {
-      if(!textVisible) {
-        getView().hideText();
-      } else {
-        getView().showText();
-      }
-    }
-  }
-  */
 
 }

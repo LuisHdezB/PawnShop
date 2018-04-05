@@ -3,20 +3,12 @@ package es.ulpgc.eite.clean.mvp.sample.calendar;
 import android.util.Log;
 
 import es.ulpgc.eite.clean.mvp.GenericModel;
+import es.ulpgc.eite.clean.mvp.sample.app.Shop;
 
 
 public class CalendarModel
     extends GenericModel<Calendar.ModelToPresenter> implements Calendar.PresenterToModel {
-
-
-/*  Heredado de Dummy
-  private String dummyText;
-  private String dummyLabel;
-  private int numOfTimes;
-  private int maxNumOfTimes;
-  private String msgText;
-  */
-
+    private Shop shop;
 
   /**
    * Method that recovers a reference to the PRESENTER
@@ -46,44 +38,5 @@ public class CalendarModel
   // Presenter To Model ////////////////////////////////////////////////////////////
 
 
-
-
-
-
-
-/* Heredado de Dummy, borrar al crear los métodos de Calendar
-  @Override
-  public boolean isNumOfTimesCompleted() {
-    if(numOfTimes == maxNumOfTimes) {
-      return true;
-    }
-    return false;
-  }
-
-  @Override
-  public void changeMsgByBtnClicked() {
-    msgText = dummyText;
-    if(numOfTimes > 0) {
-      msgText += ", " + (numOfTimes + 1) + " times";
-    }
-    numOfTimes++;
-  }
-
-  @Override
-  public String getText() {
-    return msgText;
-  }
-
-  @Override
-  public String getLabel() {
-    return dummyLabel;
-  }
-
-  @Override
-  public void resetMsgByBtnClicked() {
-    numOfTimes = 1;
-    msgText = dummyText;
-  }
-  */
 
 }

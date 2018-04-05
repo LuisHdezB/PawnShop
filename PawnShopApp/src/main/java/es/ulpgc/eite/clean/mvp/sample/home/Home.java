@@ -17,11 +17,11 @@ public interface Home {
     //void setTextVisibility(boolean visible);
   }
 
-  interface ToDummy extends State {
+  interface ToHome extends State {
     void onScreenStarted();
   }
 
-  interface DummyTo extends State{
+  interface HomeTo extends State{
     Context getManagedContext();
     void destroyView();
     //boolean isToolbarVisible();

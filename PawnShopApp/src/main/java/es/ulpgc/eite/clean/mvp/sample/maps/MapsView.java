@@ -53,8 +53,11 @@ public class MapsView
     shopMenuView.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
+        /*
         Intent i = new Intent(MapsView.this, WebshopView.class);
         startActivity(i);
+        */
+        getPresenter().onShopButtonClicked();
       }
     });
 

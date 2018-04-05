@@ -21,13 +21,14 @@ public interface Maps {
     void setTextVisibility(boolean visible);
   }
 
-  interface ToDummy extends State {
+  interface ToMaps extends State {
     void onScreenStarted();
   }
 
-  interface DummyTo extends State{
+  interface MapsTo extends State{
     Context getManagedContext();
     void destroyView();
+    boolean isShopClicked();
     boolean isToolbarVisible();
     boolean isTextVisible();
     void onScreenResumed();
@@ -41,6 +42,8 @@ public interface Maps {
    */
   interface ViewToPresenter extends Presenter<PresenterToView> {
     void onButtonClicked();
+
+    void onShopButtonClicked();
   }
 
   /**

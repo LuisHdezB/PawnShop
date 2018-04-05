@@ -12,11 +12,14 @@ import es.ulpgc.eite.clean.mvp.sample.app.Mediator;
 public class MapsPresenter
     extends GenericPresenter
         <Maps.PresenterToView, Maps.PresenterToModel, Maps.ModelToPresenter, MapsModel>
-    implements Maps.ViewToPresenter, Maps.ModelToPresenter, Maps.DummyTo, Maps.ToDummy {
+    implements Maps.ViewToPresenter, Maps.ModelToPresenter, Maps.MapsTo, Maps.ToMaps {
 
   private boolean toolbarVisible;
   private boolean buttonClicked;
   private boolean textVisible;
+  private boolean shopClicked;
+  private boolean webClicked;
+  private boolean CalendarClicked;
 
   /**
    * Operation called during VIEW creation in {@link GenericActivity#onResume(Class, Object)}
@@ -112,6 +115,14 @@ public class MapsPresenter
 
   }
 
+  @Override
+  public void onShopButtonClicked() {
+    shopClicked = true;
+    Mediator.Navigation mediator = (Mediator.Navigation) getApplication();
+    mediator.goToNextScreen(this);
+    return;
+  }
+
 
   ///////////////////////////////////////////////////////////////////////////////////
   // State /////////////////////////////////////////////////////////////////////////
@@ -129,7 +140,7 @@ public class MapsPresenter
 
 
   ///////////////////////////////////////////////////////////////////////////////////
-  // To Dummy //////////////////////////////////////////////////////////////////////
+  // To Maps //////////////////////////////////////////////////////////////////////
 
   @Override
   public void onScreenStarted() {
@@ -149,7 +160,7 @@ public class MapsPresenter
 
 
   ///////////////////////////////////////////////////////////////////////////////////
-  // Dummy To //////////////////////////////////////////////////////////////////////
+  // Maps To //////////////////////////////////////////////////////////////////////
 
 
   @Override
@@ -162,6 +173,14 @@ public class MapsPresenter
     if(isViewRunning()) {
       getView().finishScreen();
     }
+  }
+
+  @Override
+  public boolean isShopClicked() {
+    if (shopClicked){
+      return true;
+    }
+    return false;
   }
 
   @Override

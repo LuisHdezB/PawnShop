@@ -11,11 +11,11 @@ public interface Mediator {
 
   interface Lifecycle {
 
-    void startingScreen(Maps.ToDummy presenter);
-    void resumingScreen(Maps.DummyTo presenter);
+    void startingScreen(Maps.ToMaps presenter);
+    void resumingScreen(Maps.MapsTo presenter);
 
-    void startingScreen(Home.ToDummy presenter);
-    void resumingScreen(Home.DummyTo presenter);
+    void startingScreen(Home.ToHome presenter);
+    void resumingScreen(Home.HomeTo presenter);
 
     void startingScreen(Calendar.ToCalendar presenter);
     void resumingScreen(Calendar.CalendarTo presenter);
@@ -29,11 +29,11 @@ public interface Mediator {
 
   interface Navigation {
 
-    void goToNextScreen(Maps.DummyTo presenter);
-    void backToPreviousScreen(Maps.DummyTo presenter);
+    void goToNextScreen(Maps.MapsTo presenter);
+    void backToPreviousScreen(Maps.MapsTo presenter);
 
-    void goToNextScreen(Home.DummyTo presenter);
-    void backToPreviousScreen(Home.DummyTo presenter);
+    void goToNextScreen(Home.HomeTo presenter);
+    void backToPreviousScreen(Home.HomeTo presenter);
 
     void goToNextScreen(Calendar.CalendarTo presenter);
     void backToPreviousScreen(Calendar.CalendarTo presenter);
