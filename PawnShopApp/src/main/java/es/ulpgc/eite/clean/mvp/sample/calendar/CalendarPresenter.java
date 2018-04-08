@@ -8,6 +8,7 @@ import es.ulpgc.eite.clean.mvp.ContextView;
 import es.ulpgc.eite.clean.mvp.GenericActivity;
 import es.ulpgc.eite.clean.mvp.GenericPresenter;
 import es.ulpgc.eite.clean.mvp.sample.app.Mediator;
+import es.ulpgc.eite.clean.mvp.sample.app.Shop;
 
 public class CalendarPresenter
     extends GenericPresenter
@@ -132,6 +133,46 @@ public class CalendarPresenter
   public void onScreenStarted() {
     Log.d(TAG, "calling onScreenStarted()");
     setCurrentState();
+  }
+
+  @Override
+  public void setShop(Shop shop) {
+
+  }
+
+  @Override
+  public void setAppointment(boolean ifAppointment) {
+
+  }
+
+  @Override
+  public void setNameInputText(String name) {
+
+  }
+
+  @Override
+  public void setPhoneInputText(int phone) {
+
+  }
+
+  @Override
+  public void setMailInputText(String mail) {
+
+  }
+
+  @Override
+  public void setDateInputText(String date) {
+
+  }
+
+  @Override
+  public void setHourInputText(String hour) {
+
+  }
+
+  @Override
+  public void setProductsInputText(String products) {
+
   }
 
   @Override

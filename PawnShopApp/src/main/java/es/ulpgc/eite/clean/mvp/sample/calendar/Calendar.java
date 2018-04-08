@@ -5,6 +5,7 @@ import android.content.Context;
 import es.ulpgc.eite.clean.mvp.ContextView;
 import es.ulpgc.eite.clean.mvp.Model;
 import es.ulpgc.eite.clean.mvp.Presenter;
+import es.ulpgc.eite.clean.mvp.sample.app.Shop;
 
 
 public interface Calendar {
@@ -18,6 +19,14 @@ public interface Calendar {
 
   interface ToCalendar extends State {
     void onScreenStarted();
+    void setShop(Shop shop);
+    void setAppointment(boolean ifAppointment);
+    void setNameInputText(String name);
+    void setPhoneInputText(int phone);
+    void setMailInputText(String mail);
+    void setDateInputText(String date);
+    void setHourInputText(String hour);
+    void setProductsInputText(String products);
   }
 
   interface CalendarTo extends State{
