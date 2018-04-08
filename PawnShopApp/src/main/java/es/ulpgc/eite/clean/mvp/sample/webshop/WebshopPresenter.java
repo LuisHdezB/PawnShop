@@ -8,15 +8,18 @@ import es.ulpgc.eite.clean.mvp.ContextView;
 import es.ulpgc.eite.clean.mvp.GenericActivity;
 import es.ulpgc.eite.clean.mvp.GenericPresenter;
 import es.ulpgc.eite.clean.mvp.sample.app.Mediator;
+import es.ulpgc.eite.clean.mvp.sample.app.Shop;
 
 public class WebshopPresenter
     extends GenericPresenter
         <Webshop.PresenterToView, Webshop.PresenterToModel, Webshop.ModelToPresenter, WebshopModel>
-    implements Webshop.ViewToPresenter, Webshop.ModelToPresenter, Webshop.DummyTo, Webshop.ToDummy {
+    implements Webshop.ViewToPresenter, Webshop.ModelToPresenter, Webshop.WebshopTo, Webshop.ToWebshop {
 
-  private boolean toolbarVisible;
-  private boolean buttonClicked;
-  private boolean textVisible;
+  private boolean chatClicked;
+  private boolean calendarClicked;
+  private boolean mapsClicked;
+  //State
+  private Shop shop;
 
   /**
    * Operation called during VIEW creation in {@link GenericActivity#onResume(Class, Object)}
@@ -90,26 +93,33 @@ public class WebshopPresenter
   // View To Presenter /////////////////////////////////////////////////////////////
 
   @Override
-  public void onButtonClicked() {
-    Log.d(TAG, "calling onButtonClicked()");
-    if(getModel().isNumOfTimesCompleted()){
+  public void onChatButtonClicked() {
+    Log.d(TAG, "calling onShopButtonClicked()");
+    //TODO: Poner estado
+    chatClicked = true;
 
-      getModel().resetMsgByBtnClicked(); // reseteamos el estado al cumplirse la condición
+    Mediator.Navigation mediator = (Mediator.Navigation) getApplication();
+    mediator.goToNextScreen(this);
+  }
 
-      Log.d(TAG, "calling goToNextScreen()");
-      Mediator.Navigation mediator = (Mediator.Navigation) getApplication();
-      mediator.goToNextScreen(this);
-      return;
-    }
+  @Override
+  public void onMapsButtonClicked() {
+    Log.d(TAG, "calling onMapsButtonClicked()");
+    //TODO: Poner estado
+    mapsClicked = true;
 
-    if(isViewRunning()) {
-      getModel().changeMsgByBtnClicked();
-      getView().setText(getModel().getText());
-      textVisible = true;
-      buttonClicked = true;
-      checkTextVisibility();
-    }
+    Mediator.Navigation mediator = (Mediator.Navigation) getApplication();
+    mediator.goToNextScreen(this);
+  }
 
+  @Override
+  public void onCalendarButtonClicked() {
+    Log.d(TAG, "calling onMapsButtonClicked()");
+    //TODO: Poner estado
+    calendarClicked = true;
+
+    Mediator.Navigation mediator = (Mediator.Navigation) getApplication();
+    mediator.goToNextScreen(this);
   }
 
 
@@ -117,19 +127,9 @@ public class WebshopPresenter
   // State /////////////////////////////////////////////////////////////////////////
 
 
-  @Override
-  public void setToolbarVisibility(boolean visible) {
-    toolbarVisible = visible;
-  }
-
-  @Override
-  public void setTextVisibility(boolean visible) {
-    textVisible = visible;
-  }
-
 
   ///////////////////////////////////////////////////////////////////////////////////
-  // To Dummy //////////////////////////////////////////////////////////////////////
+  // To Webshop //////////////////////////////////////////////////////////////////////
 
   @Override
   public void onScreenStarted() {
@@ -138,15 +138,31 @@ public class WebshopPresenter
   }
 
   @Override
-  public void onScreenResumed() {
-    Log.d(TAG, "calling onScreenResumed()");
-
-    setCurrentState();
-    if (buttonClicked) {
-      getView().setText(getModel().getText());
-    }
+  public void setShop(Shop shop) {
+    this.shop = shop;
   }
 
+  @Override
+  public void onScreenResumed() {
+    Log.d(TAG, "calling onScreenResumed()");
+    setCurrentState();
+  }
+
+
+  @Override
+  public boolean isChatClicked() {
+    return chatClicked;
+  }
+
+  @Override
+  public boolean isCalendarClicked() {
+    return calendarClicked;
+  }
+
+  @Override
+  public boolean isMapsClicked() {
+    return mapsClicked;
+  }
 
   ///////////////////////////////////////////////////////////////////////////////////
   // Dummy To //////////////////////////////////////////////////////////////////////
@@ -164,16 +180,6 @@ public class WebshopPresenter
     }
   }
 
-  @Override
-  public boolean isToolbarVisible() {
-    return toolbarVisible;
-  }
-
-  @Override
-  public boolean isTextVisible() {
-    return textVisible;
-  }
-
 
   ///////////////////////////////////////////////////////////////////////////////////
 
@@ -181,29 +187,6 @@ public class WebshopPresenter
   private void setCurrentState() {
     Log.d(TAG, "calling setCurrentState()");
 
-    if(isViewRunning()) {
-      getView().setLabel(getModel().getLabel());
-    }
-    checkToolbarVisibility();
-    checkTextVisibility();
-  }
-
-  private void checkToolbarVisibility(){
-    if(isViewRunning()) {
-      if (!toolbarVisible) {
-        getView().hideToolbar();
-      }
-    }
-  }
-
-  private void checkTextVisibility(){
-    if(isViewRunning()) {
-      if(!textVisible) {
-        getView().hideText();
-      } else {
-        getView().showText();
-      }
-    }
   }
 
 }

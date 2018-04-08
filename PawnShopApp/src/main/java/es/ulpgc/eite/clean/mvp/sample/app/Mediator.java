@@ -20,11 +20,11 @@ public interface Mediator {
     void startingScreen(Calendar.ToCalendar presenter);
     void resumingScreen(Calendar.CalendarTo presenter);
 
-    void startingScreen(Chat.ToDummy presenter);
-    void resumingScreen(Chat.DummyTo presenter);
+    void startingScreen(Chat.ToChat presenter);
+    void resumingScreen(Chat.ChatTo presenter);
 
-    void startingScreen(Webshop.ToDummy presenter);
-    void resumingScreen(Webshop.DummyTo presenter);
+    void startingScreen(Webshop.ToWebshop presenter);
+    void resumingScreen(Webshop.WebshopTo presenter);
   }
 
   interface Navigation {
@@ -38,10 +38,10 @@ public interface Mediator {
     void goToNextScreen(Calendar.CalendarTo presenter);
     void backToPreviousScreen(Calendar.CalendarTo presenter);
 
-    void goToNextScreen(Chat.DummyTo presenter);
-    void backToPreviousScreen(Chat.DummyTo presenter);
+    void goToNextScreen(Chat.ChatTo presenter);
+    void backToPreviousScreen(Chat.ChatTo presenter);
 
-    void goToNextScreen(Webshop.DummyTo presenter);
-    void backToPreviousScreen(Webshop.DummyTo presenter);
+    void goToNextScreen(Webshop.WebshopTo presenter);
+    void backToPreviousScreen(Webshop.WebshopTo presenter);
   }
 }

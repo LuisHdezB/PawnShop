@@ -24,9 +24,7 @@ public class WebshopView
     extends GenericActivity<Webshop.PresenterToView, Webshop.ViewToPresenter, WebshopPresenter>
     implements Webshop.PresenterToView {
 
-  //private Toolbar toolbar;
-  private Button button;
-  private TextView text;
+
   private WebView webView_shop;
   private ImageButton menuImage;
 
@@ -37,7 +35,9 @@ public class WebshopView
     setContentView(R.layout.activity_shop);
     Log.d(TAG, "calling onCreate()");
 
-    //text = (TextView) findViewById(R.id.text);
+    ImageButton mapsMenuImage = (ImageButton) findViewById(R.id.m_maps);
+    ImageButton calendarMenuImage = (ImageButton) findViewById(R.id.m_calendar);
+    ImageButton chatMenuImage = (ImageButton) findViewById(R.id.m_chat);
     menuImage = (ImageButton) findViewById(R.id.m_shop);
 
     //WEBVIEW
@@ -47,44 +47,26 @@ public class WebshopView
     webView_shop.loadUrl("https://canarias.cashconverters.es/");
     webView_shop.setWebViewClient(new WebViewClient());
 
-    //TOOLBAR
-    //toolbar = (Toolbar) findViewById(R.id.toolbar);
-    //setSupportActionBar(toolbar);
 
-    ImageButton mapsMenuView = (ImageButton) findViewById(R.id.m_maps);
-    mapsMenuView.setOnClickListener(new View.OnClickListener() {
+    // Listeners del menú
+    mapsMenuImage.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        Intent i = new Intent(WebshopView.this, MapsView.class);
-        startActivity(i);
-      }
-    });
-    // Comento la línea de mi botón
-    /*
-    ImageButton shopMenuView = (ImageButton) findViewById(R.id.m_shop);
-    shopMenuView.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        Intent i = new Intent(CalendarView.this, WebshopView.class);
-        startActivity(i);
-      }
-    });*/
-
-    ImageButton calendarMenuView = (ImageButton) findViewById(R.id.m_calendar);
-    calendarMenuView.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        Intent i = new Intent(WebshopView.this, CalendarView.class);
-        startActivity(i);
+        getPresenter().onMapsButtonClicked();
       }
     });
 
-    ImageButton chatMenuView = (ImageButton) findViewById(R.id.m_chat);
-    chatMenuView.setOnClickListener(new View.OnClickListener() {
+    chatMenuImage.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        Intent i = new Intent(WebshopView.this, ChatView.class);
-        startActivity(i);
+        getPresenter().onChatButtonClicked();
+      }
+    });
+
+    calendarMenuImage.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        getPresenter().onCalendarButtonClicked();
       }
     });
   }
@@ -122,28 +104,4 @@ public class WebshopView
     finish();
   }
 
-  @Override
-  public void hideToolbar() {
-    //toolbar.setVisibility(View.GONE);
-  }
-
-  @Override
-  public void hideText() {
-    //text.setVisibility(View.GONE);
-  }
-
-  @Override
-  public void showText() {
-    //text.setVisibility(View.VISIBLE);
-  }
-
-  @Override
-  public void setText(String txt) {
-    //text.setText(txt);
-  }
-
-  @Override
-  public void setLabel(String txt) {
-    //button.setText(txt);
-  }
 }

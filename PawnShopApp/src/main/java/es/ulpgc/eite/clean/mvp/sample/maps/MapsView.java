@@ -21,9 +21,7 @@ public class MapsView
     extends GenericActivity<Maps.PresenterToView, Maps.ViewToPresenter, MapsPresenter>
     implements Maps.PresenterToView {
 
-  //private Toolbar toolbar;
-  private Button button;
-  private TextView text;
+
   private ImageButton menuImage;
 
 
@@ -33,49 +31,32 @@ public class MapsView
     setContentView(R.layout.activity_maps);
     Log.d(TAG, "calling onCreate()");
 
-    text = (TextView) findViewById(R.id.text);
 
-    //toolbar = (Toolbar) findViewById(R.id.toolbar);
-    //setSupportActionBar(toolbar);
+    // Menú inferior
+    ImageButton chatMenuImage = (ImageButton) findViewById(R.id.m_chat);
+    ImageButton calendarMenuImage = (ImageButton) findViewById(R.id.m_calendar);
+    ImageButton webMenuImage = (ImageButton) findViewById(R.id.m_shop);
     menuImage = (ImageButton) findViewById(R.id.m_maps);
-    // Comento la línea de mi botón
-    /*
-    ImageButton mapsMenuView = (ImageButton) findViewById(R.id.m_maps);
-    mapsMenuView.setOnClickListener(new View.OnClickListener() {
+
+    // Listeners del menú
+    chatMenuImage.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        Intent i = new Intent(CalendarView.this, MapsView.class);
-        startActivity(i);
+        getPresenter().onChatButtonClicked();
       }
-    });*/
+    });
 
-    ImageButton shopMenuView = (ImageButton) findViewById(R.id.m_shop);
-    shopMenuView.setOnClickListener(new View.OnClickListener() {
+    webMenuImage.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        /*
-        Intent i = new Intent(MapsView.this, WebshopView.class);
-        startActivity(i);
-        */
         getPresenter().onShopButtonClicked();
       }
     });
 
-    ImageButton calendarMenuView = (ImageButton) findViewById(R.id.m_calendar);
-    calendarMenuView.setOnClickListener(new View.OnClickListener() {
+    calendarMenuImage.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        Intent i = new Intent(MapsView.this, CalendarView.class);
-        startActivity(i);
-      }
-    });
-
-    ImageButton chatMenuView = (ImageButton) findViewById(R.id.m_chat);
-    chatMenuView.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        Intent i = new Intent(MapsView.this, ChatView.class);
-        startActivity(i);
+        getPresenter().onCalendarButtonClicked();
       }
     });
   }
@@ -113,26 +94,4 @@ public class MapsView
     finish();
   }
 
-  @Override
-  public void hideToolbar() {
-    //toolbar.setVisibility(View.GONE);
-  }
-
-  @Override
-  public void hideText() {
-    text.setVisibility(View.GONE);
-  }
-
-  @Override
-  public void showText() {
-    text.setVisibility(View.VISIBLE);
-  }
-
-  @Override
-  public void setText(String txt) {
-    text.setText(txt);
-  }
-
-  @Override
-  public void setLabel(String txt) {  }
 }

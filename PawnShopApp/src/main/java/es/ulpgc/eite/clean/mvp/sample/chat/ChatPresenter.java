@@ -8,15 +8,18 @@ import es.ulpgc.eite.clean.mvp.ContextView;
 import es.ulpgc.eite.clean.mvp.GenericActivity;
 import es.ulpgc.eite.clean.mvp.GenericPresenter;
 import es.ulpgc.eite.clean.mvp.sample.app.Mediator;
+import es.ulpgc.eite.clean.mvp.sample.app.Shop;
 
 public class ChatPresenter
     extends GenericPresenter
         <Chat.PresenterToView, Chat.PresenterToModel, Chat.ModelToPresenter, ChatModel>
-    implements Chat.ViewToPresenter, Chat.ModelToPresenter, Chat.DummyTo, Chat.ToDummy {
+    implements Chat.ViewToPresenter, Chat.ModelToPresenter, Chat.ChatTo, Chat.ToChat {
 
-  private boolean toolbarVisible;
-  private boolean buttonClicked;
-  private boolean textVisible;
+  private boolean shopClicked;
+  private boolean calendarClicked;
+  private boolean mapsClicked;
+  //State
+  private Shop shop;
 
   /**
    * Operation called during VIEW creation in {@link GenericActivity#onResume(Class, Object)}
@@ -90,26 +93,33 @@ public class ChatPresenter
   // View To Presenter /////////////////////////////////////////////////////////////
 
   @Override
-  public void onButtonClicked() {
-    Log.d(TAG, "calling onButtonClicked()");
-    if(getModel().isNumOfTimesCompleted()){
+  public void onShopButtonClicked() {
+    Log.d(TAG, "calling onShopButtonClicked()");
+    //TODO: Poner estado
+    shopClicked = true;
 
-      getModel().resetMsgByBtnClicked(); // reseteamos el estado al cumplirse la condición
+    Mediator.Navigation mediator = (Mediator.Navigation) getApplication();
+    mediator.goToNextScreen(this);
+  }
 
-      Log.d(TAG, "calling goToNextScreen()");
-      Mediator.Navigation mediator = (Mediator.Navigation) getApplication();
-      mediator.goToNextScreen(this);
-      return;
-    }
+  @Override
+  public void onMapsButtonClicked() {
+    Log.d(TAG, "calling onMapsButtonClicked()");
+    //TODO: Poner estado
+    mapsClicked = true;
 
-    if(isViewRunning()) {
-      getModel().changeMsgByBtnClicked();
-      getView().setText(getModel().getText());
-      textVisible = true;
-      buttonClicked = true;
-      checkTextVisibility();
-    }
+    Mediator.Navigation mediator = (Mediator.Navigation) getApplication();
+    mediator.goToNextScreen(this);
+  }
 
+  @Override
+  public void onCalendarButtonClicked() {
+    Log.d(TAG, "calling onMapsButtonClicked()");
+    //TODO: Poner estado
+    calendarClicked = true;
+
+    Mediator.Navigation mediator = (Mediator.Navigation) getApplication();
+    mediator.goToNextScreen(this);
   }
 
 
@@ -117,19 +127,9 @@ public class ChatPresenter
   // State /////////////////////////////////////////////////////////////////////////
 
 
-  @Override
-  public void setToolbarVisibility(boolean visible) {
-    toolbarVisible = visible;
-  }
-
-  @Override
-  public void setTextVisibility(boolean visible) {
-    textVisible = visible;
-  }
-
 
   ///////////////////////////////////////////////////////////////////////////////////
-  // To Dummy //////////////////////////////////////////////////////////////////////
+  // To Chat //////////////////////////////////////////////////////////////////////
 
   @Override
   public void onScreenStarted() {
@@ -138,18 +138,33 @@ public class ChatPresenter
   }
 
   @Override
-  public void onScreenResumed() {
-    Log.d(TAG, "calling onScreenResumed()");
-
-    setCurrentState();
-    if (buttonClicked) {
-      getView().setText(getModel().getText());
-    }
+  public void setShop(Shop shop) {
+    this.shop = shop;
   }
 
+  @Override
+  public void onScreenResumed() {
+    Log.d(TAG, "calling onScreenResumed()");
+    setCurrentState();
+  }
+
+  @Override
+  public boolean isShopClicked() {
+    return shopClicked;
+  }
+
+  @Override
+  public boolean isCalendarClicked() {
+    return calendarClicked;
+  }
+
+  @Override
+  public boolean isMapsClicked() {
+    return mapsClicked;
+  }
 
   ///////////////////////////////////////////////////////////////////////////////////
-  // Dummy To //////////////////////////////////////////////////////////////////////
+  // Chat To //////////////////////////////////////////////////////////////////////
 
 
   @Override
@@ -164,16 +179,6 @@ public class ChatPresenter
     }
   }
 
-  @Override
-  public boolean isToolbarVisible() {
-    return toolbarVisible;
-  }
-
-  @Override
-  public boolean isTextVisible() {
-    return textVisible;
-  }
-
 
   ///////////////////////////////////////////////////////////////////////////////////
 
@@ -181,29 +186,6 @@ public class ChatPresenter
   private void setCurrentState() {
     Log.d(TAG, "calling setCurrentState()");
 
-    if(isViewRunning()) {
-      getView().setLabel(getModel().getLabel());
-    }
-    checkToolbarVisibility();
-    checkTextVisibility();
-  }
-
-  private void checkToolbarVisibility(){
-    if(isViewRunning()) {
-      if (!toolbarVisible) {
-        getView().hideToolbar();
-      }
-    }
-  }
-
-  private void checkTextVisibility(){
-    if(isViewRunning()) {
-      if(!textVisible) {
-        getView().hideText();
-      } else {
-        getView().showText();
-      }
-    }
   }
 
 }

@@ -5,6 +5,7 @@ import android.content.Context;
 import es.ulpgc.eite.clean.mvp.ContextView;
 import es.ulpgc.eite.clean.mvp.Model;
 import es.ulpgc.eite.clean.mvp.Presenter;
+import es.ulpgc.eite.clean.mvp.sample.app.Shop;
 
 /**
  * Created by Luis on 12/11/16.
@@ -17,19 +18,20 @@ public interface Chat {
   // State /////////////////////////////////////////////////////////////////////////
 
   interface State {
-    void setToolbarVisibility(boolean visible);
-    void setTextVisibility(boolean visible);
   }
 
-  interface ToDummy extends State {
+  interface ToChat extends State {
     void onScreenStarted();
+    void setShop(Shop shop);
+
   }
 
-  interface DummyTo extends State{
+  interface ChatTo extends State{
     Context getManagedContext();
     void destroyView();
-    boolean isToolbarVisible();
-    boolean isTextVisible();
+    boolean isShopClicked();
+    boolean isCalendarClicked();
+    boolean isMapsClicked();
     void onScreenResumed();
   }
 
@@ -40,7 +42,9 @@ public interface Chat {
    * Methods offered to VIEW to communicate with PRESENTER
    */
   interface ViewToPresenter extends Presenter<PresenterToView> {
-    void onButtonClicked();
+    void onShopButtonClicked();
+    void onMapsButtonClicked();
+    void onCalendarButtonClicked();
   }
 
   /**
@@ -48,22 +52,13 @@ public interface Chat {
    */
   interface PresenterToView extends ContextView {
     void finishScreen();
-    void hideToolbar();
-    void hideText();
-    void showText();
-    void setText(String txt);
-    void setLabel(String txt);
   }
 
   /**
    * Methods offered to MODEL to communicate with PRESENTER
    */
   interface PresenterToModel extends Model<ModelToPresenter> {
-    boolean isNumOfTimesCompleted();
-    void changeMsgByBtnClicked();
-    String getText();
-    String getLabel();
-    void resetMsgByBtnClicked();
+
   }
 
   /**

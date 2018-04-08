@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.util.Log;
 
 import es.ulpgc.eite.clean.mvp.sample.calendar.Calendar;
+import es.ulpgc.eite.clean.mvp.sample.calendar.CalendarView;
 import es.ulpgc.eite.clean.mvp.sample.chat.Chat;
 import es.ulpgc.eite.clean.mvp.sample.chat.ChatView;
 import es.ulpgc.eite.clean.mvp.sample.home.Home;
@@ -86,22 +87,22 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
   }
 
   @Override
-  public void startingScreen(Chat.ToDummy presenter) {
+  public void startingScreen(Chat.ToChat presenter) {
     presenter.onScreenStarted();
   }
 
   @Override
-  public void resumingScreen(Chat.DummyTo presenter) {
+  public void resumingScreen(Chat.ChatTo presenter) {
     presenter.onScreenResumed();
   }
 
   @Override
-  public void startingScreen(Webshop.ToDummy presenter) {
+  public void startingScreen(Webshop.ToWebshop presenter) {
     presenter.onScreenStarted();
   }
 
   @Override
-  public void resumingScreen(Webshop.DummyTo presenter) {
+  public void resumingScreen(Webshop.WebshopTo presenter) {
     presenter.onScreenResumed();
   }
 
@@ -112,16 +113,47 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
 
   @Override
   public void goToNextScreen(Maps.MapsTo presenter) {
-    if (presenter.isShopClicked()){
-      // TODO: Guardar estado
+    if (presenter.isChatClicked()){
+      // TODO: Prueba de estado, CAMBIAR CUÁNDO HAYA ESTADO
+      toChatState = new ChatState();
+      toChatState.shop = savedShop;
+      toChatState.idChat = null;
+
+      Context view = presenter.getManagedContext();
+      if (view != null) {
+        Log.d(TAG, "calling startingChatScreen()");
+        view.startActivity(new Intent(view, ChatView.class));
+        Log.d(TAG, "calling destroyView()");
+        presenter.destroyView();
+      }
+    } else if (presenter.isCalendarClicked()){
+      // TODO: Prueba de estado, CAMBIAR CUÁNDO HAYA ESTADO
+      toCalendarState = new CalendarState();
+      toCalendarState.shop = savedShop;
+
+      Context view = presenter.getManagedContext();
+      if (view != null) {
+        Log.d(TAG, "calling startingChatScreen()");
+        view.startActivity(new Intent(view, CalendarView.class));
+        Log.d(TAG, "calling destroyView()");
+        presenter.destroyView();
+      }
+    } else if (presenter.isShopClicked()){
+      // TODO: Prueba de estado, CAMBIAR CUÁNDO HAYA ESTADO
+      toShopState = new WebState();
+      toShopState.shop = savedShop;
+      toShopState.url = "https://canarias.cashconverters.es";
+
       Context view = presenter.getManagedContext();
       if (view != null) {
         Log.d(TAG, "calling startingWebshopScreen()");
         view.startActivity(new Intent(view, WebshopView.class));
+        Log.d(TAG, "calling destroyView()");
         presenter.destroyView();
       }
     }
   }
+
 
   @Override
   public void backToPreviousScreen(Maps.MapsTo presenter) {
@@ -188,22 +220,98 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
   }
 
   @Override
-  public void goToNextScreen(Chat.DummyTo presenter) {
+  public void goToNextScreen(Chat.ChatTo presenter) {
+    if (presenter.isCalendarClicked()){
+      // TODO: Prueba de estado, CAMBIAR CUÁNDO HAYA ESTADO
+      toCalendarState = new CalendarState();
+      toCalendarState.shop = savedShop;
+
+      Context view = presenter.getManagedContext();
+      if (view != null) {
+        Log.d(TAG, "calling startingChatScreen()");
+        view.startActivity(new Intent(view, CalendarView.class));
+        Log.d(TAG, "calling destroyView()");
+        presenter.destroyView();
+      }
+    } else if (presenter.isShopClicked()){
+      // TODO: Prueba de estado, CAMBIAR CUÁNDO HAYA ESTADO
+      toShopState = new WebState();
+      toShopState.shop = savedShop;
+      toShopState.url = "https://canarias.cashconverters.es";
+
+      Context view = presenter.getManagedContext();
+      if (view != null) {
+        Log.d(TAG, "calling startingWebshopScreen()");
+        view.startActivity(new Intent(view, WebshopView.class));
+        Log.d(TAG, "calling destroyView()");
+        presenter.destroyView();
+      }
+    } else if (presenter.isMapsClicked()){
+      // TODO: Prueba de estado, CAMBIAR CUÁNDO HAYA ESTADO
+      toMapsState = new MapState();
+      toMapsState.shop = savedShop;
+
+
+      Context view = presenter.getManagedContext();
+      if (view != null) {
+        Log.d(TAG, "calling startingMapsScreen()");
+        view.startActivity(new Intent(view, MapsView.class));
+        Log.d(TAG, "calling destroyView()");
+        presenter.destroyView();
+      }
+    }
+  }
+
+  @Override
+  public void backToPreviousScreen(Chat.ChatTo presenter) {
 
   }
 
   @Override
-  public void backToPreviousScreen(Chat.DummyTo presenter) {
+  public void goToNextScreen(Webshop.WebshopTo presenter) {
+    if (presenter.isChatClicked()){
+      // TODO: Prueba de estado, CAMBIAR CUÁNDO HAYA ESTADO
+      toChatState = new ChatState();
+      toChatState.shop = savedShop;
+      toChatState.idChat = null;
 
+      Context view = presenter.getManagedContext();
+      if (view != null) {
+        Log.d(TAG, "calling startingChatScreen()");
+        view.startActivity(new Intent(view, ChatView.class));
+        Log.d(TAG, "calling destroyView()");
+        presenter.destroyView();
+      }
+    } else if (presenter.isCalendarClicked()){
+      // TODO: Prueba de estado, CAMBIAR CUÁNDO HAYA ESTADO
+      toCalendarState = new CalendarState();
+      toCalendarState.shop = savedShop;
+
+      Context view = presenter.getManagedContext();
+      if (view != null) {
+        Log.d(TAG, "calling startingChatScreen()");
+        view.startActivity(new Intent(view, CalendarView.class));
+        Log.d(TAG, "calling destroyView()");
+        presenter.destroyView();
+      }
+    } else if (presenter.isMapsClicked()){
+      // TODO: Prueba de estado, CAMBIAR CUÁNDO HAYA ESTADO
+      toMapsState = new MapState();
+      toMapsState.shop = savedShop;
+
+
+      Context view = presenter.getManagedContext();
+      if (view != null) {
+        Log.d(TAG, "calling startingMapsScreen()");
+        view.startActivity(new Intent(view, MapsView.class));
+        Log.d(TAG, "calling destroyView()");
+        presenter.destroyView();
+      }
+    }
   }
 
   @Override
-  public void goToNextScreen(Webshop.DummyTo presenter) {
-
-  }
-
-  @Override
-  public void backToPreviousScreen(Webshop.DummyTo presenter) {
+  public void backToPreviousScreen(Webshop.WebshopTo presenter) {
   }
 
 
