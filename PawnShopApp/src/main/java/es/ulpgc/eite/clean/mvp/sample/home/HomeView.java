@@ -38,8 +38,6 @@ public class HomeView
       @Override
       public void onClick(View v) {
         getPresenter().onButtonClicked();
-        //Intent i = new Intent(HomeView.this, MapsView.class);
-        //startActivity(i);
       }
     });
 
