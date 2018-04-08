@@ -48,6 +48,7 @@ public interface Calendar {
     void onShopButtonClicked();
     void onMapsButtonClicked();
     void onChatButtonClicked();
+    void onSendButtonClicked();
   }
 
   /**
@@ -55,7 +56,14 @@ public interface Calendar {
    */
   interface PresenterToView extends ContextView {
     void finishScreen();
-
+    void setDateView(String date);
+    void setHourBar(String hour);
+    void setHourText(String hour);
+    void setNameText(String name);
+    void setPhoneText(int phone);
+    void setMailText(String mail);
+    void enableSendButton();
+    void disableSendButon();
   }
 
   /**

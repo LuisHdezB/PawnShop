@@ -18,6 +18,11 @@ public class CalendarPresenter
   private boolean shopClicked;
   private boolean chatClicked;
   private boolean mapsClicked;
+  //State
+  private Shop shop;
+  private String name, mail, date, hour, products;
+  private boolean ifAppointment;
+  private int phone;
 
   /**
    * Operation called during VIEW creation in {@link GenericActivity#onResume(Class, Object)}
@@ -120,6 +125,11 @@ public class CalendarPresenter
     mediator.goToNextScreen(this);
   }
 
+  @Override
+  public void onSendButtonClicked() {
+    // TODO: 8/4/18 Crear método de envio de cita
+  }
+
 
   ///////////////////////////////////////////////////////////////////////////////////
   // State /////////////////////////////////////////////////////////////////////////
@@ -137,42 +147,42 @@ public class CalendarPresenter
 
   @Override
   public void setShop(Shop shop) {
-
+    this.shop = shop;
   }
 
   @Override
   public void setAppointment(boolean ifAppointment) {
-
+    this.ifAppointment = ifAppointment;
   }
 
   @Override
   public void setNameInputText(String name) {
-
+    this.name = name;
   }
 
   @Override
   public void setPhoneInputText(int phone) {
-
+    this.phone = phone;
   }
 
   @Override
   public void setMailInputText(String mail) {
-
+    this.mail = mail;
   }
 
   @Override
   public void setDateInputText(String date) {
-
+    this.date = date;
   }
 
   @Override
   public void setHourInputText(String hour) {
-
+    this.hour = hour;
   }
 
   @Override
   public void setProductsInputText(String products) {
-
+    this.products = products;
   }
 
   @Override
@@ -219,6 +229,33 @@ public class CalendarPresenter
   private void setCurrentState() {
     Log.d(TAG, "calling setCurrentState()");
 
+    //Datos de prueba:
+    date = "8/4/2018";
+    hour = "12:00";
+    name = "alex";
+    phone = 669166210;
+    mail = "alex@alex.com";
+    ifAppointment = false;
+
+    if (isViewRunning()) {
+      getView().setDateView(date);
+      getView().setHourBar(hour);
+      getView().setHourText(hour);
+      getView().setNameText(name);
+      getView().setPhoneText(phone);
+      getView().setMailText(mail);
+    }
+    checkButtonEnable();
+  }
+
+  private void checkButtonEnable() {
+    if (isViewRunning()) {
+      if (!ifAppointment) {
+        getView().enableSendButton();
+      } else {
+        getView().disableSendButon();
+      }
+    }
   }
 
 }

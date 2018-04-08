@@ -46,6 +46,13 @@
         android:progress="3" />
 
     <TextView
+        android:id="@+id/display_hour"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hora: "
+        android:textSize="24sp" />
+
+    <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -87,6 +94,11 @@
         android:inputType="textEmailAddress"
         android:text="Mail" />
 
+    <Button
+        android:id="@+id/send"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/send_text" />
 
 
 </LinearLayout>
