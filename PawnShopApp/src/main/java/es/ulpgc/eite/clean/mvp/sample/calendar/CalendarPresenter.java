@@ -103,7 +103,7 @@ public class CalendarPresenter
   public void onMapsButtonClicked() {
     Log.d(TAG, "calling onMapsButtonClicked()");
     //TODO: Poner estado
-    chatClicked = true;
+    mapsClicked = true;
 
     Mediator.Navigation mediator = (Mediator.Navigation) getApplication();
     mediator.goToNextScreen(this);
@@ -113,7 +113,7 @@ public class CalendarPresenter
   public void onChatButtonClicked() {
     Log.d(TAG, "calling onMapsButtonClicked()");
     //TODO: Poner estado
-    mapsClicked = true;
+    chatClicked = true;
 
     Mediator.Navigation mediator = (Mediator.Navigation) getApplication();
     mediator.goToNextScreen(this);
