@@ -162,7 +162,17 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
 
   @Override
   public void goToNextScreen(Home.HomeTo presenter) {
+    // TODO: Prueba de estado, CAMBIAR CUÁNDO HAYA ESTADO
+    toMapsState = new MapState();
+    toMapsState.shop = savedShop;
 
+    Context view = presenter.getManagedContext();
+    if (view != null) {
+      Log.d(TAG, "calling startingMapsScreen()");
+      view.startActivity(new Intent(view, MapsView.class));
+      Log.d(TAG, "calling destroyView()");
+      presenter.destroyView();
+    }
   }
 
   @Override

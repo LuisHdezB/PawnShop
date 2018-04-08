@@ -14,11 +14,6 @@ public class HomePresenter
         <Home.PresenterToView, Home.PresenterToModel, Home.ModelToPresenter, HomeModel>
     implements Home.ViewToPresenter, Home.ModelToPresenter, Home.HomeTo, Home.ToHome {
 
-/*  private boolean toolbarVisible;
-  private boolean textVisible;*/
-    private boolean buttonClicked;
-
-
   /**
    * Operation called during VIEW creation in {@link GenericActivity#onResume(Class, Object)}
    * Responsible to initialize MODEL.
@@ -93,25 +88,9 @@ public class HomePresenter
   @Override
   public void onButtonClicked() {
     Log.d(TAG, "calling onButtonClicked()");
-    /* Hererado de Dummy
-    if(getModel().isNumOfTimesCompleted()){
 
-      getModel().resetMsgByBtnClicked(); // reseteamos el estado al cumplirse la condición
-
-      Log.d(TAG, "calling goToNextScreen()");
-      Mediator.Navigation mediator = (Mediator.Navigation) getApplication();
-      mediator.goToNextScreen(this);
-      return;
-    }
-
-    if(isViewRunning()) {
-      getModel().changeMsgByBtnClicked();
-      getView().setText(getModel().getText());
-      textVisible = true;
-      buttonClicked = true;
-      checkTextVisibility();
-    }
-    */
+    Mediator.Navigation mediator = (Mediator.Navigation) getApplication();
+    mediator.goToNextScreen(this);
 
   }
 
@@ -119,18 +98,6 @@ public class HomePresenter
   ///////////////////////////////////////////////////////////////////////////////////
   // State /////////////////////////////////////////////////////////////////////////
 
-
-/* Hererado de Dummy
-  @Override
-  public void setToolbarVisibility(boolean visible) {
-    toolbarVisible = visible;
-  }
-
-  @Override
-  public void setTextVisibility(boolean visible) {
-    textVisible = visible;
-  }
-  */
 
 
   ///////////////////////////////////////////////////////////////////////////////////
@@ -147,10 +114,6 @@ public class HomePresenter
     Log.d(TAG, "calling onScreenResumed()");
 
     setCurrentState();
-    if (buttonClicked) {
-      // Hererado de Dummy
-      //getView().setText(getModel().getText());
-    }
   }
 
 
@@ -170,18 +133,6 @@ public class HomePresenter
     }
   }
 
-/* Hererado de Dummy
-  @Override
-  public boolean isToolbarVisible() {
-    return toolbarVisible;
-  }
-
-  @Override
-  public boolean isTextVisible() {
-    return textVisible;
-  }
-  */
-
 
   ///////////////////////////////////////////////////////////////////////////////////
 
@@ -189,32 +140,6 @@ public class HomePresenter
   private void setCurrentState() {
     Log.d(TAG, "calling setCurrentState()");
 
-/* Hererado de Dummy
-    if(isViewRunning()) {
-      getView().setLabel(getModel().getLabel());
-    }
-    checkToolbarVisibility();
-    checkTextVisibility();*/
   }
-
-/*
-  private void checkToolbarVisibility(){
-    if(isViewRunning()) {
-      if (!toolbarVisible) {
-        getView().hideToolbar();
-      }
-    }
-  }
-
-  private void checkTextVisibility(){
-    if(isViewRunning()) {
-      if(!textVisible) {
-        getView().hideText();
-      } else {
-        getView().showText();
-      }
-    }
-  }
-  */
 
 }

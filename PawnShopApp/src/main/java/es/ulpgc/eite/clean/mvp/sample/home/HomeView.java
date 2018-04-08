@@ -37,8 +37,9 @@ public class HomeView
     button.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        Intent i = new Intent(HomeView.this, MapsView.class);
-        startActivity(i);
+        getPresenter().onButtonClicked();
+        //Intent i = new Intent(HomeView.this, MapsView.class);
+        //startActivity(i);
       }
     });
 
@@ -87,27 +88,4 @@ public class HomeView
     finish();
   }
 
-/*   Heredado de Dummy
-
-  @Override
-  public void hideToolbar() { toolbar.setVisibility(View.GONE); }
-
-  @Override
-  public void hideText() {
-    text.setVisibility(View.GONE);
-  }
-
-  @Override
-  public void showText() {
-    text.setVisibility(View.VISIBLE);
-  }
-
-  @Override
-  public void setText(String txt) {
-    text.setText(txt);
-  }
-
-  @Override
-  public void setLabel(String txt) {  }
-  */
 }
