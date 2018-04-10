@@ -1,0 +1,223 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:2:1-39:12
+MERGED from [com.android.support:design:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/bcb5c50d90af114a55c3383ca5421b5c/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:appcompat-v7:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/75256c65bd2a43cd7c50af43a3b83866/AndroidManifest.xml:17:1-31:12
+MERGED from [com.google.android.gms:play-services-maps:8.3.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/play-services-maps-8.3.0.aar/416d9d98f4b0ef3b118e43dedc34f0a6/AndroidManifest.xml:16:1-28:12
+MERGED from [:CleanMvpLib] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/CleanMvpLib.aar/9dcee4bc618c4bf0adcc2fe2912d785f/AndroidManifest.xml:2:1-17:12
+MERGED from [com.android.support:animated-vector-drawable:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.4.0.aar/529662e8ac3fe27b1a53317e0bea2116/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-vector-drawable:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.4.0.aar/c0ca11db83c664d395079e2ab9040849/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:recyclerview-v7:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-25.4.0.aar/47d244c263e8d92e363a2cc533decc59/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:transition:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/transition-25.4.0.aar/bbed68064d7dc1c6c49a36724d07b61e/AndroidManifest.xml:17:1-28:12
+MERGED from [com.google.android.gms:play-services-base:8.3.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/play-services-base-8.3.0.aar/03cbee341a5ab6ba6d2bba19baf8ddc3/AndroidManifest.xml:16:1-19:12
+MERGED from [com.google.android.gms:play-services-basement:8.3.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/play-services-basement-8.3.0.aar/742fe47fd59d4b40a033cdd25bda4425/AndroidManifest.xml:16:1-26:12
+MERGED from [com.android.support:support-v4:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-v4-25.4.0.aar/ace7a218b9ae8ed83d313e4b380516fb/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-fragment:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-fragment-25.4.0.aar/edbc03932c7b1a696376eae1bdbb33aa/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-ui:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.4.0.aar/79a9956e6162343e138a91a02e9dc737/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-media-compat:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.4.0.aar/b92b583d7b2529793ea197a0dcf13fcd/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-utils:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.4.0.aar/7e67415ba49bb9131dd9fe86f369767e/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-compat:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-compat-25.4.0.aar/2fb095a9925c388809f6b7722b795dcb/AndroidManifest.xml:17:1-31:12
+INJECTED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:2:1-39:12
+INJECTED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:2:1-39:12
+	package
+		ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:3:5-45
+		INJECTED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml
+		INJECTED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml
+		ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:2:1-39:12
+		INJECTED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml
+		ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:2:1-39:12
+		INJECTED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:5:5-66
+MERGED from [com.google.android.gms:play-services-maps:8.3.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/play-services-maps-8.3.0.aar/416d9d98f4b0ef3b118e43dedc34f0a6/AndroidManifest.xml:21:5-66
+MERGED from [com.google.android.gms:play-services-maps:8.3.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/play-services-maps-8.3.0.aar/416d9d98f4b0ef3b118e43dedc34f0a6/AndroidManifest.xml:21:5-66
+	android:name
+		ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:5:22-64
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:6:5-81
+	android:name
+		ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:6:22-78
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:7:5-79
+	android:name
+		ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:7:22-76
+uses-permission#com.google.android.providers.gsf.permission.READ_GSERVICES
+ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:8:5-98
+	android:name
+		ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:8:22-95
+meta-data#com.google.android.gms.version
+ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:10:5-12:64
+	android:value
+		ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:12:9-62
+	android:name
+		ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:11:9-54
+application
+ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:14:5-37:19
+MERGED from [com.android.support:design:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/bcb5c50d90af114a55c3383ca5421b5c/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:design:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/bcb5c50d90af114a55c3383ca5421b5c/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:appcompat-v7:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/75256c65bd2a43cd7c50af43a3b83866/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:appcompat-v7:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/75256c65bd2a43cd7c50af43a3b83866/AndroidManifest.xml:25:5-29:19
+MERGED from [com.google.android.gms:play-services-maps:8.3.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/play-services-maps-8.3.0.aar/416d9d98f4b0ef3b118e43dedc34f0a6/AndroidManifest.xml:27:5-20
+MERGED from [com.google.android.gms:play-services-maps:8.3.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/play-services-maps-8.3.0.aar/416d9d98f4b0ef3b118e43dedc34f0a6/AndroidManifest.xml:27:5-20
+MERGED from [:CleanMvpLib] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/CleanMvpLib.aar/9dcee4bc618c4bf0adcc2fe2912d785f/AndroidManifest.xml:11:5-15:19
+MERGED from [:CleanMvpLib] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/CleanMvpLib.aar/9dcee4bc618c4bf0adcc2fe2912d785f/AndroidManifest.xml:11:5-15:19
+MERGED from [com.android.support:animated-vector-drawable:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.4.0.aar/529662e8ac3fe27b1a53317e0bea2116/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:animated-vector-drawable:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.4.0.aar/529662e8ac3fe27b1a53317e0bea2116/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-vector-drawable:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.4.0.aar/c0ca11db83c664d395079e2ab9040849/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-vector-drawable:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.4.0.aar/c0ca11db83c664d395079e2ab9040849/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:recyclerview-v7:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-25.4.0.aar/47d244c263e8d92e363a2cc533decc59/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:recyclerview-v7:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-25.4.0.aar/47d244c263e8d92e363a2cc533decc59/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:transition:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/transition-25.4.0.aar/bbed68064d7dc1c6c49a36724d07b61e/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:transition:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/transition-25.4.0.aar/bbed68064d7dc1c6c49a36724d07b61e/AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:8.3.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/play-services-basement-8.3.0.aar/742fe47fd59d4b40a033cdd25bda4425/AndroidManifest.xml:20:5-24:19
+MERGED from [com.google.android.gms:play-services-basement:8.3.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/play-services-basement-8.3.0.aar/742fe47fd59d4b40a033cdd25bda4425/AndroidManifest.xml:20:5-24:19
+MERGED from [com.android.support:support-v4:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-v4-25.4.0.aar/ace7a218b9ae8ed83d313e4b380516fb/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-v4:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-v4-25.4.0.aar/ace7a218b9ae8ed83d313e4b380516fb/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-fragment:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-fragment-25.4.0.aar/edbc03932c7b1a696376eae1bdbb33aa/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-fragment:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-fragment-25.4.0.aar/edbc03932c7b1a696376eae1bdbb33aa/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.4.0.aar/79a9956e6162343e138a91a02e9dc737/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.4.0.aar/79a9956e6162343e138a91a02e9dc737/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.4.0.aar/b92b583d7b2529793ea197a0dcf13fcd/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.4.0.aar/b92b583d7b2529793ea197a0dcf13fcd/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.4.0.aar/7e67415ba49bb9131dd9fe86f369767e/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.4.0.aar/7e67415ba49bb9131dd9fe86f369767e/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-compat-25.4.0.aar/2fb095a9925c388809f6b7722b795dcb/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-compat-25.4.0.aar/2fb095a9925c388809f6b7722b795dcb/AndroidManifest.xml:25:5-29:19
+	android:supportsRtl
+		ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:19:9-35
+	android:label
+		ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:18:9-41
+	android:icon
+		ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:17:9-43
+	android:allowBackup
+		ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:16:9-35
+	android:theme
+		ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:20:9-40
+	android:name
+		ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:15:9-40
+activity#es.ulpgc.eite.clean.mvp.sample.home.HomeView
+ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:21:9-29:20
+	android:label
+		ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:23:13-45
+	android:theme
+		ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:24:13-56
+	android:name
+		ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:22:13-42
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:25:13-28:29
+action#android.intent.action.MAIN
+ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:26:17-69
+	android:name
+		ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:26:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:27:17-77
+	android:name
+		ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:27:27-74
+activity#es.ulpgc.eite.clean.mvp.sample.maps.MapsView
+ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:30:9-32:59
+	android:theme
+		ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:32:13-56
+	android:name
+		ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:31:13-42
+meta-data#com.google.android.geo.API_KEY
+ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:34:9-36:70
+	android:value
+		ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:36:13-68
+	android:name
+		ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml:35:13-58
+uses-sdk
+INJECTED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml
+INJECTED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml
+MERGED from [com.android.support:design:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/bcb5c50d90af114a55c3383ca5421b5c/AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:design:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/bcb5c50d90af114a55c3383ca5421b5c/AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:appcompat-v7:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/75256c65bd2a43cd7c50af43a3b83866/AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:appcompat-v7:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/75256c65bd2a43cd7c50af43a3b83866/AndroidManifest.xml:21:5-23:78
+MERGED from [com.google.android.gms:play-services-maps:8.3.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/play-services-maps-8.3.0.aar/416d9d98f4b0ef3b118e43dedc34f0a6/AndroidManifest.xml:26:5-42
+MERGED from [com.google.android.gms:play-services-maps:8.3.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/play-services-maps-8.3.0.aar/416d9d98f4b0ef3b118e43dedc34f0a6/AndroidManifest.xml:26:5-42
+MERGED from [:CleanMvpLib] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/CleanMvpLib.aar/9dcee4bc618c4bf0adcc2fe2912d785f/AndroidManifest.xml:7:5-9:41
+MERGED from [:CleanMvpLib] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/CleanMvpLib.aar/9dcee4bc618c4bf0adcc2fe2912d785f/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:animated-vector-drawable:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.4.0.aar/529662e8ac3fe27b1a53317e0bea2116/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.4.0.aar/529662e8ac3fe27b1a53317e0bea2116/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.4.0.aar/c0ca11db83c664d395079e2ab9040849/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-vector-drawable:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.4.0.aar/c0ca11db83c664d395079e2ab9040849/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:recyclerview-v7:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-25.4.0.aar/47d244c263e8d92e363a2cc533decc59/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:recyclerview-v7:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-25.4.0.aar/47d244c263e8d92e363a2cc533decc59/AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:transition:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/transition-25.4.0.aar/bbed68064d7dc1c6c49a36724d07b61e/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/transition-25.4.0.aar/bbed68064d7dc1c6c49a36724d07b61e/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:8.3.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/play-services-base-8.3.0.aar/03cbee341a5ab6ba6d2bba19baf8ddc3/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-base:8.3.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/play-services-base-8.3.0.aar/03cbee341a5ab6ba6d2bba19baf8ddc3/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-basement:8.3.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/play-services-basement-8.3.0.aar/742fe47fd59d4b40a033cdd25bda4425/AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-basement:8.3.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/play-services-basement-8.3.0.aar/742fe47fd59d4b40a033cdd25bda4425/AndroidManifest.xml:18:5-42
+MERGED from [com.android.support:support-v4:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-v4-25.4.0.aar/ace7a218b9ae8ed83d313e4b380516fb/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-v4-25.4.0.aar/ace7a218b9ae8ed83d313e4b380516fb/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-fragment-25.4.0.aar/edbc03932c7b1a696376eae1bdbb33aa/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-fragment:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-fragment-25.4.0.aar/edbc03932c7b1a696376eae1bdbb33aa/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-core-ui:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.4.0.aar/79a9956e6162343e138a91a02e9dc737/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.4.0.aar/79a9956e6162343e138a91a02e9dc737/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-media-compat:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.4.0.aar/b92b583d7b2529793ea197a0dcf13fcd/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-media-compat:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.4.0.aar/b92b583d7b2529793ea197a0dcf13fcd/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-utils:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.4.0.aar/7e67415ba49bb9131dd9fe86f369767e/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-utils:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.4.0.aar/7e67415ba49bb9131dd9fe86f369767e/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-compat:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-compat-25.4.0.aar/2fb095a9925c388809f6b7722b795dcb/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-compat-25.4.0.aar/2fb095a9925c388809f6b7722b795dcb/AndroidManifest.xml:21:5-23:58
+INJECTED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml
+INJECTED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml
+	tools:overrideLibrary
+		ADDED from [com.android.support:design:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/bcb5c50d90af114a55c3383ca5421b5c/AndroidManifest.xml:23:9-59
+	android:targetSdkVersion
+		INJECTED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml
+		ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml
+		INJECTED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml
+		ADDED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml
+		INJECTED from /Users/luishernandez/PawnShop/PawnShop/DummyApp/src/main/AndroidManifest.xml
+meta-data#android.support.VERSION
+ADDED from [com.android.support:design:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/bcb5c50d90af114a55c3383ca5421b5c/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:appcompat-v7:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/75256c65bd2a43cd7c50af43a3b83866/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:appcompat-v7:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/appcompat-v7-25.4.0.aar/75256c65bd2a43cd7c50af43a3b83866/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:animated-vector-drawable:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.4.0.aar/529662e8ac3fe27b1a53317e0bea2116/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:animated-vector-drawable:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/animated-vector-drawable-25.4.0.aar/529662e8ac3fe27b1a53317e0bea2116/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-vector-drawable:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.4.0.aar/c0ca11db83c664d395079e2ab9040849/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-vector-drawable:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-vector-drawable-25.4.0.aar/c0ca11db83c664d395079e2ab9040849/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:recyclerview-v7:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-25.4.0.aar/47d244c263e8d92e363a2cc533decc59/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:recyclerview-v7:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/recyclerview-v7-25.4.0.aar/47d244c263e8d92e363a2cc533decc59/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:transition:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/transition-25.4.0.aar/bbed68064d7dc1c6c49a36724d07b61e/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:transition:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/transition-25.4.0.aar/bbed68064d7dc1c6c49a36724d07b61e/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-v4:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-v4-25.4.0.aar/ace7a218b9ae8ed83d313e4b380516fb/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-v4:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-v4-25.4.0.aar/ace7a218b9ae8ed83d313e4b380516fb/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-fragment:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-fragment-25.4.0.aar/edbc03932c7b1a696376eae1bdbb33aa/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-fragment:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-fragment-25.4.0.aar/edbc03932c7b1a696376eae1bdbb33aa/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-ui:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.4.0.aar/79a9956e6162343e138a91a02e9dc737/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-ui:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-core-ui-25.4.0.aar/79a9956e6162343e138a91a02e9dc737/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.4.0.aar/b92b583d7b2529793ea197a0dcf13fcd/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-media-compat-25.4.0.aar/b92b583d7b2529793ea197a0dcf13fcd/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-utils:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.4.0.aar/7e67415ba49bb9131dd9fe86f369767e/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-utils:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-core-utils-25.4.0.aar/7e67415ba49bb9131dd9fe86f369767e/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-compat:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-compat-25.4.0.aar/2fb095a9925c388809f6b7722b795dcb/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-compat:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/support-compat-25.4.0.aar/2fb095a9925c388809f6b7722b795dcb/AndroidManifest.xml:26:9-28:38
+	android:value
+		ADDED from [com.android.support:design:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/bcb5c50d90af114a55c3383ca5421b5c/AndroidManifest.xml:28:13-35
+	android:name
+		ADDED from [com.android.support:design:25.4.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/design-25.4.0.aar/bcb5c50d90af114a55c3383ca5421b5c/AndroidManifest.xml:27:13-51
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.android.gms:play-services-maps:8.3.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/play-services-maps-8.3.0.aar/416d9d98f4b0ef3b118e43dedc34f0a6/AndroidManifest.xml:20:5-78
+	android:name
+		ADDED from [com.google.android.gms:play-services-maps:8.3.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/play-services-maps-8.3.0.aar/416d9d98f4b0ef3b118e43dedc34f0a6/AndroidManifest.xml:20:22-76
+uses-feature#0x00020000
+ADDED from [com.google.android.gms:play-services-maps:8.3.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/play-services-maps-8.3.0.aar/416d9d98f4b0ef3b118e43dedc34f0a6/AndroidManifest.xml:22:5-24:33
+	android:glEsVersion
+		ADDED from [com.google.android.gms:play-services-maps:8.3.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/play-services-maps-8.3.0.aar/416d9d98f4b0ef3b118e43dedc34f0a6/AndroidManifest.xml:23:8-40
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:8.3.0] /Users/luishernandez/.gradle/caches/transforms-1/files-1.1/play-services-maps-8.3.0.aar/416d9d98f4b0ef3b118e43dedc34f0a6/AndroidManifest.xml:24:8-31
