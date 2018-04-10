@@ -2,6 +2,8 @@ package es.ulpgc.eite.clean.mvp.sample.calendar;
 
 import android.content.Context;
 
+import java.util.ArrayList;
+
 import es.ulpgc.eite.clean.mvp.ContextView;
 import es.ulpgc.eite.clean.mvp.Model;
 import es.ulpgc.eite.clean.mvp.Presenter;
@@ -25,7 +27,6 @@ public interface Calendar {
     void setPhoneInputText(int phone);
     void setMailInputText(String mail);
     void setDateInputText(String date);
-    void setHourInputText(String hour);
     void setProductsInputText(String products);
   }
 
@@ -57,8 +58,7 @@ public interface Calendar {
   interface PresenterToView extends ContextView {
     void finishScreen();
     void setDateView(String date);
-    void setHourBar(String hour);
-    void setHourText(String hour);
+    void setHours(ArrayList<String> hours);
     void setNameText(String name);
     void setPhoneText(int phone);
     void setMailText(String mail);
