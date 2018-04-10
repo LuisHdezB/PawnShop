@@ -86,6 +86,7 @@ public class MapsView
         getPresenter().onShopButtonClicked();
       }
     });
+    //
 
     calendarMenuImage.setOnClickListener(new View.OnClickListener() {
       @Override
