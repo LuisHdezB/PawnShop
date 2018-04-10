@@ -36,7 +36,7 @@ public interface Home {
    * Methods offered to VIEW to communicate with PRESENTER
    */
   interface ViewToPresenter extends Presenter<PresenterToView> {
-    void onButtonClicked();
+    void onButtonClicked(int selectedItemPosition);
   }
 
   /**

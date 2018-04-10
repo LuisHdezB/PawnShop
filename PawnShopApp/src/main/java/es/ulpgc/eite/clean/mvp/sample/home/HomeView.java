@@ -34,24 +34,26 @@ public class HomeView
 
     button = (Button) findViewById(R.id.button);
 
-    button.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        getPresenter().onButtonClicked();
-      }
-    });
+
 
 
     // Inicialización del Spinner
 
-    Spinner spinner = (Spinner) findViewById(R.id.spinner);
+    final Spinner spinner = (Spinner) findViewById(R.id.spinner);
     // Create an ArrayAdapter using the string array and a default spinner layout
-    ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+    final ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
             R.array.spinner, android.R.layout.simple_spinner_item);
     // Specify the layout to use when the list of choices appears
     adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
     // Apply the adapter to the spinner
     spinner.setAdapter(adapter);
+
+    button.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        getPresenter().onButtonClicked(spinner.getSelectedItemPosition());
+      }
+    });
   }
 
   /**

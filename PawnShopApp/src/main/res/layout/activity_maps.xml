@@ -8,15 +8,17 @@
     tools:context="es.ulpgc.eite.clean.mvp.sample.maps.MapsView">
 
     <include
-        layout="@layout/content_maps"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <include
+        android:id="@+id/am_menu"
         layout="@layout/menu"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true" />
+
+    <include
+        layout="@layout/content_maps"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/am_menu"/>
 
 </RelativeLayout>
 

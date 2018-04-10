@@ -1,7 +1,9 @@
 package es.ulpgc.eite.clean.mvp.sample.maps;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -11,14 +13,25 @@ import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.maps.CameraUpdate;
+import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.util.Arrays;
+import java.util.List;
 
 import es.ulpgc.eite.clean.mvp.GenericActivity;
 import es.ulpgc.eite.clean.mvp.sample.R;
 import es.ulpgc.eite.clean.mvp.sample.calendar.CalendarView;
 import es.ulpgc.eite.clean.mvp.sample.chat.ChatView;
+import es.ulpgc.eite.clean.mvp.sample.home.HomePresenter;
+import es.ulpgc.eite.clean.mvp.sample.home.HomeView;
+import es.ulpgc.eite.clean.mvp.sample.utils.GeoUtils;
 import es.ulpgc.eite.clean.mvp.sample.webshop.WebshopView;
 
 public class MapsView
@@ -27,6 +40,7 @@ public class MapsView
 
 
   private ImageButton menuImage;
+  private MapView mapView;
 
 
   @Override
@@ -42,17 +56,20 @@ public class MapsView
     ImageButton webMenuImage = (ImageButton) findViewById(R.id.m_shop);
     menuImage = (ImageButton) findViewById(R.id.m_maps);
 
-    toolbar = (Toolbar) findViewById(R.id.toolbar);
-    setSupportActionBar(toolbar);
+      //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+      //setSupportActionBar(toolbar);
 
-    MapView mapView = (MapView) findViewById(R.id.cm_mapview);
+     mapView = (MapView) findViewById(R.id.cm_mapview);
+
     mapView.onCreate(savedInstanceState);
 
-    /*
     GoogleMap map = mapView.getMap();
     map.getUiSettings().setMyLocationButtonEnabled(false);
-    map.setMyLocationEnabled(true);
-    */
+    map.getUiSettings().setMapToolbarEnabled(true);
+    map.getUiSettings().setZoomControlsEnabled(true);
+    map.getUiSettings().setZoomGesturesEnabled(true);
+
+
 
     MapsInitializer.initialize(this);
     // Listeners del menú
@@ -76,6 +93,21 @@ public class MapsView
         getPresenter().onCalendarButtonClicked();
       }
     });
+
+    SharedPreferences preferences = getApplicationContext().getSharedPreferences(HomePresenter.TIENDAS_PREFERENCES, Context.MODE_PRIVATE);
+    String nombre = preferences.getString(HomePresenter.KEY_TIENDA_NOMBRE, "");
+    Double latitud = ((Long) preferences.getLong(HomePresenter.KEY_LATITUD, 0)).doubleValue();
+    Double longitud = ((Long) preferences.getLong(HomePresenter.KEY_LONGITUD, 0)).doubleValue();
+
+    List<String> nombres = Arrays.asList(getResources().getStringArray(R.array.spinner));
+    for (int i = 0; i < nombres.size(); i++) {
+      LatLng latLng = new LatLng(GeoUtils.getLatitudFromPosition(i), GeoUtils.getLongitudFromPosition(i));
+        Marker marker = map.addMarker(new MarkerOptions().position(latLng).title(nombres.get(i)));
+    }
+
+    LatLng latLng = new LatLng(latitud, longitud);
+    CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng,10);
+    map.animateCamera(cameraUpdate);
   }
 
   /**
@@ -86,18 +118,22 @@ public class MapsView
   @Override
   protected void onResume() {
     super.onResume(MapsPresenter.class, this);
+    mapView.onResume();
     menuImage.setImageResource(R.drawable.ic_maps_icon_m);
   }
 
   @Override
   public void onBackPressed() {
-    super.onBackPressed();
+    // super.onBackPressed();
     Log.d(TAG, "calling onBackPressed()");
+    Intent intent = new Intent(this, HomeView.class);
+    startActivity(intent);
   }
 
   @Override
   protected void onDestroy() {
     super.onDestroy();
+    mapView.onDestroy();
     Log.d(TAG, "calling onDestroy()");
   }
 
