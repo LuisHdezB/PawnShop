@@ -141,7 +141,6 @@ public class CalendarView
   @Override
   public void disableSendButon() {
     send.setEnabled(false);
-
   }
 
 }

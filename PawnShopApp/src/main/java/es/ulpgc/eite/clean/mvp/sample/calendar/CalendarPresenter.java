@@ -233,7 +233,7 @@ public class CalendarPresenter
     date = "8/4/2018";
     hour = "12:00";
     name = "alex";
-    phone = 669166210;
+    phone = 123456789;
     mail = "alex@alex.com";
     ifAppointment = false;
 
