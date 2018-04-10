@@ -4,10 +4,13 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.SeekBar;
+import android.widget.Spinner;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 import es.ulpgc.eite.clean.mvp.GenericActivity;
 import es.ulpgc.eite.clean.mvp.sample.R;
@@ -17,9 +20,9 @@ public class CalendarView
     implements Calendar.PresenterToView {
 
   private ImageButton menuImage;
-  private TextView name, phone, mail, displayhour;
+  private TextView name, phone, mail;
   private android.widget.CalendarView date;
-  private SeekBar hour;
+  private Spinner hours;
   private Button send;
 
 
@@ -59,8 +62,7 @@ public class CalendarView
     phone = (TextView) findViewById(R.id.phone);
     mail = (TextView) findViewById(R.id.mail);
     date = (android.widget.CalendarView) findViewById(R.id.date);
-    hour = (SeekBar) findViewById(R.id.hour);
-    displayhour = (TextView) findViewById(R.id.display_hour);
+    hours = (Spinner) findViewById(R.id.hour);
     send = (Button) findViewById(R.id.send);
     send.setOnClickListener(new View.OnClickListener() {
       @Override
@@ -106,16 +108,13 @@ public class CalendarView
   @Override
   public void setDateView(String date) {
     // TODO: 8/4/18  Poner fecha en el calendario
+    java.util.Calendar cal = java.util.Calendar.getInstance();
+    this.date.setMinDate(cal.getTimeInMillis());
   }
 
   @Override
-  public void setHourBar(String hour) {
-    // TODO: 8/4/18 Poner hora en la barra
-  }
-
-  @Override
-  public void setHourText(String hour) {
-    displayhour.setText("Hora: " + hour);
+  public void setHours(ArrayList<String> hours) {
+    this.hours.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, hours));
   }
 
   @Override

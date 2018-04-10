@@ -34,7 +34,7 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
     Log.d(TAG, "calling creatingInitialState()");
 
     Log.d(TAG, "Asignación de tienda");
-    savedShop = new Shop(null,null,0,null,null);
+    savedShop = new Shop(null,null,0,null,null, 0, 0);
   }
 
   ///////////////////////////////////////////////////////////////////////////////////
@@ -72,7 +72,6 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
       presenter.setPhoneInputText(toCalendarState.phone);
       presenter.setMailInputText(toCalendarState.mail);
       presenter.setDateInputText(toCalendarState.date);
-      presenter.setHourInputText(toCalendarState.hour);
       presenter.setProductsInputText(toCalendarState.products);
 
       Log.d(TAG, "calling removingInitialHelloState()");

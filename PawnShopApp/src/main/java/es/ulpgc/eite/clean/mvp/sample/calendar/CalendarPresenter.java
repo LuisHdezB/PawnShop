@@ -4,6 +4,8 @@ package es.ulpgc.eite.clean.mvp.sample.calendar;
 import android.content.Context;
 import android.util.Log;
 
+import java.util.ArrayList;
+
 import es.ulpgc.eite.clean.mvp.ContextView;
 import es.ulpgc.eite.clean.mvp.GenericActivity;
 import es.ulpgc.eite.clean.mvp.GenericPresenter;
@@ -20,9 +22,10 @@ public class CalendarPresenter
   private boolean mapsClicked;
   //State
   private Shop shop;
-  private String name, mail, date, hour, products;
+  private String name, mail, date, products;
   private boolean ifAppointment;
   private int phone;
+  private ArrayList<String> hours;
 
   /**
    * Operation called during VIEW creation in {@link GenericActivity#onResume(Class, Object)}
@@ -176,11 +179,6 @@ public class CalendarPresenter
   }
 
   @Override
-  public void setHourInputText(String hour) {
-    this.hour = hour;
-  }
-
-  @Override
   public void setProductsInputText(String products) {
     this.products = products;
   }
@@ -231,7 +229,9 @@ public class CalendarPresenter
 
     //Datos de prueba:
     date = "8/4/2018";
-    hour = "12:00";
+    hours = new ArrayList<>();
+    hours.add("10:00");
+    hours.add("10:30");
     name = "alex";
     phone = 123456789;
     mail = "alex@alex.com";
@@ -239,8 +239,7 @@ public class CalendarPresenter
 
     if (isViewRunning()) {
       getView().setDateView(date);
-      getView().setHourBar(hour);
-      getView().setHourText(hour);
+      getView().setHours(hours);
       getView().setNameText(name);
       getView().setPhoneText(phone);
       getView().setMailText(mail);

@@ -1,18 +1,24 @@
 package es.ulpgc.eite.clean.mvp.sample.app;
 
+import java.util.ArrayList;
+
 public class Shop {
     private String name;
     private String code;
     private int zone;
     private String mail;
-    private String calendar;
+    private ArrayList<Calendar> calendar;
+    private long latitud;
+    private long longitud;
 
-    public Shop(String name, String code, int zone, String mail, String calendar) {
+    public Shop(String name, String code, int zone, String mail, ArrayList calendar, long latitud, long longitud) {
         this.name = name;
         this.code = code;
         this.zone = zone;
         this.mail = mail;
         this.calendar = calendar;
+        this.latitud = latitud;
+        this.longitud = longitud;
     }
 
     public String getName() {
@@ -47,11 +53,54 @@ public class Shop {
         this.mail = mail;
     }
 
-    public String getCalendar() {
+    public ArrayList<Calendar> getCalendar() {
         return calendar;
     }
 
-    public void setCalendar(String calendar) {
+    public void setCalendar(ArrayList<Calendar> calendar) {
         this.calendar = calendar;
     }
+
+    public long getLatitud() {
+        return latitud;
+    }
+
+    public void setLatitud(long latitud) {
+        this.latitud = latitud;
+    }
+
+    public long getLongitud() {
+        return longitud;
+    }
+
+    public void setLongitud(long longitud) {
+        this.longitud = longitud;
+    }
+
+    private class Calendar{
+        private int idHour;
+        private String hour;
+
+        public Calendar(int idHour, String hour) {
+            this.idHour = idHour;
+            this.hour = hour;
+        }
+
+        public int getIdHour() {
+            return idHour;
+        }
+
+        public void setIdHour(int idHour) {
+            this.idHour = idHour;
+        }
+
+        public String getHour() {
+            return hour;
+        }
+
+        public void setHour(String hour) {
+            this.hour = hour;
+        }
+    }
+
 }
