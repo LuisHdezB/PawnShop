@@ -10,11 +10,12 @@
 
 
     <ImageButton
-    android:id="@+id/m_maps"
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:layout_weight="1"
-    app:srcCompat="@drawable/ic_maps_icon"
+        android:id="@+id/m_maps"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@android:color/transparent"
+        app:srcCompat="@drawable/ic_maps_icon"
         tools:ignore="VectorDrawableCompat" />
 
     <ImageButton
@@ -22,6 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:background="@android:color/transparent"
         app:srcCompat="@drawable/ic_chat_icon"
         tools:ignore="VectorDrawableCompat" />
 
@@ -30,6 +32,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:background="@android:color/transparent"
         app:srcCompat="@drawable/ic_shop_icon"
         tools:ignore="VectorDrawableCompat" />
 
@@ -38,6 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:background="@android:color/transparent"
         app:srcCompat="@drawable/ic_calendar_icon"
         tools:ignore="VectorDrawableCompat" />
 </LinearLayout>
