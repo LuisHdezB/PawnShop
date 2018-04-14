@@ -101,7 +101,7 @@ public class Shop {
         this.id = id;
     }
 
-    private class Calendar{
+    public static class Calendar{
         private int idHour;
         private String hour;
 
