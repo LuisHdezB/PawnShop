@@ -21,6 +21,21 @@ public class Shop {
         this.longitud = longitud;
     }
 
+    @Override
+    public String toString() { return name;}
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Shop){
+            Shop item = (Shop) obj;
+
+            if (item.getCode() == getCode()){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public String getName() {
         return name;
     }
