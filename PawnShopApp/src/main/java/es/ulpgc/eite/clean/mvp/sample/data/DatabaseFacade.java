@@ -3,12 +3,14 @@ package es.ulpgc.eite.clean.mvp.sample.data;
 import java.util.ArrayList;
 import java.util.List;
 
+import es.ulpgc.eite.clean.mvp.sample.app.Shop;
+
 public class DatabaseFacade implements Database {
-    private ArrayList<ModelDbItem> data;
+    private ArrayList<Shop> data;
     private ArrayList<Boolean> validDataMap;
 
     private DatabaseFacade() {
-        data = new ArrayList<ModelDbItem>();
+        data = new ArrayList<Shop>();
         validDataMap = new ArrayList<Boolean>();
     }
 
@@ -21,7 +23,7 @@ public class DatabaseFacade implements Database {
     }
 
     @Override
-    public void insertDatabaseItem(ModelDbItem item) {
+    public void insertDatabaseItem(Shop item) {
         item.setId(data.size());
 
         data.add(item);
@@ -30,7 +32,7 @@ public class DatabaseFacade implements Database {
 
     @Override
     public void deleteAllDatabaseItems(){
-        for(ModelDbItem item: getAllItemsFromDatabase()){
+        for(Shop item: getAllItemsFromDatabase()){
             deleteDatabaseItem(item.getId());
         }
     }
@@ -41,7 +43,7 @@ public class DatabaseFacade implements Database {
     }
 
     @Override
-    public ModelDbItem getItem(Integer id) {
+    public Shop getItem(Integer id) {
         if (validDataMap.get(id)) {
             return data.get(id);
         } else {
@@ -50,8 +52,8 @@ public class DatabaseFacade implements Database {
     }
 
     @Override
-    public List<ModelDbItem> getAllItemsFromDatabase(){
-        ArrayList<ModelDbItem> result = new ArrayList<ModelDbItem>();
+    public List<Shop> getAllItemsFromDatabase(){
+        ArrayList<Shop> result = new ArrayList<Shop>();
 
         for (int id=0; id<validDataMap.size(); id++) {
             if (validDataMap.get(id)) {
@@ -63,7 +65,7 @@ public class DatabaseFacade implements Database {
     }
 
     @Override
-    public ModelDbItem[] getAllItemsArrayFromDatabase(){
+    public Shop[] getAllItemsArrayFromDatabase(){
         int length = 0;
 
         // Compute the length of the returned array
@@ -75,7 +77,7 @@ public class DatabaseFacade implements Database {
 
         // Build the array and fill the results
 
-        ModelDbItem[] result = new ModelDbItem[length];
+        Shop[] result = new Shop[length];
         int pos = 0;
         for (int id=0; id<validDataMap.size(); id++) {
             if (validDataMap.get(id)) {

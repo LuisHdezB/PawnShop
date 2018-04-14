@@ -1,16 +1,17 @@
 package es.ulpgc.eite.clean.mvp.sample.data;
 
 import java.util.List;
+import es.ulpgc.eite.clean.mvp.sample.app.Shop;
 
 interface Database {
     // Methods to add information to the database
-    void insertDatabaseItem(ModelDbItem item);
+    void insertDatabaseItem(Shop item);
 
     // Methods to get information from the database
-    ModelDbItem getItem(Integer id);
+    Shop getItem(Integer id);
 
-    List<ModelDbItem> getAllItemsFromDatabase();
-    ModelDbItem[] getAllItemsArrayFromDatabase();
+    List<Shop> getAllItemsFromDatabase();
+    Shop[] getAllItemsArrayFromDatabase();
 
     // Methods to remove information from the database
     void deleteDatabaseItem(Integer id);

@@ -3,6 +3,7 @@ package es.ulpgc.eite.clean.mvp.sample.app;
 import java.util.ArrayList;
 
 public class Shop {
+    private int id;
     private String name;
     private String code;
     private int zone;
@@ -90,6 +91,14 @@ public class Shop {
 
     public void setLongitud(long longitud) {
         this.longitud = longitud;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     private class Calendar{
