@@ -1,29 +1,24 @@
 package es.ulpgc.eite.clean.mvp.sample.home;
 
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.RelativeLayout;
 import android.widget.Spinner;
-import android.widget.TextView;
+
+import java.util.ArrayList;
 
 import es.ulpgc.eite.clean.mvp.GenericActivity;
 import es.ulpgc.eite.clean.mvp.sample.R;
-import es.ulpgc.eite.clean.mvp.sample.calendar.CalendarView;
-import es.ulpgc.eite.clean.mvp.sample.chat.ChatView;
-import es.ulpgc.eite.clean.mvp.sample.maps.MapsView;
-import es.ulpgc.eite.clean.mvp.sample.webshop.WebshopView;
 
 public class HomeView
     extends GenericActivity<Home.PresenterToView, Home.ViewToPresenter, HomePresenter>
     implements Home.PresenterToView {
 
   private Button button;
+  private Spinner spinner;
 
 
   @Override
@@ -34,12 +29,8 @@ public class HomeView
 
     button = (Button) findViewById(R.id.button);
 
-
-
-
     // Inicialización del Spinner
-
-    final Spinner spinner = (Spinner) findViewById(R.id.spinner);
+    spinner = (Spinner) findViewById(R.id.spinner);
     // Create an ArrayAdapter using the string array and a default spinner layout
     final ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
             R.array.spinner, android.R.layout.simple_spinner_item);
@@ -64,6 +55,10 @@ public class HomeView
   @Override
   protected void onResume() {
     super.onResume(HomePresenter.class, this);
+    Log.d(TAG, "calling onResume()");
+
+    getPresenter().startLoadShopList();
+
   }
 
   @Override
@@ -86,6 +81,12 @@ public class HomeView
   public void finishScreen() {
     Log.d(TAG, "calling finishScreen()");
     finish();
+  }
+
+  @Override
+  public void setShopNames(ArrayList<String> names) {
+    ArrayAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, names);
+    spinner.setAdapter(adapter);
   }
 
 }

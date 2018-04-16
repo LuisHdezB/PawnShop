@@ -13,10 +13,7 @@
     <string name="choose_shop">Elige una tienda:</string>
     <string name="button_choose_shop">Ir a mi tienda</string>
     <string-array name="spinner">
-        <item>General mas de Gaminde</item>
-        <item>Triana</item>
-        <item>Vecindario</item>
-        <item>La Ballena</item>
+        <item>Cargando tiendas...</item>
     </string-array>
     <!--
     Textos de la Vista Calendar

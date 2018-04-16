@@ -33,7 +33,6 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
 
     Log.d(TAG, "calling creatingInitialState()");
 
-    Log.d(TAG, "Asignación de tienda");
     savedShop = new Shop(null,null,0,null,null, 0, 0);
   }
 

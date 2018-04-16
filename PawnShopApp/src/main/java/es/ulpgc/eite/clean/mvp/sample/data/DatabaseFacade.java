@@ -1,7 +1,6 @@
 package es.ulpgc.eite.clean.mvp.sample.data;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import es.ulpgc.eite.clean.mvp.sample.app.Shop;
 
@@ -52,7 +51,7 @@ public class DatabaseFacade implements Database {
     }
 
     @Override
-    public List<Shop> getAllItemsFromDatabase(){
+    public ArrayList<Shop> getAllItemsFromDatabase(){
         ArrayList<Shop> result = new ArrayList<Shop>();
 
         for (int id=0; id<validDataMap.size(); id++) {

@@ -1,6 +1,5 @@
 package es.ulpgc.eite.clean.mvp.sample.home;
 
-import android.provider.ContactsContract;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -12,6 +11,7 @@ import es.ulpgc.eite.clean.mvp.sample.data.DatabaseFacade;
 
 public class HomeModel
     extends GenericModel<Home.ModelToPresenter> implements Home.PresenterToModel {
+
   private DatabaseFacade db;
   /**
    * Method that recovers a reference to the PRESENTER
@@ -42,12 +42,27 @@ public class HomeModel
   ///////////////////////////////////////////////////////////////////////////////////
   // Presenter To Model ////////////////////////////////////////////////////////////
 
-
+  @Override
+  public void loadShopList() {
+    Log.d(TAG, "calling loadShopList()");
+    ArrayList<Shop> shopList = db.getAllItemsFromDatabase();
+    ArrayList<String> nameShopList = new ArrayList<>();
+    if (shopList.size() > 0){
+      for(int i = 0; i < shopList.size(); i++){
+        nameShopList.add(shopList.get(i).getName());
+      }
+    } else {
+      nameShopList.add("No hay tiendas.");
+    }
+    getPresenter().setShopList(nameShopList);
+  }
 
   ///////////////////////////////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////////
 
   private void getData(){
+    Log.d(TAG, "calling getData()");
+
     Shop item;
     Shop.Calendar hour;
     ArrayList<Shop.Calendar> cal = new ArrayList<>();
@@ -143,4 +158,5 @@ public class HomeModel
     item = new Shop("Triana","0089",0,"0089@nocheydia.es",cal, (long) 28.0329871, (long) -15.473951);
     db.insertDatabaseItem(item);
   }
+
 }

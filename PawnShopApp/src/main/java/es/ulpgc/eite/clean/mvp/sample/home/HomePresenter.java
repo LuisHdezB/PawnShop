@@ -5,13 +5,11 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.Log;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.ArrayList;
 
 import es.ulpgc.eite.clean.mvp.ContextView;
 import es.ulpgc.eite.clean.mvp.GenericActivity;
 import es.ulpgc.eite.clean.mvp.GenericPresenter;
-import es.ulpgc.eite.clean.mvp.sample.R;
 import es.ulpgc.eite.clean.mvp.sample.app.Mediator;
 import es.ulpgc.eite.clean.mvp.sample.utils.GeoUtils;
 
@@ -113,6 +111,13 @@ public class HomePresenter
 
   }
 
+  @Override
+  public void startLoadShopList() {
+    Log.d(TAG, "calling startLoadShopList()");
+    getModel().loadShopList();
+  }
+
+
   ///////////////////////////////////////////////////////////////////////////////////
   // State /////////////////////////////////////////////////////////////////////////
 
@@ -136,7 +141,7 @@ public class HomePresenter
 
 
   ///////////////////////////////////////////////////////////////////////////////////
-  // Dummy To //////////////////////////////////////////////////////////////////////
+  // Home To ///////////////////////////////////////////////////////////////////////
 
 
   @Override
@@ -160,4 +165,13 @@ public class HomePresenter
 
   }
 
+  ///////////////////////////////////////////////////////////////////////////////////
+  // Model To Presenter ////////////////////////////////////////////////////////////
+
+  @Override
+  public void setShopList(ArrayList<String> names) {
+    if (isViewRunning()){
+      getView().setShopNames(names);
+    }
+  }
 }

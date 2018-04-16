@@ -1,6 +1,7 @@
 package es.ulpgc.eite.clean.mvp.sample.data;
 
-import java.util.List;
+import java.util.ArrayList;
+
 import es.ulpgc.eite.clean.mvp.sample.app.Shop;
 
 interface Database {
@@ -10,7 +11,7 @@ interface Database {
     // Methods to get information from the database
     Shop getItem(Integer id);
 
-    List<Shop> getAllItemsFromDatabase();
+    ArrayList<Shop> getAllItemsFromDatabase();
     Shop[] getAllItemsArrayFromDatabase();
 
     // Methods to remove information from the database
