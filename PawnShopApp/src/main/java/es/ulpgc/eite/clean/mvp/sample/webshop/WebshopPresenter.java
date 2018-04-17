@@ -148,6 +148,11 @@ public class WebshopPresenter
     setCurrentState();
   }
 
+  @Override
+  public Shop getShop() {
+    return shop;
+  }
+
 
   @Override
   public boolean isChatClicked() {

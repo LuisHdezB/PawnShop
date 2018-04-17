@@ -37,6 +37,7 @@ public interface Calendar {
     boolean isShopClicked();
     boolean isChatClicked();
     boolean isMapsClicked();
+    Shop getShop();
   }
 
   ///////////////////////////////////////////////////////////////////////////////////
@@ -71,6 +72,7 @@ public interface Calendar {
    */
   interface PresenterToModel extends Model<ModelToPresenter> {
 
+    ArrayList<String> getTimetable(Shop shop);
   }
 
   /**

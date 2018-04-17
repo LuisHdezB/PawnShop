@@ -2,13 +2,17 @@ package es.ulpgc.eite.clean.mvp.sample.calendar;
 
 import android.util.Log;
 
+import java.util.ArrayList;
+
 import es.ulpgc.eite.clean.mvp.GenericModel;
 import es.ulpgc.eite.clean.mvp.sample.app.Shop;
+import es.ulpgc.eite.clean.mvp.sample.data.DatabaseFacade;
 
 
 public class CalendarModel
     extends GenericModel<Calendar.ModelToPresenter> implements Calendar.PresenterToModel {
-    private Shop shop;
+
+    DatabaseFacade db;
 
   /**
    * Method that recovers a reference to the PRESENTER
@@ -20,6 +24,7 @@ public class CalendarModel
   public void onCreate(Calendar.ModelToPresenter presenter) {
     super.onCreate(presenter);
     Log.d(TAG, "calling onCreate()");
+    db = DatabaseFacade.getInstance();
   }
 
   /**
@@ -31,6 +36,21 @@ public class CalendarModel
   @Override
   public void onDestroy(boolean isChangingConfiguration) {
 
+  }
+
+  @Override
+  public ArrayList<String> getTimetable(Shop shop) {
+    ArrayList<String> hours = new ArrayList<>();
+    ArrayList<Shop.Calendar> calendar;
+    calendar = shop.getCalendar();
+    if (calendar.size() > 0) {
+      for (int i = 0; i < calendar.size(); i++) {
+        hours.add(calendar.get(i).getHour());
+      }
+    } else {
+      hours.add("No hay horas disponibles.");
+    }
+    return hours;
   }
 
 

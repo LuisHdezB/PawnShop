@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import es.ulpgc.eite.clean.mvp.ContextView;
 import es.ulpgc.eite.clean.mvp.Model;
 import es.ulpgc.eite.clean.mvp.Presenter;
+import es.ulpgc.eite.clean.mvp.sample.app.Shop;
 
 public interface Home {
 
@@ -27,6 +28,7 @@ public interface Home {
     void destroyView();
 
     void onScreenResumed();
+    Shop getShop();
   }
 
   ///////////////////////////////////////////////////////////////////////////////////
@@ -56,6 +58,8 @@ public interface Home {
   interface PresenterToModel extends Model<ModelToPresenter> {
 
     void loadShopList();
+
+    Shop getShop(int position);
   }
 
   /**

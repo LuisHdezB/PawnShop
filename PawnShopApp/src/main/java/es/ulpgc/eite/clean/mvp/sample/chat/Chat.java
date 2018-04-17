@@ -33,6 +33,8 @@ public interface Chat {
     boolean isCalendarClicked();
     boolean isMapsClicked();
     void onScreenResumed();
+
+    Shop getShop();
   }
 
   ///////////////////////////////////////////////////////////////////////////////////

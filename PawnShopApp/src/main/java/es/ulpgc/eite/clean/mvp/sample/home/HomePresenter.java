@@ -11,6 +11,7 @@ import es.ulpgc.eite.clean.mvp.ContextView;
 import es.ulpgc.eite.clean.mvp.GenericActivity;
 import es.ulpgc.eite.clean.mvp.GenericPresenter;
 import es.ulpgc.eite.clean.mvp.sample.app.Mediator;
+import es.ulpgc.eite.clean.mvp.sample.app.Shop;
 import es.ulpgc.eite.clean.mvp.sample.utils.GeoUtils;
 
 public class HomePresenter
@@ -22,6 +23,7 @@ public class HomePresenter
   public static final String KEY_LATITUD = "key_latitud";
   public static final String KEY_LONGITUD = "key_longitud";
   public static final String TIENDAS_PREFERENCES = "Tiendas";
+  private Shop shop;
 
   /**
    * Operation called during VIEW creation in {@link GenericActivity#onResume(Class, Object)}
@@ -98,6 +100,8 @@ public class HomePresenter
   public void onButtonClicked(int position) {
     Log.d(TAG, "calling onButtonClicked()");
 
+    shop = getModel().getShop(position);
+
     SharedPreferences preferences = getManagedContext().getSharedPreferences(TIENDAS_PREFERENCES, Context.MODE_PRIVATE);
     SharedPreferences.Editor editor = preferences.edit();
 
@@ -137,6 +141,11 @@ public class HomePresenter
     Log.d(TAG, "calling onScreenResumed()");
 
     setCurrentState();
+  }
+
+  @Override
+  public Shop getShop() {
+    return shop;
   }
 
 

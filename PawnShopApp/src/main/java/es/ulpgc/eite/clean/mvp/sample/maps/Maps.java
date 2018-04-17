@@ -32,6 +32,8 @@ public interface Maps {
     boolean isCalendarClicked();
     boolean isChatClicked();
     void onScreenResumed();
+
+    Shop getShop();
   }
 
   ///////////////////////////////////////////////////////////////////////////////////

@@ -149,6 +149,11 @@ public class ChatPresenter
   }
 
   @Override
+  public Shop getShop() {
+    return shop;
+  }
+
+  @Override
   public boolean isShopClicked() {
     return shopClicked;
   }

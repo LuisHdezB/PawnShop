@@ -205,6 +205,11 @@ public class CalendarPresenter
     return mapsClicked;
   }
 
+  @Override
+  public Shop getShop() {
+    return shop;
+  }
+
   ///////////////////////////////////////////////////////////////////////////////////
   // Calendar To //////////////////////////////////////////////////////////////////////
 
@@ -229,13 +234,15 @@ public class CalendarPresenter
 
     //Datos de prueba:
     date = "8/4/2018";
-    hours = new ArrayList<>();
-    hours.add("10:00");
-    hours.add("10:30");
+    //hours = new ArrayList<>();
+    //hours.add("10:00");
+    //hours.add("10:30");
     name = "alex";
     phone = 123456789;
     mail = "alex@alex.com";
     ifAppointment = false;
+
+    hours = getModel().getTimetable(shop);
 
     if (isViewRunning()) {
       getView().setDateView(date);

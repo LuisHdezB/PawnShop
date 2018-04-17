@@ -31,6 +31,8 @@ public interface Webshop {
     boolean isCalendarClicked();
     boolean isMapsClicked();
     void onScreenResumed();
+
+    Shop getShop();
   }
 
   ///////////////////////////////////////////////////////////////////////////////////
