@@ -132,10 +132,8 @@ public class MapsView
 
   @Override
   public void onBackPressed() {
-    // super.onBackPressed();
+    super.onBackPressed();
     Log.d(TAG, "calling onBackPressed()");
-    Intent intent = new Intent(this, HomeView.class);
-    startActivity(intent);
   }
 
   @Override
