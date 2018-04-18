@@ -156,7 +156,7 @@ public class MapsView
   }
 
     @Override
-    public final void setMarkersToMap(ArrayList<Shop> mapShopList) {
+    public void setMarkersToMap(ArrayList<Shop> mapShopList) {
       LatLng latLng;
       Marker marker;
         for (int i = 0; i < mapShopList.size(); i++) {
