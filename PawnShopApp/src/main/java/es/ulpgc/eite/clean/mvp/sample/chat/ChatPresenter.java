@@ -190,7 +190,6 @@ public class ChatPresenter
 
   private void setCurrentState() {
     Log.d(TAG, "calling setCurrentState()");
-
   }
 
 }

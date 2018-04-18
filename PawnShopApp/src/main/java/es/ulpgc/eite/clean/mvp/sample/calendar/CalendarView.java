@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -20,7 +21,7 @@ public class CalendarView
     implements Calendar.PresenterToView {
 
   private ImageButton menuImage;
-  private TextView name, phone, mail;
+  private EditText name, phone, mail, products;
   private android.widget.CalendarView date;
   private Spinner hours;
   private Button send;
@@ -58,11 +59,12 @@ public class CalendarView
     });
 
     // Pantalla Calendar
-    name = (TextView) findViewById(R.id.name);
-    phone = (TextView) findViewById(R.id.phone);
-    mail = (TextView) findViewById(R.id.mail);
+    name = (EditText) findViewById(R.id.name);
+    phone = (EditText) findViewById(R.id.phone);
+    mail = (EditText) findViewById(R.id.mail);
     date = (android.widget.CalendarView) findViewById(R.id.date);
     hours = (Spinner) findViewById(R.id.hour);
+    products = (EditText) findViewById(R.id.products);
     send = (Button) findViewById(R.id.send);
     send.setOnClickListener(new View.OnClickListener() {
       @Override
@@ -140,6 +142,26 @@ public class CalendarView
   @Override
   public void disableSendButon() {
     send.setEnabled(false);
+  }
+
+  @Override
+  public String getNameInputText() {
+    return name.getText().toString();
+  }
+
+  @Override
+  public String getMailInputText() {
+    return mail.getText().toString();
+  }
+
+  @Override
+  public int getInputPhoneText() {
+    return Integer.parseInt(phone.getText().toString());
+  }
+
+  @Override
+  public String getInputProductsText() {
+    return products.getText().toString();
   }
 
 }

@@ -186,7 +186,6 @@ public class CalendarPresenter
   @Override
   public void onScreenResumed() {
     Log.d(TAG, "calling onScreenResumed()");
-
     setCurrentState();
   }
 
@@ -212,33 +211,37 @@ public class CalendarPresenter
 
   @Override
   public String getNameInputText() {
+    if (isViewRunning()){
+      return getView().getNameInputText();
+    }
     return null;
   }
 
   @Override
   public String getMailInputText() {
+    if (isViewRunning()){
+      return getView().getMailInputText();
+    }
     return null;
   }
 
   @Override
   public int getPhoneInputText() {
+    if (isViewRunning()){
+      return getView().getInputPhoneText();
+    }
     return 0;
   }
 
-  @Override
-  public String getHourSpinner() {
-    return null;
-  }
 
   @Override
   public String getProductsInputText() {
+    if (isViewRunning()){
+      return getView().getInputProductsText();
+    }
     return null;
   }
 
-  @Override
-  public String getDateCalendarView() {
-    return null;
-  }
 
   @Override
   public boolean isAppointment() {
@@ -267,17 +270,9 @@ public class CalendarPresenter
   private void setCurrentState() {
     Log.d(TAG, "calling setCurrentState()");
 
-    //Datos de prueba:
-    date = "8/4/2018";
-    //hours = new ArrayList<>();
-    //hours.add("10:00");
-    //hours.add("10:30");
-    name = "alex";
-    phone = 123456789;
-    mail = "alex@alex.com";
-    ifAppointment = false;
-
-    hours = getModel().getTimetable(shop);
+    if (shop != null) {
+      hours = getModel().getTimetable(shop);
+    }
 
     if (isViewRunning()) {
       getView().setDateView(date);

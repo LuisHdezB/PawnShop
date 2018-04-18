@@ -71,8 +71,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Name" />
+                android:inputType="textPersonName" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -84,8 +83,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="phone"
-                android:text="@android:string/emptyPhoneNumber" />
+                android:inputType="phone" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -97,8 +95,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textEmailAddress"
-                android:text="Mail" />
+                android:inputType="textEmailAddress" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Products" />
+
+            <EditText
+                android:id="@+id/products"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textLongMessage" />
 
             <Button
                 android:id="@+id/send"

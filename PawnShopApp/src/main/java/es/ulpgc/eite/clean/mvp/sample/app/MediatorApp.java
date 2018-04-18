@@ -40,16 +40,10 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
   @Override
   public void startingScreen(Maps.ToMaps presenter) {
     if (toMapsState != null) {
-      Log.d(TAG, "calling settingCalendarState()");
+      Log.d(TAG, "calling settingMapsState()");
       presenter.setShop(toMapsState.shop);
-      //presenter.setAppointment(toCalendarState.ifAppointment);
-      //presenter.setNameInputText(toCalendarState.name);
-      //presenter.setPhoneInputText(toCalendarState.phone);
-      //presenter.setMailInputText(toCalendarState.mail);
-      //presenter.setDateInputText(toCalendarState.date);
-      //presenter.setProductsInputText(toCalendarState.products);
 
-      Log.d(TAG, "calling removingInitialHelloState()");
+      Log.d(TAG, "calling removingInitialMapsState()");
       toMapsState = null;
     }
     presenter.onScreenStarted();
@@ -57,22 +51,6 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
 
   @Override
   public void resumingScreen(Maps.MapsTo presenter) {
-    if (presenter.isShopClicked()){
-      toShopState = new ShopState();
-      toShopState.shop = presenter.getShop();
-      if (presenter.getShop().getZone() == 0){
-        toShopState.url = "http://canarias.cashconverters.es/";
-      } else {
-        toShopState.url = "http://www.cashconverters.es/";
-      }
-    } else if (presenter.isCalendarClicked()){
-      toCalendarState = new CalendarState();
-      toCalendarState.shop = presenter.getShop();
-    } else if (presenter.isChatClicked()){
-      toChatState = new ChatState();
-      toChatState.shop = presenter.getShop();
-    }
-
     presenter.onScreenResumed();
   }
 
@@ -83,14 +61,11 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
 
   @Override
   public void resumingScreen(Home.HomeTo presenter) {
-    toMapsState = new MapState();
-    toMapsState.shop = presenter.getShop();
     presenter.onScreenResumed();
   }
 
   @Override
   public void startingScreen(Calendar.ToCalendar presenter) {
-    // TODO: 8/4/18: FIJAR ESTADO, VOY A HACER PRUEBA
     if (toCalendarState != null) {
       Log.d(TAG, "calling settingCalendarState()");
       presenter.setShop(toCalendarState.shop);
@@ -98,10 +73,9 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
       presenter.setNameInputText(toCalendarState.name);
       presenter.setPhoneInputText(toCalendarState.phone);
       presenter.setMailInputText(toCalendarState.mail);
-      presenter.setDateInputText(toCalendarState.date);
       presenter.setProductsInputText(toCalendarState.products);
 
-      Log.d(TAG, "calling removingInitialHelloState()");
+      Log.d(TAG, "calling removingInitialCalendarState()");
       toCalendarState = null;
     }
     presenter.onScreenStarted();
@@ -109,38 +83,18 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
 
   @Override
   public void resumingScreen(Calendar.CalendarTo presenter) {
-    //Guardar estado
-    toCalendarState = new CalendarState();
-    toCalendarState.shop = presenter.getShop();
-    toCalendarState.name = presenter.getNameInputText();
-    toCalendarState.mail = presenter.getMailInputText();
-    toCalendarState.phone = presenter.getPhoneInputText();
-    toCalendarState.hour = presenter.getHourSpinner();
-    toCalendarState.products = presenter.getProductsInputText();
-    toCalendarState.date = presenter.getDateCalendarView();
-    toCalendarState.ifAppointment = presenter.isAppointment();
-
-
-    if (presenter.isShopClicked()){
-      toShopState = new ShopState();
-      toShopState.shop = presenter.getShop();
-      if (presenter.getShop().getZone() == 0){
-        toShopState.url = "http://canarias.cashconverters.es/";
-      } else {
-        toShopState.url = "http://www.cashconverters.es/";
-      }
-    } else if (presenter.isMapsClicked()){
-      toMapsState = new MapState();
-      toMapsState.shop = presenter.getShop();
-    } else if (presenter.isChatClicked()){
-      toChatState = new ChatState();
-      toChatState.shop = presenter.getShop();
-    }
     presenter.onScreenResumed();
   }
 
   @Override
   public void startingScreen(Chat.ToChat presenter) {
+    if (toChatState != null) {
+      Log.d(TAG, "calling settingChatState()");
+      presenter.setShop(toChatState.shop);
+
+      Log.d(TAG, "calling removingInitialChatState()");
+      toChatState = null;
+    }
     presenter.onScreenStarted();
   }
 
@@ -151,6 +105,13 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
 
   @Override
   public void startingScreen(Webshop.ToWebshop presenter) {
+    if (toShopState != null) {
+      Log.d(TAG, "calling settingChatState()");
+      presenter.setShop(toShopState.shop);
+
+      Log.d(TAG, "calling removingInitialChatState()");
+      toShopState = null;
+    }
     presenter.onScreenStarted();
   }
 
@@ -170,7 +131,6 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
       // TODO: Prueba de estado, CAMBIAR CUÁNDO HAYA ESTADO
       toChatState = new ChatState();
       toChatState.shop = presenter.getShop();
-      toChatState.idChat = null;
 
       Context view = presenter.getManagedContext();
       if (view != null) {
@@ -181,18 +141,22 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
       }
     } else if (presenter.isCalendarClicked()){
       // TODO: Prueba de estado, CAMBIAR CUÁNDO HAYA ESTADO
-      toCalendarState = new CalendarState();
-      toCalendarState.shop = presenter.getShop();
+
+      if (toCalendarState == null) {
+        toCalendarState = new CalendarState();
+        toCalendarState.shop = presenter.getShop();
+      }
 
       Context view = presenter.getManagedContext();
       if (view != null) {
-        Log.d(TAG, "calling startingChatScreen()");
+        Log.d(TAG, "calling startingCalendarScreen()");
         view.startActivity(new Intent(view, CalendarView.class));
         Log.d(TAG, "calling destroyView()");
         presenter.destroyView();
       }
     } else if (presenter.isShopClicked()){
       // TODO: Prueba de estado, CAMBIAR CUÁNDO HAYA ESTADO
+
       toShopState = new ShopState();
       toShopState.shop = presenter.getShop();
       toShopState.url = "https://canarias.cashconverters.es";
@@ -235,11 +199,16 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
 
   @Override
   public void goToNextScreen(Calendar.CalendarTo presenter) {
+    toCalendarState = new CalendarState();
+    toCalendarState.shop = presenter.getShop();
+    toCalendarState.name = presenter.getNameInputText();
+    toCalendarState.mail = presenter.getMailInputText();
+    toCalendarState.phone = presenter.getPhoneInputText();
+    toCalendarState.products = presenter.getProductsInputText();
+
     if (presenter.isChatClicked()){
-      // TODO: Prueba de estado, CAMBIAR CUÁNDO HAYA ESTADO
       toChatState = new ChatState();
       toChatState.shop = presenter.getShop();
-      toChatState.idChat = null;
 
       Context view = presenter.getManagedContext();
       if (view != null) {
@@ -249,7 +218,6 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
         presenter.destroyView();
       }
     } else if (presenter.isShopClicked()){
-      // TODO: Prueba de estado, CAMBIAR CUÁNDO HAYA ESTADO
       toShopState = new ShopState();
       toShopState.shop = presenter.getShop();
       toShopState.url = "https://canarias.cashconverters.es";
@@ -262,10 +230,8 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
         presenter.destroyView();
       }
     } else if (presenter.isMapsClicked()){
-      // TODO: Prueba de estado, CAMBIAR CUÁNDO HAYA ESTADO
       toMapsState = new MapState();
       toMapsState.shop = presenter.getShop();
-
 
       Context view = presenter.getManagedContext();
       if (view != null) {
@@ -286,12 +252,14 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
   public void goToNextScreen(Chat.ChatTo presenter) {
     if (presenter.isCalendarClicked()){
       // TODO: Prueba de estado, CAMBIAR CUÁNDO HAYA ESTADO
-      toCalendarState = new CalendarState();
-      toCalendarState.shop = presenter.getShop();
+      if (toCalendarState == null) {
+        toCalendarState = new CalendarState();
+        toCalendarState.shop = presenter.getShop();
+      }
 
       Context view = presenter.getManagedContext();
       if (view != null) {
-        Log.d(TAG, "calling startingChatScreen()");
+        Log.d(TAG, "calling startingCalendarScreen()");
         view.startActivity(new Intent(view, CalendarView.class));
         Log.d(TAG, "calling destroyView()");
         presenter.destroyView();
@@ -347,12 +315,14 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
       }
     } else if (presenter.isCalendarClicked()){
       // TODO: Prueba de estado, CAMBIAR CUÁNDO HAYA ESTADO
-      toCalendarState = new CalendarState();
-      toCalendarState.shop = presenter.getShop();
+      if (toCalendarState == null) {
+        toCalendarState = new CalendarState();
+        toCalendarState.shop = presenter.getShop();
+      }
 
       Context view = presenter.getManagedContext();
       if (view != null) {
-        Log.d(TAG, "calling startingChatScreen()");
+        Log.d(TAG, "calling startingCalendarScreen()");
         view.startActivity(new Intent(view, CalendarView.class));
         Log.d(TAG, "calling destroyView()");
         presenter.destroyView();

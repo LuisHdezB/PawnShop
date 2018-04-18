@@ -22,6 +22,7 @@ public interface Webshop {
 
   interface ToWebshop extends State {
     void onScreenStarted();
+    void setShop(Shop shop);
   }
 
   interface WebshopTo extends State{

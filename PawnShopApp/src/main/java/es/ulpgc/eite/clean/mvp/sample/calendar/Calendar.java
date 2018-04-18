@@ -42,9 +42,7 @@ public interface Calendar {
     String getNameInputText();
     String getMailInputText();
     int getPhoneInputText();
-    String getHourSpinner();
     String getProductsInputText();
-    String getDateCalendarView();
     boolean isAppointment();
   }
 
@@ -73,6 +71,11 @@ public interface Calendar {
     void setMailText(String mail);
     void enableSendButton();
     void disableSendButon();
+
+    String getNameInputText();
+    String getMailInputText();
+    int getInputPhoneText();
+    String getInputProductsText();
   }
 
   /**
