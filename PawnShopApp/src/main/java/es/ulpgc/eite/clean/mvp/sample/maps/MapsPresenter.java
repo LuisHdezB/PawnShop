@@ -204,6 +204,7 @@ public class MapsPresenter
   public void setMarkerList(ArrayList<Shop> mapShopList) {
     if (isViewRunning()){
       getView().setMarkersToMap(mapShopList);
+      getView().setCenterCamera(shop);
     }
   }
 }

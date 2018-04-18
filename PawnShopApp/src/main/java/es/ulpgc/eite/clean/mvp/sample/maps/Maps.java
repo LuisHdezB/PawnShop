@@ -59,6 +59,8 @@ public interface Maps {
     void finishScreen();
 
     void setMarkersToMap(ArrayList<Shop> mapShopList);
+
+      void setCenterCamera(Shop shop);
   }
 
   /**

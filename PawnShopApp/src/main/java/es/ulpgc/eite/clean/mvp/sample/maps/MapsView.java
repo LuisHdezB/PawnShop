@@ -161,4 +161,12 @@ public class MapsView
         }
     }
 
+  @Override
+  public void setCenterCamera(Shop shop) {
+    LatLng latLng = new LatLng(shop.getLatitude(), shop.getLongitud());
+    CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng,10);
+    map.animateCamera(cameraUpdate);
+  }
+
+
 }
