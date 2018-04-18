@@ -155,9 +155,11 @@ public class MapsView
 
     @Override
     public void setMarkersToMap(ArrayList<Shop> mapShopList) {
+      LatLng latLng;
+      Marker marker;
         for (int i = 0; i < mapShopList.size(); i++) {
-            LatLng latLng = new LatLng(mapShopList.get(i).getLatitude(), mapShopList.get(i).getLongitud());
-            Marker marker = map.addMarker(new MarkerOptions().position(latLng).title(mapShopList.get(i).getName()));
+            latLng = new LatLng(mapShopList.get(i).getLatitude(), mapShopList.get(i).getLongitud());
+            marker = map.addMarker(new MarkerOptions().position(latLng).title(mapShopList.get(i).getName()));
         }
     }
 
