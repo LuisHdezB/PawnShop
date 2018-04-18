@@ -160,7 +160,6 @@ public class MapsView
         for (int i = 0; i < mapShopList.size(); i++) {
           latLng = new LatLng(mapShopList.get(i).getLatitude(), mapShopList.get(i).getLongitud());
           marker = map.addMarker(new MarkerOptions().position(latLng).title(mapShopList.get(i).getName()));
-          Log.d(TAG, "setMarkersToMap: " + mapShopList.get(i).getLatitude() + "," + mapShopList.get(i).getLongitud());
         }
     }
 

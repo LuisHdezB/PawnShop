@@ -9,10 +9,10 @@ public class Shop {
     private int zone;
     private String mail;
     private ArrayList<Timetable> timetable;
-    private long latitude;
-    private long longitud;
+    private double latitude;
+    private double longitud;
 
-    public Shop(String name, String code, int zone, String mail, ArrayList timetable, long latitude, long longitud) {
+    public Shop(String name, String code, int zone, String mail, ArrayList timetable, double latitude, double longitud) {
         this.name = name;
         this.code = code;
         this.zone = zone;
@@ -22,7 +22,7 @@ public class Shop {
         this.longitud = longitud;
     }
 
-    public Shop (String name, long latitude, long longitud){
+    public Shop (String name, double latitude, double longitud){
         this.name = name;
         this.latitude = latitude;
         this.longitud = longitud;
@@ -83,7 +83,7 @@ public class Shop {
         this.timetable = timetable;
     }
 
-    public long getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 
@@ -91,7 +91,7 @@ public class Shop {
         this.latitude = latitude;
     }
 
-    public long getLongitud() {
+    public double getLongitud() {
         return longitud;
     }
 
