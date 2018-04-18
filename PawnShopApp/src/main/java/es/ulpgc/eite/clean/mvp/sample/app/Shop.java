@@ -22,6 +22,12 @@ public class Shop {
         this.longitud = longitud;
     }
 
+    public Shop (String name, long latitud, long longitud){
+        this.name = name;
+        this.latitud = latitud;
+        this.longitud = longitud;
+    }
+
     @Override
     public String toString() { return name;}
 

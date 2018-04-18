@@ -13,11 +13,13 @@ import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
+import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -36,7 +38,7 @@ import es.ulpgc.eite.clean.mvp.sample.webshop.WebshopView;
 
 public class MapsView
     extends GenericActivity<Maps.PresenterToView, Maps.ViewToPresenter, MapsPresenter>
-    implements Maps.PresenterToView {
+    implements Maps.PresenterToView  {
 
 
   private ImageButton menuImage;
@@ -68,7 +70,7 @@ public class MapsView
     map.getUiSettings().setMapToolbarEnabled(true);
     map.getUiSettings().setZoomControlsEnabled(true);
     map.getUiSettings().setZoomGesturesEnabled(true);
-
+    //map.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
 
 
     MapsInitializer.initialize(this);
