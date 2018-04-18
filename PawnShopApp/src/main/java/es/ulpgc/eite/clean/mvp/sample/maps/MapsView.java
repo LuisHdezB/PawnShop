@@ -24,11 +24,13 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import es.ulpgc.eite.clean.mvp.GenericActivity;
 import es.ulpgc.eite.clean.mvp.sample.R;
+import es.ulpgc.eite.clean.mvp.sample.app.Shop;
 import es.ulpgc.eite.clean.mvp.sample.calendar.CalendarView;
 import es.ulpgc.eite.clean.mvp.sample.chat.ChatView;
 import es.ulpgc.eite.clean.mvp.sample.home.HomePresenter;
@@ -42,6 +44,7 @@ public class MapsView
 
   private ImageButton menuImage;
   private MapView mapView;
+  private GoogleMap map;
 
 
   @Override
@@ -64,7 +67,7 @@ public class MapsView
 
     mapView.onCreate(savedInstanceState);
 
-    GoogleMap map = mapView.getMap();
+    map = mapView.getMap();
     map.getUiSettings().setMyLocationButtonEnabled(false);
     map.getUiSettings().setMapToolbarEnabled(true);
     map.getUiSettings().setZoomControlsEnabled(true);
@@ -122,6 +125,7 @@ public class MapsView
     super.onResume(MapsPresenter.class, this);
     mapView.onResume();
     menuImage.setImageResource(R.drawable.ic_maps_icon_m);
+    getPresenter().startLoadMarkerList();
   }
 
   @Override
@@ -148,5 +152,13 @@ public class MapsView
     Log.d(TAG, "calling finishScreen()");
     finish();
   }
+
+    @Override
+    public void setMarkersToMap(ArrayList<Shop> mapShopList) {
+        for (int i = 0; i < mapShopList.size(); i++) {
+            LatLng latLng = new LatLng(mapShopList.get(i).getLatitude(), mapShopList.get(i).getLongitud());
+            Marker marker = map.addMarker(new MarkerOptions().position(latLng).title(mapShopList.get(i).getName()));
+        }
+    }
 
 }

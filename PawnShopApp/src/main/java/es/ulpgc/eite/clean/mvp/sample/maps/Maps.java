@@ -2,6 +2,8 @@ package es.ulpgc.eite.clean.mvp.sample.maps;
 
 import android.content.Context;
 
+import java.util.ArrayList;
+
 import es.ulpgc.eite.clean.mvp.ContextView;
 import es.ulpgc.eite.clean.mvp.Model;
 import es.ulpgc.eite.clean.mvp.Presenter;
@@ -46,6 +48,8 @@ public interface Maps {
     void onShopButtonClicked();
     void onChatButtonClicked();
     void onCalendarButtonClicked();
+
+      void startLoadMarkerList();
   }
 
   /**
@@ -53,6 +57,8 @@ public interface Maps {
    */
   interface PresenterToView extends ContextView {
     void finishScreen();
+
+    void setMarkersToMap(ArrayList<Shop> mapShopList);
   }
 
   /**
@@ -60,6 +66,7 @@ public interface Maps {
    */
   interface PresenterToModel extends Model<ModelToPresenter> {
 
+    void loadMapMarker();
   }
 
   /**
@@ -67,6 +74,7 @@ public interface Maps {
    */
   interface ModelToPresenter {
 
+    void setMarkerList(ArrayList<Shop> mapShopList);
   }
 
 }

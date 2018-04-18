@@ -4,6 +4,8 @@ package es.ulpgc.eite.clean.mvp.sample.maps;
 import android.content.Context;
 import android.util.Log;
 
+import java.util.ArrayList;
+
 import es.ulpgc.eite.clean.mvp.ContextView;
 import es.ulpgc.eite.clean.mvp.GenericActivity;
 import es.ulpgc.eite.clean.mvp.GenericPresenter;
@@ -123,6 +125,10 @@ public class MapsPresenter
     mediator.goToNextScreen(this);
   }
 
+  @Override
+  public void startLoadMarkerList() {
+    getModel().loadMapMarker();
+  }
 
 
   ///////////////////////////////////////////////////////////////////////////////////
@@ -194,4 +200,10 @@ public class MapsPresenter
   }
 
 
+  @Override
+  public void setMarkerList(ArrayList<Shop> mapShopList) {
+    if (isViewRunning()){
+      getView().setMarkersToMap(mapShopList);
+    }
+  }
 }
