@@ -149,18 +149,27 @@ public class HomeModel
     hour = new Shop.Timetable(22,"21:00-21:30");
     cal2.add(hour);
 
-
+    double latitude;
+    double longitud;
     // Mas de Gaminde: 28.1334703,-15.503952
-    item = new Shop("General mas de Gaminde","0047",0,"0047@nocheydia.es",cal, (long) 28.1334703, (long) -15.503952);
+    latitude = 28.1334703;
+    longitud = -15.503952;
+    item = new Shop("General mas de Gaminde","0047",0,"0047@nocheydia.es",cal, (long) latitude, (long) longitud);
     db.insertDatabaseItem(item);
     // Vecindario: 27.8437632,-15.5138459
-    item = new Shop("Vecindario","0053",0,"0053@nocheydia.es",cal, (long) 27.8437632, (long) -15.5138459);
+    latitude = 27.8437632;
+    longitud = -15.5138459;
+    item = new Shop("Vecindario","0053",0,"0053@nocheydia.es",cal, (long) latitude, (long) longitud);
     db.insertDatabaseItem(item);
     // La Ballena: 28.0327196,-15.4739508
-    item = new Shop("La Ballena","0075",0,"0075@nocheydia.es",cal2, (long) 28.0327196, (long) -15.4739508);
+    latitude = 28.0327196;
+    longitud = -15.4739508;
+    item = new Shop("La Ballena","0075",0,"0075@nocheydia.es",cal2, (long) latitude, (long) longitud);
     db.insertDatabaseItem(item);
     // Triana 28.0329871,-15.473951
-    item = new Shop("Triana","0089",0,"0089@nocheydia.es",cal, (long) 28.0329871, (long) -15.473951);
+    latitude = 28.0329871;
+    longitud = -15.473951;
+    item = new Shop("Triana","0089",0,"0089@nocheydia.es",cal, (long) latitude, (long) longitud);
     db.insertDatabaseItem(item);
   }
 
