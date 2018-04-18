@@ -73,6 +73,8 @@ public class MapsView
     map.getUiSettings().setZoomControlsEnabled(true);
     map.getUiSettings().setZoomGesturesEnabled(true);
     map.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+    map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+    map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 
 
     MapsInitializer.initialize(this);
