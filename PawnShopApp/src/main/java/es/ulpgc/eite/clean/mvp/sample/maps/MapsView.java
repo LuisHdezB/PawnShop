@@ -14,6 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
+
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -23,7 +24,6 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -156,7 +156,7 @@ public class MapsView
   }
 
     @Override
-    public void setMarkersToMap(ArrayList<Shop> mapShopList) {
+    public final void setMarkersToMap(ArrayList<Shop> mapShopList) {
       LatLng latLng;
       Marker marker;
         for (int i = 0; i < mapShopList.size(); i++) {
