@@ -38,6 +38,14 @@ public interface Calendar {
     boolean isChatClicked();
     boolean isMapsClicked();
     Shop getShop();
+
+    String getNameInputText();
+    String getMailInputText();
+    int getPhoneInputText();
+    String getHourSpinner();
+    String getProductsInputText();
+    String getDateCalendarView();
+    boolean isAppointment();
   }
 
   ///////////////////////////////////////////////////////////////////////////////////

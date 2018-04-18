@@ -19,7 +19,7 @@ public class MapsPresenter
   private boolean calendarClicked;
   private boolean chatClicked;
   //State
-  private Shop savedShop;
+  private Shop shop;
 
   /**
    * Operation called during VIEW creation in {@link GenericActivity#onResume(Class, Object)}
@@ -140,7 +140,7 @@ public class MapsPresenter
 
   @Override
   public void setShop(Shop shop) {
-    this.savedShop = shop;
+    this.shop = shop;
   }
 
   @Override
@@ -151,7 +151,7 @@ public class MapsPresenter
 
   @Override
   public Shop getShop() {
-    return savedShop;
+    return shop;
   }
 
 

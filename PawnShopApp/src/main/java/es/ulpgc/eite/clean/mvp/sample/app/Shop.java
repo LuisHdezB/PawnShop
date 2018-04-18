@@ -8,23 +8,23 @@ public class Shop {
     private String code;
     private int zone;
     private String mail;
-    private ArrayList<Calendar> calendar;
-    private long latitud;
+    private ArrayList<Timetable> timetable;
+    private long latitude;
     private long longitud;
 
-    public Shop(String name, String code, int zone, String mail, ArrayList calendar, long latitud, long longitud) {
+    public Shop(String name, String code, int zone, String mail, ArrayList timetable, long latitude, long longitud) {
         this.name = name;
         this.code = code;
         this.zone = zone;
         this.mail = mail;
-        this.calendar = calendar;
-        this.latitud = latitud;
+        this.timetable = timetable;
+        this.latitude = latitude;
         this.longitud = longitud;
     }
 
-    public Shop (String name, long latitud, long longitud){
+    public Shop (String name, long latitude, long longitud){
         this.name = name;
-        this.latitud = latitud;
+        this.latitude = latitude;
         this.longitud = longitud;
     }
 
@@ -75,20 +75,20 @@ public class Shop {
         this.mail = mail;
     }
 
-    public ArrayList<Calendar> getCalendar() {
-        return calendar;
+    public ArrayList<Timetable> getTimetable() {
+        return timetable;
     }
 
-    public void setCalendar(ArrayList<Calendar> calendar) {
-        this.calendar = calendar;
+    public void setTimetable(ArrayList<Timetable> timetable) {
+        this.timetable = timetable;
     }
 
-    public long getLatitud() {
-        return latitud;
+    public long getLatitude() {
+        return latitude;
     }
 
-    public void setLatitud(long latitud) {
-        this.latitud = latitud;
+    public void setLatitude(long latitude) {
+        this.latitude = latitude;
     }
 
     public long getLongitud() {
@@ -107,11 +107,11 @@ public class Shop {
         this.id = id;
     }
 
-    public static class Calendar{
+    public static class Timetable {
         private int idHour;
         private String hour;
 
-        public Calendar(int idHour, String hour) {
+        public Timetable(int idHour, String hour) {
             this.idHour = idHour;
             this.hour = hour;
         }

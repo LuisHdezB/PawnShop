@@ -23,7 +23,7 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
   private CalendarState toCalendarState;
   private MapState toMapsState;
   private ChatState toChatState;
-  private WebState toShopState;
+  private ShopState toShopState;
 
   @Override
   public void onCreate() {
@@ -58,7 +58,13 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
   @Override
   public void resumingScreen(Maps.MapsTo presenter) {
     if (presenter.isShopClicked()){
-      //shopstate
+      toShopState = new ShopState();
+      toShopState.shop = presenter.getShop();
+      if (presenter.getShop().getZone() == 0){
+        toShopState.url = "http://canarias.cashconverters.es/";
+      } else {
+        toShopState.url = "http://www.cashconverters.es/";
+      }
     } else if (presenter.isCalendarClicked()){
       toCalendarState = new CalendarState();
       toCalendarState.shop = presenter.getShop();
@@ -103,6 +109,33 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
 
   @Override
   public void resumingScreen(Calendar.CalendarTo presenter) {
+    //Guardar estado
+    toCalendarState = new CalendarState();
+    toCalendarState.shop = presenter.getShop();
+    toCalendarState.name = presenter.getNameInputText();
+    toCalendarState.mail = presenter.getMailInputText();
+    toCalendarState.phone = presenter.getPhoneInputText();
+    toCalendarState.hour = presenter.getHourSpinner();
+    toCalendarState.products = presenter.getProductsInputText();
+    toCalendarState.date = presenter.getDateCalendarView();
+    toCalendarState.ifAppointment = presenter.isAppointment();
+
+
+    if (presenter.isShopClicked()){
+      toShopState = new ShopState();
+      toShopState.shop = presenter.getShop();
+      if (presenter.getShop().getZone() == 0){
+        toShopState.url = "http://canarias.cashconverters.es/";
+      } else {
+        toShopState.url = "http://www.cashconverters.es/";
+      }
+    } else if (presenter.isMapsClicked()){
+      toMapsState = new MapState();
+      toMapsState.shop = presenter.getShop();
+    } else if (presenter.isChatClicked()){
+      toChatState = new ChatState();
+      toChatState.shop = presenter.getShop();
+    }
     presenter.onScreenResumed();
   }
 
@@ -160,7 +193,7 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
       }
     } else if (presenter.isShopClicked()){
       // TODO: Prueba de estado, CAMBIAR CUÁNDO HAYA ESTADO
-      toShopState = new WebState();
+      toShopState = new ShopState();
       toShopState.shop = presenter.getShop();
       toShopState.url = "https://canarias.cashconverters.es";
 
@@ -217,7 +250,7 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
       }
     } else if (presenter.isShopClicked()){
       // TODO: Prueba de estado, CAMBIAR CUÁNDO HAYA ESTADO
-      toShopState = new WebState();
+      toShopState = new ShopState();
       toShopState.shop = presenter.getShop();
       toShopState.url = "https://canarias.cashconverters.es";
 
@@ -265,7 +298,7 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
       }
     } else if (presenter.isShopClicked()){
       // TODO: Prueba de estado, CAMBIAR CUÁNDO HAYA ESTADO
-      toShopState = new WebState();
+      toShopState = new ShopState();
       toShopState.shop = presenter.getShop();
       toShopState.url = "https://canarias.cashconverters.es";
 
@@ -357,7 +390,7 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
     String idChat;
   }
 
-  private class WebState {
+  private class ShopState {
     Shop shop;
     String url;
   }

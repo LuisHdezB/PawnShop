@@ -41,8 +41,8 @@ public class CalendarModel
   @Override
   public ArrayList<String> getTimetable(Shop shop) {
     ArrayList<String> hours = new ArrayList<>();
-    ArrayList<Shop.Calendar> calendar;
-    calendar = shop.getCalendar();
+    ArrayList<Shop.Timetable> calendar;
+    calendar = shop.getTimetable();
     if (calendar.size() > 0) {
       for (int i = 0; i < calendar.size(); i++) {
         hours.add(calendar.get(i).getHour());

@@ -12,17 +12,14 @@ import es.ulpgc.eite.clean.mvp.GenericActivity;
 import es.ulpgc.eite.clean.mvp.GenericPresenter;
 import es.ulpgc.eite.clean.mvp.sample.app.Mediator;
 import es.ulpgc.eite.clean.mvp.sample.app.Shop;
-import es.ulpgc.eite.clean.mvp.sample.utils.GeoUtils;
 
 public class HomePresenter
     extends GenericPresenter
         <Home.PresenterToView, Home.PresenterToModel, Home.ModelToPresenter, HomeModel>
     implements Home.ViewToPresenter, Home.ModelToPresenter, Home.HomeTo, Home.ToHome {
 
-  public static final String KEY_TIENDA_NOMBRE = "key_tienda_nombre";
-  public static final String KEY_LATITUD = "key_latitud";
-  public static final String KEY_LONGITUD = "key_longitud";
-  public static final String TIENDAS_PREFERENCES = "Tiendas";
+  private static final String KEY_SHOP = "shopId";
+  private static final String SHOP_PREFERENCES = "SHOP";
   private Shop shop;
 
   /**
@@ -102,12 +99,9 @@ public class HomePresenter
 
     shop = getModel().getShop(position);
 
-    SharedPreferences preferences = getManagedContext().getSharedPreferences(TIENDAS_PREFERENCES, Context.MODE_PRIVATE);
+    SharedPreferences preferences = getManagedContext().getSharedPreferences(SHOP_PREFERENCES, Context.MODE_PRIVATE);
     SharedPreferences.Editor editor = preferences.edit();
-
-    editor.putString(KEY_TIENDA_NOMBRE, GeoUtils.getNombreFromPosition(getManagedContext(), position));
-    editor.putLong(KEY_LATITUD, GeoUtils.getLatitudFromPosition(position).longValue());
-    editor.putLong(KEY_LONGITUD, GeoUtils.getLongitudFromPosition(position).longValue());
+    editor.putInt(KEY_SHOP,shop.getId());
     editor.apply();
 
     Mediator.Navigation mediator = (Mediator.Navigation) getApplication();

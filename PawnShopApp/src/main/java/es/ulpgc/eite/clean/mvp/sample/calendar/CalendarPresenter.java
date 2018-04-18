@@ -210,6 +210,41 @@ public class CalendarPresenter
     return shop;
   }
 
+  @Override
+  public String getNameInputText() {
+    return null;
+  }
+
+  @Override
+  public String getMailInputText() {
+    return null;
+  }
+
+  @Override
+  public int getPhoneInputText() {
+    return 0;
+  }
+
+  @Override
+  public String getHourSpinner() {
+    return null;
+  }
+
+  @Override
+  public String getProductsInputText() {
+    return null;
+  }
+
+  @Override
+  public String getDateCalendarView() {
+    return null;
+  }
+
+  @Override
+  public boolean isAppointment() {
+    return false;
+  }
+
   ///////////////////////////////////////////////////////////////////////////////////
   // Calendar To //////////////////////////////////////////////////////////////////////
 

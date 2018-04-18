@@ -33,7 +33,6 @@ import es.ulpgc.eite.clean.mvp.sample.calendar.CalendarView;
 import es.ulpgc.eite.clean.mvp.sample.chat.ChatView;
 import es.ulpgc.eite.clean.mvp.sample.home.HomePresenter;
 import es.ulpgc.eite.clean.mvp.sample.home.HomeView;
-import es.ulpgc.eite.clean.mvp.sample.utils.GeoUtils;
 import es.ulpgc.eite.clean.mvp.sample.webshop.WebshopView;
 
 public class MapsView
@@ -97,7 +96,7 @@ public class MapsView
       }
     });
 
-    SharedPreferences preferences = getApplicationContext().getSharedPreferences(HomePresenter.TIENDAS_PREFERENCES, Context.MODE_PRIVATE);
+    /*SharedPreferences preferences = getApplicationContext().getSharedPreferences(HomePresenter.TIENDAS_PREFERENCES, Context.MODE_PRIVATE);
     String nombre = preferences.getString(HomePresenter.KEY_TIENDA_NOMBRE, "");
     Double latitud = ((Long) preferences.getLong(HomePresenter.KEY_LATITUD, 0)).doubleValue();
     Double longitud = ((Long) preferences.getLong(HomePresenter.KEY_LONGITUD, 0)).doubleValue();
@@ -110,7 +109,7 @@ public class MapsView
 
     LatLng latLng = new LatLng(latitud, longitud);
     CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng,10);
-    map.animateCamera(cameraUpdate);
+    map.animateCamera(cameraUpdate);*/
   }
 
   /**
