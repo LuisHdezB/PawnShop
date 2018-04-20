@@ -100,23 +100,7 @@ public class MapsView
         getPresenter().onCalendarButtonClicked();
       }
     });
-
-    /*SharedPreferences preferences = getApplicationContext().getSharedPreferences(HomePresenter.TIENDAS_PREFERENCES, Context.MODE_PRIVATE);
-    String nombre = preferences.getString(HomePresenter.KEY_TIENDA_NOMBRE, "");
-    Double latitud = ((Long) preferences.getLong(HomePresenter.KEY_LATITUD, 0)).doubleValue();
-    Double longitud = ((Long) preferences.getLong(HomePresenter.KEY_LONGITUD, 0)).doubleValue();
-
-    List<String> nombres = Arrays.asList(getResources().getStringArray(R.array.spinner));
-    for (int i = 0; i < nombres.size(); i++) {
-      LatLng latLng = new LatLng(GeoUtils.getLatitudFromPosition(i), GeoUtils.getLongitudFromPosition(i));
-        Marker marker = map.addMarker(new MarkerOptions().position(latLng).title(nombres.get(i)));
-    }
-
-    LatLng latLng = new LatLng(latitud, longitud);
-    CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng,10);
-    map.animateCamera(cameraUpdate);*/
   }
-
   /**
    * Method that initialized MVP objects
    * {@link super#onResume(Class, Object)} should always be called
