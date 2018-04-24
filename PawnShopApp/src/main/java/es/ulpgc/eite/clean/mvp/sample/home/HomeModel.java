@@ -152,23 +152,23 @@ public class HomeModel
     double latitude;
     double longitud;
     // Mas de Gaminde: 28.1334703,-15.503952
-    latitude = 28.1334703;
-    longitud = -15.503952;
+    latitude = 28.1332505;
+    longitud = -15.4339241;
     item = new Shop("General mas de Gaminde","0047",0,"0047@nocheydia.es", cal, latitude, longitud);
     db.insertDatabaseItem(item);
     // Vecindario: 27.8437632,-15.5138459
-    latitude = 27.8437632;
-    longitud = -15.5138459;
+    latitude = 27.8437679;
+    longitud = -15.4459968;
     item = new Shop("Vecindario","0053",0,"0053@nocheydia.es", cal, latitude,  longitud);
     db.insertDatabaseItem(item);
     // La Ballena: 28.0327196,-15.4739508
-    latitude = 28.0327196;
-    longitud = -15.4739508;
+    latitude = 28.1016277;
+    longitud = -15.4445887;
     item = new Shop("La Ballena","0075",0,"0075@nocheydia.es", cal2, latitude, longitud);
     db.insertDatabaseItem(item);
     // Triana 28.0329871,-15.473951
-    latitude = 28.0329871;
-    longitud = -15.473951;
+    latitude = 28.1055817;
+    longitud = -15.4175647;
     item = new Shop("Triana","0089",0,"0089@nocheydia.es", cal,  latitude, longitud);
     db.insertDatabaseItem(item);
   }
