@@ -1,5 +1,6 @@
 package es.ulpgc.eite.clean.mvp.sample.home;
 
+import android.provider.ContactsContract;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -24,7 +25,9 @@ public class HomeModel
     super.onCreate(presenter);
     Log.d(TAG, "calling onCreate()");
     db = DatabaseFacade.getInstance();
-    getData();
+    if (DatabaseFacade.getInstance().getAllItemsArrayFromDatabase().length == 0){
+      getData();
+    }
   }
 
   /**

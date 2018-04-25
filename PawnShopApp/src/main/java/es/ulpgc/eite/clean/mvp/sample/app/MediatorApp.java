@@ -199,6 +199,8 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
 
   @Override
   public void goToNextScreen(Calendar.CalendarTo presenter) {
+    Log.d(TAG, "saving CalendarState()");
+
     toCalendarState = new CalendarState();
     toCalendarState.shop = presenter.getShop();
     toCalendarState.name = presenter.getNameInputText();
