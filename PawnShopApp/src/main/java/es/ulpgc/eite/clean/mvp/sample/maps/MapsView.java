@@ -4,7 +4,13 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.DrawableContainer;
 import android.os.Bundle;
+import android.support.annotation.DrawableRes;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
@@ -21,6 +27,8 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.model.BitmapDescriptor;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -143,7 +151,8 @@ public class MapsView
       Marker marker;
         for (int i = 0; i < mapShopList.size(); i++) {
           latLng = new LatLng(mapShopList.get(i).getLatitude(), mapShopList.get(i).getLongitud());
-          marker = map.addMarker(new MarkerOptions().position(latLng).title(mapShopList.get(i).getName()));
+          BitmapDescriptor markerIcon = BitmapDescriptorFactory.fromResource(R.mipmap.maker_icon);
+          marker = map.addMarker(new MarkerOptions().position(latLng).title(mapShopList.get(i).getName()).icon(markerIcon));
         }
     }
 
@@ -155,7 +164,4 @@ public class MapsView
     map.moveCamera(cameraUpdate);
     map.animateCamera(zoom);
   }
-
-
-
 }
