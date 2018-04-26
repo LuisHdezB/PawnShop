@@ -59,7 +59,7 @@ public class MapsView
 
     mapView.onCreate(savedInstanceState);
 
-    //map = mapView.getMap();
+    map = mapView.getMap();
     map.getUiSettings().setMyLocationButtonEnabled(false);
     map.getUiSettings().setMapToolbarEnabled(true);
     map.getUiSettings().setZoomControlsEnabled(true);
