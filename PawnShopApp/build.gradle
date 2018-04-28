@@ -34,4 +34,5 @@ dependencies {
     compile project(':CleanMvpLib')
 }
 
+apply plugin: 'com.google.gms.google-services'
 
