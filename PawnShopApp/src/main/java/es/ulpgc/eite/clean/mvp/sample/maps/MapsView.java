@@ -68,6 +68,8 @@ public class MapsView
     map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
     map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 
+    CustomMapMarker customMapMarker = new CustomMapMarker(this);
+    map.setInfoWindowAdapter(customMapMarker);
 
     MapsInitializer.initialize(this);
     // Listeners del menú
