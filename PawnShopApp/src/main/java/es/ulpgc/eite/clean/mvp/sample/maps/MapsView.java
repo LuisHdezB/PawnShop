@@ -60,11 +60,11 @@ public class MapsView
     mapView.onCreate(savedInstanceState);
 
     map = mapView.getMap();
-    map.getUiSettings().setMyLocationButtonEnabled(false);
-    map.getUiSettings().setMapToolbarEnabled(true);
-    map.getUiSettings().setZoomControlsEnabled(true);
-    map.getUiSettings().setZoomGesturesEnabled(true);
-    map.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
+    map.getUiSettings().setMyLocationButtonEnabled(false); //Poner mi localización
+    map.getUiSettings().setMapToolbarEnabled(true); //Ponemos la toolbar de mapas visible
+    map.getUiSettings().setZoomControlsEnabled(true); // Aniadimos el boton de ampliar o reducir mapa
+    map.getUiSettings().setZoomGesturesEnabled(true); // Permitimos hacer zoom con los gestos de los dedos
+    map.setMapType(GoogleMap.MAP_TYPE_SATELLITE); // Ponemos la vista de satelite al mapa
     map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
     map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 

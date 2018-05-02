@@ -16,12 +16,6 @@ public class MapsModel
   private Shop shop;
   private DatabaseFacade db;
 
-  /**
-   * Method that recovers a reference to the PRESENTER
-   * You must ALWAYS call {@link super#onCreate(Object)} here
-   *
-   * @param presenter Presenter interface
-   */
   @Override
   public void onCreate(Maps.ModelToPresenter presenter) {
     super.onCreate(presenter);
