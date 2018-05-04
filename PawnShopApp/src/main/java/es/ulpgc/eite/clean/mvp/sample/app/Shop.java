@@ -10,22 +10,22 @@ public class Shop {
     private String mail;
     private ArrayList<Timetable> timetable;
     private double latitude;
-    private double longitud;
+    private double longitude;
 
-    public Shop(String name, String code, int zone, String mail, ArrayList timetable, double latitude, double longitud) {
+    public Shop(String name, String code, int zone, String mail, ArrayList timetable, double latitude, double longitude) {
         this.name = name;
         this.code = code;
         this.zone = zone;
         this.mail = mail;
         this.timetable = timetable;
         this.latitude = latitude;
-        this.longitud = longitud;
+        this.longitude = longitude;
     }
 
-    public Shop (String name, double latitude, double longitud){
+    public Shop (String name, double latitude, double longitude){
         this.name = name;
         this.latitude = latitude;
-        this.longitud = longitud;
+        this.longitude = longitude;
     }
 
     @Override
@@ -79,10 +79,6 @@ public class Shop {
         return timetable;
     }
 
-    public void setTimetable(ArrayList<Timetable> timetable) {
-        this.timetable = timetable;
-    }
-
     public double getLatitude() {
         return latitude;
     }
@@ -91,12 +87,12 @@ public class Shop {
         this.latitude = latitude;
     }
 
-    public double getLongitud() {
-        return longitud;
+    public double getLongitude() {
+        return longitude;
     }
 
-    public void setLongitud(long longitud) {
-        this.longitud = longitud;
+    public void setLongitude(long longitude) {
+        this.longitude = longitude;
     }
 
     public int getId() {
@@ -110,10 +106,12 @@ public class Shop {
     public static class Timetable {
         private int idHour;
         private String hour;
+        private boolean busy;
 
         public Timetable(int idHour, String hour) {
             this.idHour = idHour;
             this.hour = hour;
+            this.busy = false;
         }
 
         public int getIdHour() {
@@ -131,6 +129,10 @@ public class Shop {
         public void setHour(String hour) {
             this.hour = hour;
         }
+
+        public boolean isBusy() { return busy; }
+
+        public void setBusy(boolean busy) { this.busy = busy; }
     }
 
 }

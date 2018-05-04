@@ -1,14 +1,10 @@
 package es.ulpgc.eite.clean.mvp.sample.home;
 
-import android.provider.ContactsContract;
 import android.util.Log;
-
 import java.util.ArrayList;
-
 import es.ulpgc.eite.clean.mvp.GenericModel;
 import es.ulpgc.eite.clean.mvp.sample.app.Shop;
 import es.ulpgc.eite.clean.mvp.sample.data.DatabaseFacade;
-
 
 public class HomeModel
     extends GenericModel<Home.ModelToPresenter> implements Home.PresenterToModel {
@@ -48,6 +44,7 @@ public class HomeModel
   @Override
   public void loadShopList() {
     Log.d(TAG, "calling loadShopList()");
+
     ArrayList<Shop> shopList = db.getAllItemsFromDatabase();
     ArrayList<String> nameShopList = new ArrayList<>();
     if (shopList.size() > 0){

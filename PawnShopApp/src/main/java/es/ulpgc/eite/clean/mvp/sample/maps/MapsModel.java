@@ -52,7 +52,7 @@ public class MapsModel
     Shop item;
     if (shopList.size() > 0){
       for(int i = 0; i < shopList.size(); i++){
-        item = new Shop (shopList.get(i).getName(),shopList.get(i).getLatitude(),shopList.get(i).getLongitud());
+        item = new Shop (shopList.get(i).getName(),shopList.get(i).getLatitude(),shopList.get(i).getLongitude());
         mapShopList.add(item);
       }
     } else {

@@ -134,7 +134,7 @@ public class MapsView
       LatLng latLng;
       Marker marker;
         for (int i = 0; i < mapShopList.size(); i++) {
-          latLng = new LatLng(mapShopList.get(i).getLatitude(), mapShopList.get(i).getLongitud());
+          latLng = new LatLng(mapShopList.get(i).getLatitude(), mapShopList.get(i).getLongitude());
           BitmapDescriptor markerIcon = BitmapDescriptorFactory.fromResource(R.mipmap.maker_icon);
           marker = map.addMarker(new MarkerOptions().position(latLng).title(mapShopList.get(i).getName()).icon(markerIcon));
         }
@@ -142,7 +142,7 @@ public class MapsView
 
   @Override
   public void setCenterCamera(Shop shop) {
-    LatLng latLng = new LatLng(shop.getLatitude(), shop.getLongitud());
+    LatLng latLng = new LatLng(shop.getLatitude(), shop.getLongitude());
     CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng,10);
     CameraUpdate zoom = CameraUpdateFactory.zoomTo(15);
     map.moveCamera(cameraUpdate);
