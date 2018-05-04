@@ -11,6 +11,7 @@
 /build
 /captures
 .externalNativeBuild
+.ser
 
 ####################################################################
 ### Additionals which facilitate sharing Android Studio projects ###
