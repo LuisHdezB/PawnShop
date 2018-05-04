@@ -2,6 +2,7 @@ package es.ulpgc.eite.clean.mvp.sample.maps;
 
 import android.annotation.SuppressLint;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import android.util.Log;
@@ -16,6 +17,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
+import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
@@ -31,7 +33,7 @@ import es.ulpgc.eite.clean.mvp.sample.app.Shop;
 
 public class MapsView
     extends GenericActivity<Maps.PresenterToView, Maps.ViewToPresenter, MapsPresenter>
-    implements Maps.PresenterToView  {
+    implements Maps.PresenterToView {
 
 
   private ImageButton menuImage;
@@ -60,6 +62,10 @@ public class MapsView
     mapView.onCreate(savedInstanceState);
 
     map = mapView.getMap();
+
+    MapWrapperLayout mapWrapperLayout = (MapWrapperLayout) findViewById(R.id.map_relative_layout);
+    mapWrapperLayout.init(map,getPixelsFromDp(this, 39+20) );
+
     map.getUiSettings().setMyLocationButtonEnabled(false); //Poner mi localización
     map.getUiSettings().setMapToolbarEnabled(true); //Ponemos la toolbar de mapas visible
     map.getUiSettings().setZoomControlsEnabled(true); // Aniadimos el boton de ampliar o reducir mapa
@@ -68,7 +74,7 @@ public class MapsView
     map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
     map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
 
-    CustomMapMarker customMapMarker = new CustomMapMarker(this);
+    CustomMapMarker customMapMarker = new CustomMapMarker(this, mapWrapperLayout);
     map.setInfoWindowAdapter(customMapMarker);
 
     MapsInitializer.initialize(this);
@@ -149,5 +155,10 @@ public class MapsView
     CameraUpdate zoom = CameraUpdateFactory.zoomTo(15);
     map.moveCamera(cameraUpdate);
     map.animateCamera(zoom);
+  }
+
+  public static int getPixelsFromDp(Context context, float dp) {
+    final float scale = context.getResources().getDisplayMetrics().density;
+    return (int)(dp * scale + 0.5f);
   }
 }

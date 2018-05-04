@@ -7,10 +7,10 @@
         android:id="@+id/cml_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hola mUndo!" />
+        android:text="¡Hola mundo!" />
 
 
-    <CheckBox
+    <Button
         android:id="@+id/cml_favorite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
