@@ -95,7 +95,6 @@ public class ChatPresenter
   @Override
   public void onShopButtonClicked() {
     Log.d(TAG, "calling onShopButtonClicked()");
-    //TODO: Poner estado
     shopClicked = true;
 
     Mediator.Navigation mediator = (Mediator.Navigation) getApplication();
@@ -105,7 +104,6 @@ public class ChatPresenter
   @Override
   public void onMapsButtonClicked() {
     Log.d(TAG, "calling onMapsButtonClicked()");
-    //TODO: Poner estado
     mapsClicked = true;
 
     Mediator.Navigation mediator = (Mediator.Navigation) getApplication();
@@ -115,7 +113,6 @@ public class ChatPresenter
   @Override
   public void onCalendarButtonClicked() {
     Log.d(TAG, "calling onMapsButtonClicked()");
-    //TODO: Poner estado
     calendarClicked = true;
 
     Mediator.Navigation mediator = (Mediator.Navigation) getApplication();

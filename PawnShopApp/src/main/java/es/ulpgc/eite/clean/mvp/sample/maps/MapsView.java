@@ -133,7 +133,7 @@ public class MapsView
       Marker marker;
         for (int i = 0; i < mapShopList.size(); i++) {
           latLng = new LatLng(mapShopList.get(i).getLatitudeD(), mapShopList.get(i).getLongitudeD());
-          Log.d(TAG, "onDataChange: Latitud: " + mapShopList.get(i).getLatitude()); // TODO: 6/5/18 Hace lo que le sale de los cojones el getLatitude
+          Log.d(TAG, "onDataChange: Latitud: " + mapShopList.get(i).getLatitude());
           BitmapDescriptor markerIcon = BitmapDescriptorFactory.fromResource(R.mipmap.maker_icon);
           marker = map.addMarker(new MarkerOptions().position(latLng).title(mapShopList.get(i).getName()).icon(markerIcon));
         }

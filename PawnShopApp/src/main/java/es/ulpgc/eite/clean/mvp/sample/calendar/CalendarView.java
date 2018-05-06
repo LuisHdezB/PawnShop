@@ -109,7 +109,6 @@ public class CalendarView
 
   @Override
   public void setDateView(String date) {
-    // TODO: 8/4/18  Poner fecha en el calendario
     java.util.Calendar cal = java.util.Calendar.getInstance();
     this.date.setMinDate(cal.getTimeInMillis());
   }
