@@ -56,18 +56,17 @@ public interface Home {
    * Methods offered to MODEL to communicate with PRESENTER
    */
   interface PresenterToModel extends Model<ModelToPresenter> {
-
     void loadShopList();
-
     Shop getShop(int position);
+    void getShopAsync(int position);
   }
 
   /**
    * Required PRESENTER methods available to MODEL
    */
   interface ModelToPresenter {
-
     void setShopList(ArrayList<String> names);
+    void setShopSelected(Shop value);
   }
 
 }

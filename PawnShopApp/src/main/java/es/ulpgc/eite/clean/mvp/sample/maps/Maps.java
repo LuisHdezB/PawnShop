@@ -57,10 +57,8 @@ public interface Maps {
    */
   interface PresenterToView extends ContextView {
     void finishScreen();
-
     void setMarkersToMap(ArrayList<Shop> mapShopList);
-
-      void setCenterCamera(Shop shop);
+    void setCenterCamera(Shop shop);
   }
 
   /**
@@ -75,7 +73,6 @@ public interface Maps {
    * Required PRESENTER methods available to MODEL
    */
   interface ModelToPresenter {
-
     void setMarkerList(ArrayList<Shop> mapShopList);
   }
 

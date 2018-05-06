@@ -1,7 +1,17 @@
 package es.ulpgc.eite.clean.mvp.sample.home;
 
 import android.util.Log;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
+import java.util.Map;
+
 import es.ulpgc.eite.clean.mvp.GenericModel;
 import es.ulpgc.eite.clean.mvp.sample.app.Shop;
 import es.ulpgc.eite.clean.mvp.sample.data.DatabaseFacade;
@@ -9,7 +19,11 @@ import es.ulpgc.eite.clean.mvp.sample.data.DatabaseFacade;
 public class HomeModel
     extends GenericModel<Home.ModelToPresenter> implements Home.PresenterToModel {
 
-  private DatabaseFacade db;
+  //private DatabaseFacade db;
+  private ArrayList<Shop> shopList;
+  private DatabaseReference connection;
+  private FirebaseDatabase database;
+
   /**
    * Method that recovers a reference to the PRESENTER
    * You must ALWAYS call {@link super#onCreate(Object)} here
@@ -20,10 +34,18 @@ public class HomeModel
   public void onCreate(Home.ModelToPresenter presenter) {
     super.onCreate(presenter);
     Log.d(TAG, "calling onCreate()");
+
+    Log.d(TAG, "onCreate: Conectando con la BBDD");
+    // Conectar con la BBDD
+    database = FirebaseDatabase.getInstance();
+    // Generar una referencia con la que conectar.
+    connection = database.getReference();
+    /*
     db = DatabaseFacade.getInstance();
     if (DatabaseFacade.getInstance().getAllItemsArrayFromDatabase().length == 0){
       getData();
     }
+    */
   }
 
   /**
@@ -45,6 +67,34 @@ public class HomeModel
   public void loadShopList() {
     Log.d(TAG, "calling loadShopList()");
 
+    DatabaseReference myRef = connection;
+
+    myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+      @Override
+      public void onDataChange(DataSnapshot dataSnapshot) {
+
+        GenericTypeIndicator<ArrayList<Shop>> indicator = new GenericTypeIndicator<ArrayList<Shop>>() {};
+        shopList = dataSnapshot.getValue(indicator);
+
+        ArrayList<String> nameShopList = new ArrayList<>();
+        if (shopList.size() > 0){
+          for(int i = 0; i < shopList.size(); i++){
+            nameShopList.add(shopList.get(i).getName());
+          }
+        } else {
+          nameShopList.add("No hay tiendas.");
+        }
+        getPresenter().setShopList(nameShopList);
+      }
+
+      @Override
+      public void onCancelled(DatabaseError databaseError) {
+        Log.d(TAG, "Error leyendo la BBDD. " + databaseError.toException());
+      }
+    });
+
+
+    /*
     ArrayList<Shop> shopList = db.getAllItemsFromDatabase();
     ArrayList<String> nameShopList = new ArrayList<>();
     if (shopList.size() > 0){
@@ -55,17 +105,35 @@ public class HomeModel
       nameShopList.add("No hay tiendas.");
     }
     getPresenter().setShopList(nameShopList);
+    */
   }
 
   @Override
   public Shop getShop(int position) {
-    return db.getItem(position);
+    return null;
+  }
+
+  @Override
+  public void getShopAsync(int position) {
+    DatabaseReference myRef = connection.child(Integer.toString(position));
+    myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+      @Override
+      public void onDataChange(DataSnapshot dataSnapshot) {
+        getPresenter().setShopSelected(dataSnapshot.getValue(Shop.class));
+      }
+
+      @Override
+      public void onCancelled(DatabaseError databaseError) {
+        Log.d(TAG, "Error leyendo la BBDD. " + databaseError.toException());
+
+      }
+    });
   }
 
   ///////////////////////////////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////////
 
-  private void getData(){
+/*  private void getData(){
     Log.d(TAG, "calling getData()");
 
     Shop item;
@@ -171,6 +239,6 @@ public class HomeModel
     longitud = -15.4153973;
     item = new Shop("Triana","0089",0,"0089@nocheydia.es", cal,  latitude, longitud);
     db.insertDatabaseItem(item);
-  }
+  }*/
 
 }

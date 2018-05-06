@@ -9,10 +9,12 @@ public class Shop {
     private int zone;
     private String mail;
     private ArrayList<Timetable> timetable;
-    private double latitude;
-    private double longitude;
+    private String latitude;
+    private String longitude;
 
-    public Shop(String name, String code, int zone, String mail, ArrayList timetable, double latitude, double longitude) {
+    public Shop(){}
+
+    public Shop(String name, String code, int zone, String mail, ArrayList timetable, String latitude, String longitude) {
         this.name = name;
         this.code = code;
         this.zone = zone;
@@ -22,7 +24,7 @@ public class Shop {
         this.longitude = longitude;
     }
 
-    public Shop (String name, double latitude, double longitude){
+    public Shop (String name, String latitude, String longitude){
         this.name = name;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -79,20 +81,28 @@ public class Shop {
         return timetable;
     }
 
-    public double getLatitude() {
-        return latitude;
-    }
+    public String getLatitude() { return latitude; }
 
-    public void setLatitude(long latitude) {
+    public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
 
-    public double getLongitude() {
-        return longitude;
+    public double getLatitudeD() { return Double.parseDouble(latitude); }
+
+    public void setLatitudeD(double latitude) {
+        this.latitude = Double.toString(latitude);
     }
 
-    public void setLongitude(long longitude) {
+    public String getLongitude() { return longitude; }
+
+    public void setLongitude(String longitude) {
         this.longitude = longitude;
+    }
+
+    public double getLongitudeD() { return Double.parseDouble(longitude); }
+
+    public void setLongitudeD(double longitude) {
+        this.longitude = Double.toString(longitude);
     }
 
     public int getId() {
@@ -113,6 +123,8 @@ public class Shop {
             this.hour = hour;
             this.busy = false;
         }
+
+        public Timetable(){}
 
         public int getIdHour() {
             return idHour;

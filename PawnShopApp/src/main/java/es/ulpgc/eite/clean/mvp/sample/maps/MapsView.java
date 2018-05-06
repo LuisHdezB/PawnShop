@@ -1,9 +1,7 @@
 package es.ulpgc.eite.clean.mvp.sample.maps;
 
 import android.annotation.SuppressLint;
-
 import android.os.Bundle;
-
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
@@ -134,7 +132,8 @@ public class MapsView
       LatLng latLng;
       Marker marker;
         for (int i = 0; i < mapShopList.size(); i++) {
-          latLng = new LatLng(mapShopList.get(i).getLatitude(), mapShopList.get(i).getLongitude());
+          latLng = new LatLng(mapShopList.get(i).getLatitudeD(), mapShopList.get(i).getLongitudeD());
+          Log.d(TAG, "onDataChange: Latitud: " + mapShopList.get(i).getLatitude()); // TODO: 6/5/18 Hace lo que le sale de los cojones el getLatitude
           BitmapDescriptor markerIcon = BitmapDescriptorFactory.fromResource(R.mipmap.maker_icon);
           marker = map.addMarker(new MarkerOptions().position(latLng).title(mapShopList.get(i).getName()).icon(markerIcon));
         }
@@ -142,7 +141,7 @@ public class MapsView
 
   @Override
   public void setCenterCamera(Shop shop) {
-    LatLng latLng = new LatLng(shop.getLatitude(), shop.getLongitude());
+    LatLng latLng = new LatLng(shop.getLatitudeD(), shop.getLongitudeD());
     CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng,10);
     CameraUpdate zoom = CameraUpdateFactory.zoomTo(15);
     map.moveCamera(cameraUpdate);

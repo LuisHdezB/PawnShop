@@ -97,15 +97,9 @@ public class HomePresenter
   public void onButtonClicked(int position) {
     Log.d(TAG, "calling onButtonClicked()");
 
-    shop = getModel().getShop(position);
+    getModel().getShopAsync(position);
 
-    SharedPreferences preferences = getManagedContext().getSharedPreferences(SHOP_PREFERENCES, Context.MODE_PRIVATE);
-    SharedPreferences.Editor editor = preferences.edit();
-    editor.putInt(KEY_SHOP,shop.getId());
-    editor.apply();
 
-    Mediator.Navigation mediator = (Mediator.Navigation) getApplication();
-    mediator.goToNextScreen(this);
 
   }
 
@@ -176,5 +170,18 @@ public class HomePresenter
     if (isViewRunning()){
       getView().setShopNames(names);
     }
+  }
+
+  @Override
+  public void setShopSelected(Shop shopSelected) {
+    shop = shopSelected;
+
+    SharedPreferences preferences = getManagedContext().getSharedPreferences(SHOP_PREFERENCES, Context.MODE_PRIVATE);
+    SharedPreferences.Editor editor = preferences.edit();
+    editor.putInt(KEY_SHOP,shop.getId());
+    editor.apply();
+
+    Mediator.Navigation mediator = (Mediator.Navigation) getApplication();
+    mediator.goToNextScreen(this);
   }
 }

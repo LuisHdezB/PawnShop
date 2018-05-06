@@ -20,8 +20,8 @@
       { "idHour": 11, "hour": "18:30-19:00", "busy": false },
       { "idHour": 12, "hour": "19:00-19:30", "busy": false }
       ],
-    "latitude": 28.1334307,
-    "longitude": -15.4339218
+    "latitude": "28.1334307",
+    "longitude": "-15.4339218"
   },
   {
     "id": 1,
@@ -44,8 +44,8 @@
       { "idHour": 11, "hour": "18:30-19:00", "busy": false },
       { "idHour": 12, "hour": "19:00-19:30", "busy": false }
       ],
-    "latitude": 27.8438423,
-    "longitude": -15.4437497
+    "latitude": "27.8438423",
+    "longitude": "-15.4437497"
   },
   {
     "id": 2,
@@ -78,8 +78,8 @@
       { "idHour": 21, "hour": "20:30-21:00", "busy": false },
       { "idHour": 22, "hour": "21:00-21:30", "busy": false }
       ],
-    "latitude": 28.1015129,
-    "longitude": -15.4424514
+    "latitude": "28.1015129",
+    "longitude": "-15.4424514"
   },
   {
     "id": 3,
@@ -102,7 +102,7 @@
       { "idHour": 11, "hour": "18:30-19:00", "busy": false },
       { "idHour": 12, "hour": "19:00-19:30", "busy": false }
       ],
-    "latitude": 28.1055502,
-    "longitude": -15.4153973
+    "latitude": "28.1055502",
+    "longitude": "-15.4153973"
   }
 ]
