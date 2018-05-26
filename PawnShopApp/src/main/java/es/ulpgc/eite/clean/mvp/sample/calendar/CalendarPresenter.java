@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import es.ulpgc.eite.clean.mvp.ContextView;
 import es.ulpgc.eite.clean.mvp.GenericActivity;
 import es.ulpgc.eite.clean.mvp.GenericPresenter;
+import es.ulpgc.eite.clean.mvp.sample.app.Booking;
 import es.ulpgc.eite.clean.mvp.sample.app.Mediator;
 import es.ulpgc.eite.clean.mvp.sample.app.Shop;
 
@@ -128,12 +129,21 @@ public class CalendarPresenter
 
   @Override
   public void onSendButtonClicked() {
-    // TODO: 8/4/18 Crear método de envio de cita
-    if (getView().getInputPhoneText() != 0
+    if(isViewRunning()){
+      if (getView().getInputPhoneText() != 0
             && getView().getInputProductsText() != null
             && getView().getMailInputText() != null
             && getView().getNameInputText() != null){
 
+        String nameBooking = getNameInputText();
+        String mailBooking = getMailInputText();
+        String dateBooking = dateSelected;
+        String productsBooking = getProductsInputText();
+        int phoneBooking = getView().getInputPhoneText();
+        int idHour = getView().getHour();
+        Booking booking = new Booking(shop.getId(),nameBooking,mailBooking,dateBooking,productsBooking,phoneBooking,idHour);
+        getModel().setBooking(booking, shop);
+      }
     }
   }
 
@@ -260,7 +270,7 @@ public class CalendarPresenter
 
   @Override
   public boolean isAppointment() {
-    return false;
+    return ifAppointment;
   }
 
   @Override
@@ -319,10 +329,22 @@ public class CalendarPresenter
     if (isViewRunning()) {
       if (!ifAppointment) {
         getView().enableSendButton();
+        getView().enableCalendarView();
+        getView().enableHourSpinner();
+        getView().enableTextInputs();
       } else {
         getView().disableSendButon();
+        getView().disableCalendarView();
+        getView().disableHourSpinner();
+        getView().disableTextInputs();
+        getView().makeToast("Cita el día " + dateSelected +" a las: " + shop.getTimetable().get(idHour).getHour());
       }
     }
   }
 
+  @Override
+  public void setAppointment() {
+    ifAppointment = true;
+    checkButtonEnable();
+  }
 }

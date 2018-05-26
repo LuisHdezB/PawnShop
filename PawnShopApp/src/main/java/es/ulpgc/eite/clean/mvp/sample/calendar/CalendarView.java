@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -134,6 +135,7 @@ public class CalendarView
     } else {
       Log.d(TAG, "setDateView: dateOld si date null:");
       this.date.setDate(dateOld, true, true);
+      getPresenter().changeDate(convertToString(cal));
     }
   }
 
@@ -202,7 +204,48 @@ public class CalendarView
     this.hours.setSelection(idHour,true);
   }
 
-  /**
+  @Override
+  public void enableCalendarView() {
+    date.setEnabled(true);
+  }
+
+  @Override
+  public void disableCalendarView() {
+    date.setEnabled(false);
+  }
+
+  @Override
+  public void enableHourSpinner() {
+    hours.setEnabled(true);
+  }
+
+  @Override
+  public void disableHourSpinner() {
+    hours.setEnabled(false);
+  }
+
+  @Override
+  public void enableTextInputs() {
+    name.setEnabled(true);
+    phone.setEnabled(true);
+    mail.setEnabled(true);
+    products.setEnabled(true);
+  }
+
+  @Override
+  public void disableTextInputs() {
+    name.setEnabled(false);
+    phone.setEnabled(false);
+    mail.setEnabled(false);
+    products.setEnabled(false);
+  }
+
+    @Override
+    public void makeToast(String text) {
+        Toast.makeText(this, text, Toast.LENGTH_LONG).show();
+    }
+
+    /**
    * Método convertToCalendar para convertir una fecha de String a Calendar.
    *
    * @param date Fecha en formato String

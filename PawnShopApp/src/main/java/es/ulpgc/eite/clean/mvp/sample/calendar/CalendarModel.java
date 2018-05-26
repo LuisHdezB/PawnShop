@@ -5,6 +5,7 @@ import android.util.Log;
 import java.util.ArrayList;
 
 import es.ulpgc.eite.clean.mvp.GenericModel;
+import es.ulpgc.eite.clean.mvp.sample.app.Booking;
 import es.ulpgc.eite.clean.mvp.sample.app.Shop;
 import es.ulpgc.eite.clean.mvp.sample.app.Timetable;
 import es.ulpgc.eite.clean.mvp.sample.data.DatabaseFacade;
@@ -54,6 +55,13 @@ public class CalendarModel
       hours.add("No hay horas disponibles.");
     }
     return hours;
+  }
+
+  @Override
+  public void setBooking(Booking booking, Shop shop) {
+    shop.getTimetable().get(booking.getShopId()).setBusy(true);
+    getPresenter().setAppointment();
+    // TODO: 26/5/18 Mandar mail
   }
 
 

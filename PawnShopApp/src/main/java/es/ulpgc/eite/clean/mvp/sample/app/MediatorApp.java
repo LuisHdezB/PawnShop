@@ -76,6 +76,7 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
       presenter.setMailInputText(toCalendarState.mail);
       presenter.setProductsInputText(toCalendarState.products);
       presenter.setHourSelected(toCalendarState.idHour);
+      presenter.setAppointment(toCalendarState.ifAppointment);
 
       Log.d(TAG, "calling removingInitialCalendarState()");
       toCalendarState = null;
@@ -207,6 +208,7 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
     toCalendarState.mail = presenter.getMailInputText();
     toCalendarState.phone = presenter.getPhoneInputText();
     toCalendarState.products = presenter.getProductsInputText();
+    toCalendarState.ifAppointment = presenter.isAppointment();
 
     if (presenter.isChatClicked()){
       toChatState = new ChatState();

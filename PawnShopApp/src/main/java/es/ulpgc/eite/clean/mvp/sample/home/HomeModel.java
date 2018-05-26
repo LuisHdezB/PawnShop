@@ -67,7 +67,7 @@ public class HomeModel
   public void loadShopList() {
     Log.d(TAG, "calling loadShopList()");
 
-    DatabaseReference myRef = connection;
+    DatabaseReference myRef = connection.child("shops");
 
     myRef.addListenerForSingleValueEvent(new ValueEventListener() {
       @Override
@@ -115,7 +115,7 @@ public class HomeModel
 
   @Override
   public void getShopAsync(int position) {
-    DatabaseReference myRef = connection.child(Integer.toString(position));
+    DatabaseReference myRef = connection.child("shops").child(Integer.toString(position));
     myRef.addListenerForSingleValueEvent(new ValueEventListener() {
       @Override
       public void onDataChange(DataSnapshot dataSnapshot) {

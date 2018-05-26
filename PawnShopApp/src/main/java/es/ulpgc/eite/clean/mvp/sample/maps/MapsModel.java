@@ -64,7 +64,7 @@ public class MapsModel
   public void loadMapMarker() {
     Log.d(TAG, "calling loadMapMarker()");
 
-    DatabaseReference myRef = connection;
+    DatabaseReference myRef = connection.child("shops");
     myRef.addListenerForSingleValueEvent(new ValueEventListener() {
       @Override
       public void onDataChange(DataSnapshot dataSnapshot) {

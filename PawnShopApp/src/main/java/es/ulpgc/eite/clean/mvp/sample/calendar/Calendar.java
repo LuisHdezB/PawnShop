@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import es.ulpgc.eite.clean.mvp.ContextView;
 import es.ulpgc.eite.clean.mvp.Model;
 import es.ulpgc.eite.clean.mvp.Presenter;
+import es.ulpgc.eite.clean.mvp.sample.app.Booking;
 import es.ulpgc.eite.clean.mvp.sample.app.Shop;
 
 
@@ -82,21 +83,28 @@ public interface Calendar {
     void setProductsText(String products);
     int getHour();
     void setHourSelected(int idHour);
+    void enableCalendarView();
+    void disableCalendarView();
+    void enableHourSpinner();
+    void disableHourSpinner();
+    void enableTextInputs();
+    void disableTextInputs();
+    void makeToast(String cita);
   }
 
   /**
    * Methods offered to MODEL to communicate with PRESENTER
    */
   interface PresenterToModel extends Model<ModelToPresenter> {
-
     ArrayList<String> getTimetable(Shop shop);
+    void setBooking(Booking booking, Shop shop);
   }
 
   /**
    * Required PRESENTER methods available to MODEL
    */
   interface ModelToPresenter {
-
+    void setAppointment();
   }
 
 }
