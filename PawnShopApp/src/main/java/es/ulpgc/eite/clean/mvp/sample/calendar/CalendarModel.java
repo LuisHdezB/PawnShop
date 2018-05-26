@@ -2,6 +2,9 @@ package es.ulpgc.eite.clean.mvp.sample.calendar;
 
 import android.util.Log;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 
 import es.ulpgc.eite.clean.mvp.GenericModel;
@@ -14,7 +17,8 @@ import es.ulpgc.eite.clean.mvp.sample.data.DatabaseFacade;
 public class CalendarModel
     extends GenericModel<Calendar.ModelToPresenter> implements Calendar.PresenterToModel {
 
-    DatabaseFacade db;
+  private DatabaseReference connection;
+  private FirebaseDatabase database;
 
   /**
    * Method that recovers a reference to the PRESENTER
@@ -26,7 +30,12 @@ public class CalendarModel
   public void onCreate(Calendar.ModelToPresenter presenter) {
     super.onCreate(presenter);
     Log.d(TAG, "calling onCreate()");
-    db = DatabaseFacade.getInstance();
+    //db = DatabaseFacade.getInstance();
+
+    // Conectar con la BBDD
+    database = FirebaseDatabase.getInstance();
+    // Generar una referencia con la que conectar.
+    connection = database.getReference();
   }
 
   /**
@@ -61,6 +70,7 @@ public class CalendarModel
   public void setBooking(Booking booking, Shop shop) {
     shop.getTimetable().get(booking.getShopId()).setBusy(true);
     getPresenter().setAppointment();
+    connection.child("booking").setValue(booking);
     // TODO: 26/5/18 Mandar mail
   }
 
