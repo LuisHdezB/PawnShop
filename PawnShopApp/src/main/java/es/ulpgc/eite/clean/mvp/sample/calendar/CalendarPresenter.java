@@ -22,10 +22,11 @@ public class CalendarPresenter
   private boolean mapsClicked;
   //State
   private Shop shop;
-  private String name, mail, date, products;
+  private String name, mail, dateSelected, products;
   private boolean ifAppointment;
   private int phone;
   private ArrayList<String> hours;
+  private int idHour;
 
   /**
    * Operation called during VIEW creation in {@link GenericActivity#onResume(Class, Object)}
@@ -128,6 +129,18 @@ public class CalendarPresenter
   @Override
   public void onSendButtonClicked() {
     // TODO: 8/4/18 Crear método de envio de cita
+    if (getView().getInputPhoneText() != 0
+            && getView().getInputProductsText() != null
+            && getView().getMailInputText() != null
+            && getView().getNameInputText() != null){
+
+    }
+  }
+
+  @Override
+  public void changeDate(String s) {
+    this.dateSelected = s;
+    Log.d(TAG, "changeDate: date: " + s);
   }
 
 
@@ -171,13 +184,18 @@ public class CalendarPresenter
   }
 
   @Override
-  public void setDateInputText(String date) {
-    this.date = date;
+  public void setProductsInputText(String products) {
+    this.products = products;
   }
 
   @Override
-  public void setProductsInputText(String products) {
-    this.products = products;
+  public void setDateView(String date) {
+      this.dateSelected = date;
+  }
+
+  @Override
+  public void setHourSelected(int idHour) {
+    this.idHour = idHour;
   }
 
   @Override
@@ -245,6 +263,20 @@ public class CalendarPresenter
     return false;
   }
 
+  @Override
+  public String getDate() {
+    return this.dateSelected;
+  }
+
+  @Override
+  public int getHour() {
+    if (isViewRunning()){
+      return getView().getHour();
+    }
+    return 0;
+  }
+
+
   ///////////////////////////////////////////////////////////////////////////////////
   // Calendar To //////////////////////////////////////////////////////////////////////
 
@@ -272,11 +304,13 @@ public class CalendarPresenter
     }
 
     if (isViewRunning()) {
-      getView().setDateView(date);
+      getView().setDateView(dateSelected);
       getView().setHours(hours);
       getView().setNameText(name);
       getView().setPhoneText(phone);
       getView().setMailText(mail);
+      getView().setProductsText(products);
+      getView().setHourSelected(idHour);
     }
     checkButtonEnable();
   }

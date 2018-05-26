@@ -14,7 +14,7 @@ public class Shop {
 
     public Shop(){}
 
-    public Shop(String name, String code, int zone, String mail, ArrayList timetable, String latitude, String longitude) {
+    public Shop(String name, String code, int zone, String mail, ArrayList<Timetable> timetable, String latitude, String longitude) {
         this.name = name;
         this.code = code;
         this.zone = zone;
@@ -111,40 +111,6 @@ public class Shop {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public static class Timetable {
-        private int idHour;
-        private String hour;
-        private boolean busy;
-
-        public Timetable(int idHour, String hour) {
-            this.idHour = idHour;
-            this.hour = hour;
-            this.busy = false;
-        }
-
-        public Timetable(){}
-
-        public int getIdHour() {
-            return idHour;
-        }
-
-        public void setIdHour(int idHour) {
-            this.idHour = idHour;
-        }
-
-        public String getHour() {
-            return hour;
-        }
-
-        public void setHour(String hour) {
-            this.hour = hour;
-        }
-
-        public boolean isBusy() { return busy; }
-
-        public void setBusy(boolean busy) { this.busy = busy; }
     }
 
 }

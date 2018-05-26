@@ -2,6 +2,7 @@ package es.ulpgc.eite.clean.mvp.sample.calendar;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -9,7 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -63,6 +63,14 @@ public class CalendarView
     phone = (EditText) findViewById(R.id.phone);
     mail = (EditText) findViewById(R.id.mail);
     date = (android.widget.CalendarView) findViewById(R.id.date);
+    date.setOnDateChangeListener(new android.widget.CalendarView.OnDateChangeListener(){
+      @Override
+      public void onSelectedDayChange(@NonNull android.widget.CalendarView view, int year, int month, int dayOfMonth) {
+        month = month + 1;
+        Log.d(TAG, "onSelectedDayChange: date: " + year + "-" + month + "-" + dayOfMonth);
+        getPresenter().changeDate(year + "-" + month + "-" + dayOfMonth);
+      }
+    });
     hours = (Spinner) findViewById(R.id.hour);
     products = (EditText) findViewById(R.id.products);
     send = (Button) findViewById(R.id.send);
@@ -110,12 +118,28 @@ public class CalendarView
   @Override
   public void setDateView(String date) {
     java.util.Calendar cal = java.util.Calendar.getInstance();
-    this.date.setMinDate(cal.getTimeInMillis());
+    cal.add(java.util.Calendar.DATE, 1);
+    long dateOld = cal.getTimeInMillis();
+    this.date.setMinDate(dateOld);
+
+    if (date != null) {
+      long dateNew = convertToCalendar(date).getTimeInMillis();
+      if (dateNew > dateOld) {
+        Log.d(TAG, "setDateView: dateNew: " + date);
+        this.date.setDate(dateNew, true, true);
+      } else {
+        Log.d(TAG, "setDateView: dateOld: " + date);
+        this.date.setDate(dateOld, true, true);
+      }
+    } else {
+      Log.d(TAG, "setDateView: dateOld si date null:");
+      this.date.setDate(dateOld, true, true);
+    }
   }
 
   @Override
   public void setHours(ArrayList<String> hours) {
-    this.hours.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, hours));
+    this.hours.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, hours));
   }
 
   @Override
@@ -161,6 +185,53 @@ public class CalendarView
   @Override
   public String getInputProductsText() {
     return products.getText().toString();
+  }
+
+  @Override
+  public void setProductsText(String products) {
+    this.products.setText(products);
+  }
+
+  @Override
+  public int getHour() {
+    return hours.getSelectedItemPosition();
+  }
+
+  @Override
+  public void setHourSelected(int idHour) {
+    this.hours.setSelection(idHour,true);
+  }
+
+  /**
+   * Método convertToCalendar para convertir una fecha de String a Calendar.
+   *
+   * @param date Fecha en formato String
+   * @return Fecha en formato Calendar
+   */
+  private java.util.Calendar convertToCalendar(String date) {
+    java.util.Calendar cal = java.util.Calendar.getInstance();
+    String parts[] = date.split("-");
+    Log.d(TAG, "convertToCalendar: date:" + date);
+    int day = Integer.parseInt(parts[2]);
+    int month = Integer.parseInt(parts[1]) - 1;
+    int year = Integer.parseInt(parts[0]);
+    cal.set(year, month, day);
+    return cal;
+  }
+
+  /**
+   * Método convertToString para convertir una fecha de Calendar a String.
+   *
+   * @param cal Fecha en formato Calendar
+   * @return Fecha en formato String
+   */
+  private String convertToString(java.util.Calendar cal) {
+    int year, month, day;
+    year = cal.get(java.util.Calendar.YEAR);
+    month = cal.get(java.util.Calendar.MONTH); // Los meses van de 0-11
+    day = cal.get(java.util.Calendar.DAY_OF_MONTH) + 1;
+    Log.d(TAG, "convertToString: date:" + year + "-" + month + "-" + day);
+    return year + "-" + month + "-" + day;
   }
 
 }

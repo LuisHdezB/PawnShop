@@ -26,8 +26,9 @@ public interface Calendar {
     void setNameInputText(String name);
     void setPhoneInputText(int phone);
     void setMailInputText(String mail);
-    void setDateInputText(String date);
     void setProductsInputText(String products);
+    void setDateView(String date);
+    void setHourSelected(int idHour);
   }
 
   interface CalendarTo extends State{
@@ -38,12 +39,13 @@ public interface Calendar {
     boolean isChatClicked();
     boolean isMapsClicked();
     Shop getShop();
-
     String getNameInputText();
     String getMailInputText();
     int getPhoneInputText();
     String getProductsInputText();
     boolean isAppointment();
+    String getDate();
+    int getHour();
   }
 
   ///////////////////////////////////////////////////////////////////////////////////
@@ -57,6 +59,7 @@ public interface Calendar {
     void onMapsButtonClicked();
     void onChatButtonClicked();
     void onSendButtonClicked();
+    void changeDate(String s);
   }
 
   /**
@@ -76,6 +79,9 @@ public interface Calendar {
     String getMailInputText();
     int getInputPhoneText();
     String getInputProductsText();
+    void setProductsText(String products);
+    int getHour();
+    void setHourSelected(int idHour);
   }
 
   /**

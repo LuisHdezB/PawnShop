@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import es.ulpgc.eite.clean.mvp.GenericModel;
 import es.ulpgc.eite.clean.mvp.sample.app.Shop;
+import es.ulpgc.eite.clean.mvp.sample.app.Timetable;
 import es.ulpgc.eite.clean.mvp.sample.data.DatabaseFacade;
 
 
@@ -41,11 +42,13 @@ public class CalendarModel
   @Override
   public ArrayList<String> getTimetable(Shop shop) {
     ArrayList<String> hours = new ArrayList<>();
-    ArrayList<Shop.Timetable> calendar;
+    ArrayList<Timetable> calendar;
     calendar = shop.getTimetable();
     if (calendar.size() > 0) {
       for (int i = 0; i < calendar.size(); i++) {
-        hours.add(calendar.get(i).getHour());
+        if (!calendar.get(i).isBusy()){
+          hours.add(calendar.get(i).getHour());
+        }
       }
     } else {
       hours.add("No hay horas disponibles.");
