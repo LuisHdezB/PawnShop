@@ -2,6 +2,7 @@ package es.ulpgc.eite.clean.mvp.sample.calendar;
 
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -29,6 +30,8 @@ public class CalendarPresenter
   private int phone;
   private ArrayList<String> hours;
   private int idHour;
+  private static final String APPOINTMENT = "APPOINTMENT";
+  private static final String APPOINTMENT_DATE = "APPOINTMENT_DATE";
 
   /**
    * Operation called during VIEW creation in {@link GenericActivity#onResume(Class, Object)}
@@ -43,6 +46,7 @@ public class CalendarPresenter
     super.onCreate(CalendarModel.class, this);
     setView(view);
     Log.d(TAG, "calling onCreate()");
+
 
     Log.d(TAG, "calling startingScreen()");
     Mediator.Lifecycle mediator = (Mediator.Lifecycle) getApplication();
@@ -169,6 +173,22 @@ public class CalendarPresenter
   @Override
   public void onScreenStarted() {
     Log.d(TAG, "calling onScreenStarted()");
+
+    SharedPreferences sharedPref = getManagedContext().getSharedPreferences(APPOINTMENT, Context.MODE_PRIVATE);
+    ifAppointment = sharedPref.getBoolean(APPOINTMENT,false);
+    Log.d(TAG, "onCreate: ifAppointment: " + ifAppointment);
+    if (ifAppointment){
+      String appointment = sharedPref.getString(APPOINTMENT_DATE,null);
+      Log.d(TAG, "onCreate: dateSelected: " + dateSelected);
+      java.util.Calendar appointmentCalendar = convertToCalendar(appointment);
+      java.util.Calendar todayCalendar = java.util.Calendar.getInstance();
+      if (todayCalendar.getTimeInMillis() >= appointmentCalendar.getTimeInMillis()){
+        ifAppointment = false;
+      } else {
+        dateSelected = appointment;
+      }
+    }
+
     setCurrentState();
   }
 
@@ -355,6 +375,12 @@ public class CalendarPresenter
   public void setAppointment() {
     ifAppointment = true;
     checkButtonEnable();
+
+    SharedPreferences sharedPref = getManagedContext().getSharedPreferences(APPOINTMENT, Context.MODE_PRIVATE);
+    SharedPreferences.Editor editor = sharedPref.edit();
+    editor.putBoolean(APPOINTMENT,true);
+    editor.putString(APPOINTMENT_DATE,dateSelected);
+    editor.apply();
   }
 
   @Override
@@ -366,4 +392,21 @@ public class CalendarPresenter
     getView().setHours(this.hours);
     getView().setHourSelected(idHour);
   }
+
+  /**
+   * Método convertToCalendar para convertir una fecha de String a Calendar.
+   *
+   * @param date Fecha en formato String
+   * @return Fecha en formato Calendar
+   */
+  private java.util.Calendar convertToCalendar(String date) {
+    java.util.Calendar cal = java.util.Calendar.getInstance();
+    String parts[] = date.split("-");
+    int day = Integer.parseInt(parts[2]);
+    int month = Integer.parseInt(parts[1]) - 1;
+    int year = Integer.parseInt(parts[0]);
+    cal.set(year, month, day);
+    return cal;
+  }
+
 }

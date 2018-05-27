@@ -84,13 +84,6 @@ public class CalendarModel
   }
 
   private void checkTimetableOnDate(final String date, final ArrayList<Timetable> hours, final Shop shop) {
-    // ARREGLO DE LA FECHA PORQUE EL CALENDARVIEW TRABAJA CON CALENDAR QUE LOS MESES VAN DE 0-11
-    /*String parts[] = date.split("-");
-    int year = Integer.parseInt(parts[0]);
-    int month = Integer.parseInt(parts[1]) + 1;
-    int day = Integer.parseInt(parts[2]);
-    String dateFinal = year + "-" + month + "-" + day;*/
-    // FIN DEL ARREGLO DE LA FECHA
     Log.d(TAG, "checkTimetableOnDate: fecha a buscar: " + date);
     Query query = connection.child("booking").orderByChild("date").equalTo(date);
     query.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -119,31 +112,6 @@ public class CalendarModel
         // TODO: 27/5/18 Poner que saque de Realm
       }
     });
-    /*
-    connection.child("booking").addListenerForSingleValueEvent(new ValueEventListener() {
-      @Override
-      public void onDataChange(DataSnapshot dataSnapshot) {
-        if (dataSnapshot.getValue() != null){
-          GenericTypeIndicator<ArrayList<Booking>> indicator = new GenericTypeIndicator<ArrayList<Booking>>() {};
-          ArrayList<Booking> bookings = dataSnapshot.getValue(indicator);
-          for (Booking item: bookings){
-            if (item.getDate() == date) {
-              hours.remove(item.getHourId());
-            }
-          }
-          getPresenter().setAvailableHours(hours);
-        } else {
-          getPresenter().setAvailableHours(hours);
-        }
-      }
-
-      @Override
-      public void onCancelled(DatabaseError databaseError) {
-        // TODO: 27/5/18 Poner que guarde tire de Realm
-      }
-    });*/
-
-
   }
 
 
