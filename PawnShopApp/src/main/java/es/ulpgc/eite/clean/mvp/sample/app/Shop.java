@@ -1,20 +1,18 @@
 package es.ulpgc.eite.clean.mvp.sample.app;
 
-import java.util.ArrayList;
-
 public class Shop {
     private int id;
     private String name;
     private String code;
     private int zone;
     private String mail;
-    private ArrayList<Timetable> timetable;
+    private int timetable;
     private String latitude;
     private String longitude;
 
     public Shop(){}
 
-    public Shop(String name, String code, int zone, String mail, ArrayList<Timetable> timetable, String latitude, String longitude) {
+    public Shop(String name, String code, int zone, String mail, int timetable, String latitude, String longitude) {
         this.name = name;
         this.code = code;
         this.zone = zone;
@@ -77,7 +75,7 @@ public class Shop {
         this.mail = mail;
     }
 
-    public ArrayList<Timetable> getTimetable() {
+    public int getTimetable() {
         return timetable;
     }
 

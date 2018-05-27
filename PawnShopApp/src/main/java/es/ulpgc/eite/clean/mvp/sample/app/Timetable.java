@@ -4,12 +4,10 @@ package es.ulpgc.eite.clean.mvp.sample.app;
 public class Timetable {
     private int idHour;
     private String hour;
-    private boolean busy;
 
     public Timetable(int idHour, String hour) {
         this.idHour = idHour;
         this.hour = hour;
-        this.busy = false;
     }
 
     public Timetable(){}
@@ -30,7 +28,4 @@ public class Timetable {
         this.hour = hour;
     }
 
-    public boolean isBusy() { return busy; }
-
-    public void setBusy(boolean busy) { this.busy = busy; }
 }

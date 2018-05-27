@@ -68,7 +68,6 @@ public class CalendarView
       @Override
       public void onSelectedDayChange(@NonNull android.widget.CalendarView view, int year, int month, int dayOfMonth) {
         month = month + 1;
-        Log.d(TAG, "onSelectedDayChange: date: " + year + "-" + month + "-" + dayOfMonth);
         getPresenter().changeDate(year + "-" + month + "-" + dayOfMonth);
       }
     });
@@ -118,6 +117,7 @@ public class CalendarView
 
   @Override
   public void setDateView(String date) {
+    Log.d(TAG, "setDateView: calling setDateView");
     java.util.Calendar cal = java.util.Calendar.getInstance();
     cal.add(java.util.Calendar.DATE, 1);
     long dateOld = cal.getTimeInMillis();
@@ -126,14 +126,11 @@ public class CalendarView
     if (date != null) {
       long dateNew = convertToCalendar(date).getTimeInMillis();
       if (dateNew > dateOld) {
-        Log.d(TAG, "setDateView: dateNew: " + date);
         this.date.setDate(dateNew, true, true);
       } else {
-        Log.d(TAG, "setDateView: dateOld: " + date);
         this.date.setDate(dateOld, true, true);
       }
     } else {
-      Log.d(TAG, "setDateView: dateOld si date null:");
       this.date.setDate(dateOld, true, true);
       getPresenter().changeDate(convertToString(cal));
     }
@@ -254,7 +251,6 @@ public class CalendarView
   private java.util.Calendar convertToCalendar(String date) {
     java.util.Calendar cal = java.util.Calendar.getInstance();
     String parts[] = date.split("-");
-    Log.d(TAG, "convertToCalendar: date:" + date);
     int day = Integer.parseInt(parts[2]);
     int month = Integer.parseInt(parts[1]) - 1;
     int year = Integer.parseInt(parts[0]);
@@ -273,7 +269,6 @@ public class CalendarView
     year = cal.get(java.util.Calendar.YEAR);
     month = cal.get(java.util.Calendar.MONTH); // Los meses van de 0-11
     day = cal.get(java.util.Calendar.DAY_OF_MONTH) + 1;
-    Log.d(TAG, "convertToString: date:" + year + "-" + month + "-" + day);
     return year + "-" + month + "-" + day;
   }
 

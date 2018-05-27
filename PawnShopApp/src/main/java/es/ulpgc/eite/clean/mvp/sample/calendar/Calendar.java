@@ -9,6 +9,7 @@ import es.ulpgc.eite.clean.mvp.Model;
 import es.ulpgc.eite.clean.mvp.Presenter;
 import es.ulpgc.eite.clean.mvp.sample.app.Booking;
 import es.ulpgc.eite.clean.mvp.sample.app.Shop;
+import es.ulpgc.eite.clean.mvp.sample.app.Timetable;
 
 
 public interface Calendar {
@@ -60,7 +61,7 @@ public interface Calendar {
     void onMapsButtonClicked();
     void onChatButtonClicked();
     void onSendButtonClicked();
-    void changeDate(String s);
+    void changeDate(String date);
   }
 
   /**
@@ -96,8 +97,8 @@ public interface Calendar {
    * Methods offered to MODEL to communicate with PRESENTER
    */
   interface PresenterToModel extends Model<ModelToPresenter> {
-    ArrayList<String> getTimetable(Shop shop);
     void setBooking(Booking booking, Shop shop);
+    void setTimetableList(String date, Shop shop);
   }
 
   /**
@@ -105,6 +106,8 @@ public interface Calendar {
    */
   interface ModelToPresenter {
     void setAppointment();
+
+    void setAvailableHours(ArrayList<Timetable> hours);
   }
 
 }

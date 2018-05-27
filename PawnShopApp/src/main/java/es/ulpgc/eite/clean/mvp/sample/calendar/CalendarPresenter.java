@@ -12,6 +12,7 @@ import es.ulpgc.eite.clean.mvp.GenericPresenter;
 import es.ulpgc.eite.clean.mvp.sample.app.Booking;
 import es.ulpgc.eite.clean.mvp.sample.app.Mediator;
 import es.ulpgc.eite.clean.mvp.sample.app.Shop;
+import es.ulpgc.eite.clean.mvp.sample.app.Timetable;
 
 public class CalendarPresenter
     extends GenericPresenter
@@ -148,9 +149,9 @@ public class CalendarPresenter
   }
 
   @Override
-  public void changeDate(String s) {
-    this.dateSelected = s;
-    Log.d(TAG, "changeDate: date: " + s);
+  public void changeDate(String date) {
+    this.dateSelected = date;
+    Log.d(TAG, "changeDate: date: " + date);
   }
 
 
@@ -309,18 +310,15 @@ public class CalendarPresenter
   private void setCurrentState() {
     Log.d(TAG, "calling setCurrentState()");
 
-    if (shop != null) {
-      hours = getModel().getTimetable(shop);
-    }
-
     if (isViewRunning()) {
+      getModel().setTimetableList(dateSelected,shop);
       getView().setDateView(dateSelected);
-      getView().setHours(hours);
+      //getView().setHours(hours);
       getView().setNameText(name);
       getView().setPhoneText(phone);
       getView().setMailText(mail);
       getView().setProductsText(products);
-      getView().setHourSelected(idHour);
+      //getView().setHourSelected(idHour);
     }
     checkButtonEnable();
   }
@@ -337,7 +335,7 @@ public class CalendarPresenter
         getView().disableCalendarView();
         getView().disableHourSpinner();
         getView().disableTextInputs();
-        getView().makeToast("Cita el día " + dateSelected +" a las: " + shop.getTimetable().get(idHour).getHour());
+        getView().makeToast("Cita el día " + dateSelected);
       }
     }
   }
@@ -346,5 +344,15 @@ public class CalendarPresenter
   public void setAppointment() {
     ifAppointment = true;
     checkButtonEnable();
+  }
+
+  @Override
+  public void setAvailableHours(ArrayList<Timetable> hours) {
+    this.hours = new ArrayList<>();
+    for (Timetable item : hours){
+      this.hours.add(item.getHour());
+    }
+    getView().setHours(this.hours);
+    getView().setHourSelected(idHour);
   }
 }

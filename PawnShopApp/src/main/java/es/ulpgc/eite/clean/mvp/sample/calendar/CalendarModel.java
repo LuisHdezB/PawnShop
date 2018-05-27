@@ -2,8 +2,14 @@ package es.ulpgc.eite.clean.mvp.sample.calendar;
 
 import android.util.Log;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
+import com.google.firebase.database.MutableData;
+import com.google.firebase.database.Transaction;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -49,29 +55,55 @@ public class CalendarModel
 
   }
 
+
   @Override
-  public ArrayList<String> getTimetable(Shop shop) {
-    ArrayList<String> hours = new ArrayList<>();
-    ArrayList<Timetable> calendar;
-    calendar = shop.getTimetable();
-    if (calendar.size() > 0) {
-      for (int i = 0; i < calendar.size(); i++) {
-        if (!calendar.get(i).isBusy()){
-          hours.add(calendar.get(i).getHour());
-        }
-      }
-    } else {
-      hours.add("No hay horas disponibles.");
-    }
-    return hours;
+  public void setBooking(final Booking booking, Shop shop) {
+    getPresenter().setAppointment();
+    connection.child("booking").push().setValue(booking);
+    // TODO: 26/5/18 Mandar mail
   }
 
   @Override
-  public void setBooking(Booking booking, Shop shop) {
-    shop.getTimetable().get(booking.getShopId()).setBusy(true);
-    getPresenter().setAppointment();
-    connection.child("booking").setValue(booking);
-    // TODO: 26/5/18 Mandar mail
+  public void setTimetableList(final String date, Shop shop) {
+    connection.child("timetable").child(Integer.toString(shop.getTimetable())).child("timetable").addListenerForSingleValueEvent(new ValueEventListener() {
+      @Override
+      public void onDataChange(DataSnapshot dataSnapshot) {
+        ArrayList<Timetable> hours;
+        GenericTypeIndicator<ArrayList<Timetable>> indicator = new GenericTypeIndicator<ArrayList<Timetable>>() {};
+        hours = dataSnapshot.getValue(indicator);
+        checkTimetableOnDate(date, hours);
+      }
+
+      @Override
+      public void onCancelled(DatabaseError databaseError) {
+        // TODO: 27/5/18 Poner que guarde tire de Realm
+      }
+    });
+  }
+
+  private void checkTimetableOnDate(final String date, final ArrayList<Timetable> hours) {
+    connection.child("booking").addListenerForSingleValueEvent(new ValueEventListener() {
+      @Override
+      public void onDataChange(DataSnapshot dataSnapshot) {
+        if (dataSnapshot.getValue() != null){
+          GenericTypeIndicator<ArrayList<Booking>> indicator = new GenericTypeIndicator<ArrayList<Booking>>() {};
+          ArrayList<Booking> bookings = dataSnapshot.getValue(indicator);
+          for (Booking item: bookings){
+            if (item.getDate() == date) {
+              hours.remove(item.getHourId());
+            }
+          }
+          getPresenter().setAvailableHours(hours);
+        } else {
+          getPresenter().setAvailableHours(hours);
+        }
+      }
+
+      @Override
+      public void onCancelled(DatabaseError databaseError) {
+        // TODO: 27/5/18 Poner que guarde tire de Realm
+      }
+    });
   }
 
 
