@@ -91,6 +91,7 @@ public interface Calendar {
     void enableTextInputs();
     void disableTextInputs();
     void makeToast(String cita);
+    void setTempAdapterToHours();
   }
 
   /**

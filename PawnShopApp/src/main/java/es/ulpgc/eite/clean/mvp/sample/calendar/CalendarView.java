@@ -72,10 +72,7 @@ public class CalendarView
       }
     });
     hours = (Spinner) findViewById(R.id.hour);
-    final ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-            R.array.hour, android.R.layout.simple_spinner_item);
-    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-    hours.setAdapter(adapter);
+    setTempAdapterToHours();
     products = (EditText) findViewById(R.id.products);
     send = (Button) findViewById(R.id.send);
     send.setOnClickListener(new View.OnClickListener() {
@@ -246,7 +243,15 @@ public class CalendarView
         Toast.makeText(this, text, Toast.LENGTH_LONG).show();
     }
 
-    /**
+  @Override
+  public void setTempAdapterToHours() {
+    final ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+            R.array.hour, android.R.layout.simple_spinner_item);
+    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+    hours.setAdapter(adapter);
+  }
+
+  /**
    * Método convertToCalendar para convertir una fecha de String a Calendar.
    *
    * @param date Fecha en formato String

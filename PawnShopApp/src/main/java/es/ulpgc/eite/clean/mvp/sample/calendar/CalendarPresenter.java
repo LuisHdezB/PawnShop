@@ -151,7 +151,10 @@ public class CalendarPresenter
   @Override
   public void changeDate(String date) {
     this.dateSelected = date;
-    Log.d(TAG, "changeDate: date: " + date);
+    if (isViewRunning()){
+      getView().setTempAdapterToHours();
+    }
+    getModel().setTimetableList(dateSelected,shop);
   }
 
 
@@ -323,12 +326,10 @@ public class CalendarPresenter
         getModel().setTimetableList(dateSelected,shop);
       }
       getView().setDateView(dateSelected);
-      //getView().setHours(hours);
       getView().setNameText(name);
       getView().setPhoneText(phone);
       getView().setMailText(mail);
       getView().setProductsText(products);
-      //getView().setHourSelected(idHour);
     }
     checkButtonEnable();
   }
