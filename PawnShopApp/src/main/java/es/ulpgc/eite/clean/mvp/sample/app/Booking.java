@@ -19,6 +19,9 @@ public class Booking {
         this.hourId = hourId;
     }
 
+    public Booking() {
+    }
+
     public int getShopId() {
         return shopId;
     }

@@ -72,6 +72,10 @@ public class CalendarView
       }
     });
     hours = (Spinner) findViewById(R.id.hour);
+    final ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+            R.array.hour, android.R.layout.simple_spinner_item);
+    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+    hours.setAdapter(adapter);
     products = (EditText) findViewById(R.id.products);
     send = (Button) findViewById(R.id.send);
     send.setOnClickListener(new View.OnClickListener() {
@@ -267,8 +271,8 @@ public class CalendarView
   private String convertToString(java.util.Calendar cal) {
     int year, month, day;
     year = cal.get(java.util.Calendar.YEAR);
-    month = cal.get(java.util.Calendar.MONTH); // Los meses van de 0-11
-    day = cal.get(java.util.Calendar.DAY_OF_MONTH) + 1;
+    month = cal.get(java.util.Calendar.MONTH) + 1; // Los meses van de 0-11
+    day = cal.get(java.util.Calendar.DAY_OF_MONTH);
     return year + "-" + month + "-" + day;
   }
 

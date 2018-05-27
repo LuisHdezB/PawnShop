@@ -2,12 +2,14 @@ package es.ulpgc.eite.clean.mvp.sample.calendar;
 
 import android.util.Log;
 
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.MutableData;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.Transaction;
 import com.google.firebase.database.ValueEventListener;
 
@@ -64,14 +66,14 @@ public class CalendarModel
   }
 
   @Override
-  public void setTimetableList(final String date, Shop shop) {
+  public void setTimetableList(final String date, final Shop shop) {
     connection.child("timetable").child(Integer.toString(shop.getTimetable())).child("timetable").addListenerForSingleValueEvent(new ValueEventListener() {
       @Override
       public void onDataChange(DataSnapshot dataSnapshot) {
         ArrayList<Timetable> hours;
         GenericTypeIndicator<ArrayList<Timetable>> indicator = new GenericTypeIndicator<ArrayList<Timetable>>() {};
         hours = dataSnapshot.getValue(indicator);
-        checkTimetableOnDate(date, hours);
+        checkTimetableOnDate(date, hours, shop);
       }
 
       @Override
@@ -81,7 +83,43 @@ public class CalendarModel
     });
   }
 
-  private void checkTimetableOnDate(final String date, final ArrayList<Timetable> hours) {
+  private void checkTimetableOnDate(final String date, final ArrayList<Timetable> hours, final Shop shop) {
+    // ARREGLO DE LA FECHA PORQUE EL CALENDARVIEW TRABAJA CON CALENDAR QUE LOS MESES VAN DE 0-11
+    /*String parts[] = date.split("-");
+    int year = Integer.parseInt(parts[0]);
+    int month = Integer.parseInt(parts[1]) + 1;
+    int day = Integer.parseInt(parts[2]);
+    String dateFinal = year + "-" + month + "-" + day;*/
+    // FIN DEL ARREGLO DE LA FECHA
+    Log.d(TAG, "checkTimetableOnDate: fecha a buscar: " + date);
+    Query query = connection.child("booking").orderByChild("date").equalTo(date);
+    query.addListenerForSingleValueEvent(new ValueEventListener() {
+      @Override
+      public void onDataChange(DataSnapshot dataSnapshot) {
+        if (dataSnapshot.exists()){
+          GenericTypeIndicator<Booking> indicator = new GenericTypeIndicator<Booking>() {};
+          Booking bookings;
+          Log.d(TAG, "onDataChange: tamaño hours 1: " + hours.size());
+          for (DataSnapshot data : dataSnapshot.getChildren()) {
+            bookings = data.getValue(indicator);
+            if (bookings.getShopId() == shop.getId()){
+              hours.remove(bookings.getHourId());
+            }
+          }
+          Log.d(TAG, "onDataChange: tamaño hours 2: " + hours.size());
+          getPresenter().setAvailableHours(hours);
+        } else {
+          Log.d(TAG, "onDataChange: no existe");
+          getPresenter().setAvailableHours(hours);
+        }
+      }
+
+      @Override
+      public void onCancelled(DatabaseError databaseError) {
+        // TODO: 27/5/18 Poner que saque de Realm
+      }
+    });
+    /*
     connection.child("booking").addListenerForSingleValueEvent(new ValueEventListener() {
       @Override
       public void onDataChange(DataSnapshot dataSnapshot) {
@@ -103,7 +141,9 @@ public class CalendarModel
       public void onCancelled(DatabaseError databaseError) {
         // TODO: 27/5/18 Poner que guarde tire de Realm
       }
-    });
+    });*/
+
+
   }
 
 

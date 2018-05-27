@@ -311,7 +311,17 @@ public class CalendarPresenter
     Log.d(TAG, "calling setCurrentState()");
 
     if (isViewRunning()) {
-      getModel().setTimetableList(dateSelected,shop);
+      if (dateSelected == null){
+        java.util.Calendar cal = java.util.Calendar.getInstance();
+        int year, month, day;
+        year = cal.get(java.util.Calendar.YEAR);
+        month = cal.get(java.util.Calendar.MONTH) + 1; // Los meses van de 0-11
+        day = cal.get(java.util.Calendar.DAY_OF_MONTH) + 1;
+        dateSelected = year + "-" + month + "-" + day;
+        getModel().setTimetableList(dateSelected,shop);
+      } else {
+        getModel().setTimetableList(dateSelected,shop);
+      }
       getView().setDateView(dateSelected);
       //getView().setHours(hours);
       getView().setNameText(name);

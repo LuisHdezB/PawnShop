@@ -20,5 +20,7 @@
     -->
     <string name="calendar_text">Pide una cita previa:</string>
     <string name="send_text">Enviar</string>
-
+    <string-array name="hour">
+        <item>Cargando horas disponibles...</item>
+    </string-array>
 </resources>
