@@ -5,7 +5,7 @@
     "code": "0047",
     "zone": 0,
     "mail": "0047@nocheydia.es",
-    "timetable":0,
+    "timetable": 0,
     "latitude": "28.1334307",
     "longitude": "-15.4339218"
   },
@@ -15,7 +15,7 @@
     "code": "0053",
     "zone": 0,
     "mail": "0053@nocheydia.es",
-    "timetable":0,
+    "timetable": 0,
     "latitude": "27.8438423",
     "longitude": "-15.4437497"
   },
@@ -25,7 +25,7 @@
     "code": "0075",
     "zone": 0,
     "mail": "0075@nocheydia.es",
-    "timetable":1,
+    "timetable": 1,
     "latitude": "28.1015129",
     "longitude": "-15.4424514"
   },
@@ -35,7 +35,7 @@
     "code": "0089",
     "zone": 0,
     "mail": "0089@nocheydia.es",
-    "timetable":0,
+    "timetable": 0,
     "latitude": "28.1055502",
     "longitude": "-15.4153973"
   }

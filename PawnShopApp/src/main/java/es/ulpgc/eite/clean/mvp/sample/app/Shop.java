@@ -1,6 +1,8 @@
 package es.ulpgc.eite.clean.mvp.sample.app;
 
-public class Shop {
+import io.realm.RealmObject;
+
+public class Shop extends RealmObject {
     private int id;
     private String name;
     private String code;

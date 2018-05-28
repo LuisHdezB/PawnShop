@@ -7,8 +7,8 @@ import android.util.Log;
 import java.util.ArrayList;
 import java.util.List;
 
+import es.ulpgc.eite.clean.mvp.sample.app.Shop;
 import es.ulpgc.eite.clean.mvp.sample.data.database.DatabaseFacade;
-import es.ulpgc.eite.clean.mvp.sample.data.database.ShopDbItem;
 
 public class MasterDetailData {
 
@@ -29,7 +29,7 @@ public class MasterDetailData {
         Log.d(TAG, "calling getItemsFromDatabase() method");
 
 
-        List<ShopDbItem> dbItems = DatabaseFacade.getShops();
+        List<Shop> dbItems = DatabaseFacade.getShops();
         //Log.d(TAG, "items=" +  dbItems);
 
         // Adapt the contents of low-level ModelDbItems to high-level ModelItem components.
@@ -37,7 +37,7 @@ public class MasterDetailData {
 
 
         List<ShopItem> modelItems = new ArrayList();
-        for(ShopDbItem dbItem: dbItems) {
+        for(Shop dbItem: dbItems) {
             modelItems.add(new ShopItem(dbItem));
         }
 

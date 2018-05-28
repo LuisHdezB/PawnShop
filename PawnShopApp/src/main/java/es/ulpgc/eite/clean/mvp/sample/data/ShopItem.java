@@ -1,18 +1,18 @@
 package es.ulpgc.eite.clean.mvp.sample.data;
 
 
-import es.ulpgc.eite.clean.mvp.sample.data.database.ShopDbItem;
+import es.ulpgc.eite.clean.mvp.sample.app.Shop;
 
 public class ShopItem {
 
-  private ShopDbItem dbItem;
+  private Shop dbItem;
 
   //  Disabling the default constructor
   private ShopItem() {
 
   }
 
-  public ShopItem(ShopDbItem dbItem) {
+  public ShopItem(Shop dbItem) {
     this.dbItem = dbItem;
   }
 
@@ -20,7 +20,7 @@ public class ShopItem {
     return dbItem.getName();
   }
 
-  public ShopDbItem getDbItem() {
+  public Shop getDbItem() {
     return dbItem;
   }
 
@@ -32,7 +32,7 @@ public class ShopItem {
   }
 
   public String getId() {
-    return dbItem.getId().toString();
+    return Integer.toString(dbItem.getId());
   }
 
   @Override

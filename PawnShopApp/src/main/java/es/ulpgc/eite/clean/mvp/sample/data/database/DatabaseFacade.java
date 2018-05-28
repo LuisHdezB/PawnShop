@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import es.ulpgc.eite.clean.mvp.sample.app.Shop;
 import io.realm.Realm;
 
 public class DatabaseFacade {
@@ -42,7 +43,7 @@ public class DatabaseFacade {
 
 
     public static void deleteShops(){
-        for(ShopDbItem item: getShops()){
+        for(Shop item: getShops()){
             deleteShop(item);
         }
     }
@@ -55,12 +56,12 @@ public class DatabaseFacade {
 //        }
 //    }
 
-    public static void deleteShop(ShopDbItem item) {
+    public static void deleteShop(Shop item) {
         final Integer id = item.getId();
         getDatabase().executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
-                realm.where(ShopDbItem.class).equalTo("id", id)
+                realm.where(Shop.class).equalTo("id", id)
                         .findAll()
                         .deleteAllFromRealm();
             }
@@ -77,7 +78,7 @@ public class DatabaseFacade {
         getDatabase().executeTransaction(new Realm.Transaction() {
             @Override
             public void execute(Realm realm) {
-                realm.where(ShopDbItem.class).equalTo("id", idToRemove)
+                realm.where(Shop.class).equalTo("id", idToRemove)
                         .findAll()
                         .deleteAllFromRealm();
             }
@@ -85,9 +86,9 @@ public class DatabaseFacade {
     }
 
 
-    public static List<ShopDbItem> getShops(){
+    public static List<Shop> getShops(){
         Log.d("DatabaseFacade", "calling getShops() method");
-        return getDatabase().where(ShopDbItem.class).findAll();
+        return getDatabase().where(Shop.class).findAll();
     }
 
 
@@ -112,7 +113,7 @@ public class DatabaseFacade {
             getDatabase().beginTransaction();
 
             try {
-                getDatabase().createAllFromJson(ShopDbItem.class, stream);
+                getDatabase().createAllFromJson(Shop.class, stream);
                 getDatabase().commitTransaction();
 
             } catch (IOException e) {
