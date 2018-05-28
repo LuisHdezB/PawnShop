@@ -23,4 +23,11 @@
     <string-array name="hour">
         <item>Cargando horas disponibles...</item>
     </string-array>
+
+    <!--
+    Textos de la Vista Chat
+    -->
+    <string name="title_item_list">Lista de Tiendas</string>
+    <string name="title_screen_detail">Detail Screen</string>
+    <string name="title_screen_master">Master Screen</string>
 </resources>

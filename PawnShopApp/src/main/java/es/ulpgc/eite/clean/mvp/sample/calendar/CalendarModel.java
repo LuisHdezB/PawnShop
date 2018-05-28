@@ -2,15 +2,12 @@ package es.ulpgc.eite.clean.mvp.sample.calendar;
 
 import android.util.Log;
 
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
-import com.google.firebase.database.MutableData;
 import com.google.firebase.database.Query;
-import com.google.firebase.database.Transaction;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -19,7 +16,6 @@ import es.ulpgc.eite.clean.mvp.GenericModel;
 import es.ulpgc.eite.clean.mvp.sample.app.Booking;
 import es.ulpgc.eite.clean.mvp.sample.app.Shop;
 import es.ulpgc.eite.clean.mvp.sample.app.Timetable;
-import es.ulpgc.eite.clean.mvp.sample.data.DatabaseFacade;
 
 
 public class CalendarModel

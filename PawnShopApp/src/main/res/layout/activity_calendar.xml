@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="es.ulpgc.eite.clean.mvp.sample.timetable.CalendarView">
+    tools:context="es.ulpgc.eite.clean.mvp.sample.calendar.CalendarView">
 
     <include
         layout="@layout/content_calendar"

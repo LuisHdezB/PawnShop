@@ -13,7 +13,6 @@ import java.util.ArrayList;
 
 import es.ulpgc.eite.clean.mvp.GenericModel;
 import es.ulpgc.eite.clean.mvp.sample.app.Shop;
-import es.ulpgc.eite.clean.mvp.sample.data.DatabaseFacade;
 
 
 public class MapsModel

@@ -1,10 +1,8 @@
-package es.ulpgc.eite.clean.mvp.sample.chat;
+package es.ulpgc.eite.clean.mvp.sample.detail;
 
 
 import android.content.Context;
 import android.util.Log;
-
-import java.util.List;
 
 import es.ulpgc.eite.clean.mvp.ContextView;
 import es.ulpgc.eite.clean.mvp.GenericActivity;
@@ -13,10 +11,10 @@ import es.ulpgc.eite.clean.mvp.sample.app.Mediator;
 import es.ulpgc.eite.clean.mvp.sample.app.Shop;
 import es.ulpgc.eite.clean.mvp.sample.data.ShopItem;
 
-public class ChatPresenter
+public class DetailChatPresenter
     extends GenericPresenter
-        <Chat.PresenterToView, Chat.PresenterToModel, Chat.ModelToPresenter, ChatModel>
-    implements Chat.ViewToPresenter, Chat.ModelToPresenter, Chat.ChatTo, Chat.ToChat{
+        <DetailChat.PresenterToView, DetailChat.PresenterToModel, DetailChat.ModelToPresenter, DetailChatModel>
+    implements DetailChat.ViewToPresenter, DetailChat.ModelToPresenter, DetailChat.DetailTo, DetailChat.ToDetail {
 
   private boolean shopClicked;
   private boolean calendarClicked;
@@ -24,9 +22,6 @@ public class ChatPresenter
   //State
   private Shop shop;
   private boolean hideToolbar;
-  private ShopItem selectedItem;
-  private ShopItem itemToDelete;
-  private boolean hideProgress;
 
   /**
    * Operation called during VIEW creation in {@link GenericActivity#onResume(Class, Object)}
@@ -37,14 +32,14 @@ public class ChatPresenter
    * @param view The current VIEW instance
    */
   @Override
-  public void onCreate(Chat.PresenterToView view) {
-    super.onCreate(ChatModel.class, this);
+  public void onCreate(DetailChat.PresenterToView view) {
+    super.onCreate(DetailChatModel.class, this);
     setView(view);
     Log.d(TAG, "calling onCreate()");
 
     Log.d(TAG, "calling startingScreen()");
     Mediator.Lifecycle mediator = (Mediator.Lifecycle) getApplication();
-    mediator.startingMasterScreen(this);
+    mediator.startingDetailScreen(this);
   }
 
   /**
@@ -55,26 +50,26 @@ public class ChatPresenter
    * @param view The current VIEW instance
    */
   @Override
-  public void onResume(Chat.PresenterToView view) {
+  public void onResume(DetailChat.PresenterToView view) {
     setView(view);
     Log.d(TAG, "calling onResume()");
-      Mediator.Lifecycle mediator = (Mediator.Lifecycle) getApplication();
-      mediator.resumingMasterScreen(this);
 
+    if(configurationChangeOccurred()) {
+      checkVisibility();
+    }
   }
 
   /**
    * Helper method to inform Presenter that a onBackPressed event occurred
    * Called by {@link GenericActivity}
    */
-
   @Override
   public void onBackPressed() {
     Log.d(TAG, "calling onBackPressed()");
-    /*
+
     Log.d(TAG, "calling backToPreviousScreen()");
     Mediator.Navigation mediator = (Mediator.Navigation) getApplication();
-    mediator.backToPreviousScreen(this);*/
+    mediator.backToMasterScreen(this);
   }
 
   /**
@@ -87,11 +82,11 @@ public class ChatPresenter
    */
   @Override
   public void onDestroy(boolean isChangingConfiguration) {
-    Log.d(TAG, "calling onDestroy()");
     super.onDestroy(isChangingConfiguration);
 
     if(isChangingConfiguration) {
       hideToolbar = !hideToolbar;
+
       Log.d(TAG, "calling onChangingConfiguration()");
     } else {
       Log.d(TAG, "calling onDestroy()");
@@ -101,6 +96,26 @@ public class ChatPresenter
 
   ///////////////////////////////////////////////////////////////////////////////////
   // View To Presenter /////////////////////////////////////////////////////////////
+
+  /**
+   * Llamado por el mediador para actualizar el estado del maestro en caso de borrado
+   *
+   * @return item a ser eliminado de la lista del maestro
+   */
+  @Override
+  public ShopItem getItem() {
+    return getModel().getItem();
+  }
+
+  /**
+   * Llamado ante una acción de borrado.
+   * En este caso, además de notificar al maestro del nuevo estado es necesario finalizar el detalle
+   */
+  @Override
+  public void onDeleteActionClicked() {
+    Mediator.Navigation mediator = (Mediator.Navigation) getApplication();
+    mediator.backToMasterScreen(this);
+  }
 
   @Override
   public void onShopButtonClicked() {
@@ -129,50 +144,6 @@ public class ChatPresenter
     mediator.goToNextScreen(this);
   }
 
-  /**
-   * Llamado al hacer click en uno de los elementos de la lista
-   *
-   * @param item seleccionado en la lista al hacer click
-   */
-  @Override
-  public void onItemClicked(ShopItem item) {
-    selectedItem = item;
-    Log.d(TAG, "calling goToDetailScreen()");
-
-    // Al haber hecho click en uno de los elementos de la lista del maestro es necesario
-    // arrancar el detalle pasándole el estado inicial correspondiente que, en este caso,
-    // es el item seleccionado. Será el mediador quien se encargue de obtener este estado
-    // desde el maestro y pasarselo al detalle
-    Mediator.Navigation mediator = (Mediator.Navigation) getApplication();
-    mediator.goToDetailScreen(this);
-  }
-
-
-  /**
-   * Llamado para restaurar el contenido inicial de la lista del maestro
-   * ya que pueden haberse borrado elementos desde el detalle
-   */
-  @Override
-  public void onRestoreActionClicked() {
-    Log.d(TAG, "calling reloadItems()");
-    // Llamado para restaurar el contenido inicial de la lista y su funcionamiento es
-    // semejante al encargado de cargar los datos la primera vez
-    getModel().reloadItems();
-  }
-
-  /**
-   * Llamado desde la vista cada vez que se reinicia el maestro.
-   * Esta llamada puede hacerse por giro de pantalla o por finalización del detalle pero,
-   * en cualquier caso, habrá que actualizar el contenido de la lista
-   */
-  @Override
-  public void onResumingContent() {
-    Log.d(TAG, "calling loadItems()");
-    // Si la tarea para la obtención del contenido de la lista ha finalizado,
-    // el contenido estará disponible inmediatamente, sino habrá que esperar su finalización.
-    // En cualquier caso, el presentador será notificado desde el modelo
-    getModel().loadItems();
-  }
 
   ///////////////////////////////////////////////////////////////////////////////////
   // State /////////////////////////////////////////////////////////////////////////
@@ -186,6 +157,7 @@ public class ChatPresenter
   public void onScreenStarted() {
     Log.d(TAG, "calling onScreenStarted()");
     setCurrentState();
+    checkVisibility();
     //Log.d(TAG, "shop: ()" + shop.getName());
 
   }
@@ -199,25 +171,6 @@ public class ChatPresenter
   public void onScreenResumed() {
     Log.d(TAG, "calling onScreenResumed()");
     setCurrentState();
-    if(itemToDelete != null) {
-      Log.d(TAG, "calling deleteItem()");
-      getModel().deleteItem(itemToDelete);
-    }
-  }
-
-  @Override
-  public void setItemToDelete(ShopItem item) {
-    itemToDelete = item;
-  }
-
-  @Override
-  public void setDatabaseValidity(boolean valid) {
-    getModel().setDatabaseValidity(valid);
-  }
-
-  @Override
-  public void setToolbarVisibility(boolean visible) {
-    hideToolbar = !visible;
   }
 
   @Override
@@ -240,30 +193,23 @@ public class ChatPresenter
     return mapsClicked;
   }
 
+  @Override
+  public void setItem(ShopItem item) {
+    getModel().setItem(item);
+  }
 
+  @Override
+  public void setToolbarVisibility(boolean visible) {
+    hideToolbar = !visible;
+  }
 
   ///////////////////////////////////////////////////////////////////////////////////
-  // Master To Detail //////////////////////////////////////////////////////////////////////
+  // Detail To Master //////////////////////////////////////////////////////////////////////
 
 
   @Override
   public Context getManagedContext(){
     return getActivityContext();
-  }
-
-  /**
-   * Llamado por el mediador para recoger el estado a pasar al detalle
-   *
-   * @return item seleccionado en la lista al hacer click
-   */
-  @Override
-  public ShopItem getSelectedItem() {
-    return selectedItem;
-  }
-
-  @Override
-  public boolean getToolbarVisibility() {
-    return !hideToolbar;
   }
 
   @Override
@@ -273,40 +219,15 @@ public class ChatPresenter
     }
   }
 
-  ////////////////////////////////////////////////////////////////////////////////////
-  // Model To Presenter //////////////////////////////////////////////////////////////
-
-  @Override
-  public void onErrorDeletingItem(ShopItem item) {
-    if(isViewRunning()) {
-      getView().showError(getModel().getErrorMessage());
-    }
-  }
-
-
   /**
-   * Llamado desde el modelo cuando finaliza la tarea para la obtención del contenido de la lista
+   * Llamado desde el mediador para recuperar el elemento de la lista que debe ser borrado
+   * en el maestro cuando este se reinicie al finalizar el detalle
    *
-   * @param items como contenido de la lista a mostrar en pantalla
+   * @return item a borrar de la lista en el maestro
    */
   @Override
-  public void onLoadItemsTaskFinished(List<ShopItem> items) {
-    // Una vez finaliza la tarea para la obtención del contenido de la lista,
-    // hacemos desaparecer de pantalla el círculo de progreso
-    // y actualizamos el contenido de la lista
-    hideProgress = true;
-    checkVisibility();
-    getView().setRecyclerAdapterContent(items);
-  }
-
-
-  /**
-   * Llamado desde el modelo cuando comienza la tarea para la obtención del contenido de la lista
-   */
-  @Override
-  public void onLoadItemsTaskStarted() {
-    hideProgress = false;
-    checkVisibility();
+  public ShopItem getItemToDelete() {
+    return getModel().getItem();
   }
 
   ///////////////////////////////////////////////////////////////////////////////////
@@ -320,11 +241,6 @@ public class ChatPresenter
     if(isViewRunning()) {
       if (hideToolbar) {
         getView().hideToolbar();
-      }
-      if (hideProgress) {
-        getView().hideProgress();
-      } else {
-        getView().showProgress();
       }
     }
   }

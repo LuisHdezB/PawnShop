@@ -43,6 +43,10 @@
         <activity
             android:name=".chat.ChatView"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".detail.DetailChatView"
+            android:parentActivityName=".chat.ChatView"
+            android:theme="@style/AppTheme.NoActionBar"/>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

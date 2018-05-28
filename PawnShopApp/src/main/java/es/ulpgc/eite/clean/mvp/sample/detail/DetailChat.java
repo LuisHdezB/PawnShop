@@ -1,19 +1,18 @@
-package es.ulpgc.eite.clean.mvp.sample.maps;
+package es.ulpgc.eite.clean.mvp.sample.detail;
 
 import android.content.Context;
-
-import java.util.ArrayList;
 
 import es.ulpgc.eite.clean.mvp.ContextView;
 import es.ulpgc.eite.clean.mvp.Model;
 import es.ulpgc.eite.clean.mvp.Presenter;
 import es.ulpgc.eite.clean.mvp.sample.app.Shop;
+import es.ulpgc.eite.clean.mvp.sample.data.ShopItem;
 
 /**
  * Created by Luis on 12/11/16.
  */
 
-public interface Maps {
+public interface DetailChat {
 
 
   ///////////////////////////////////////////////////////////////////////////////////
@@ -22,18 +21,22 @@ public interface Maps {
   interface State {
   }
 
-  interface ToMaps extends State {
+  interface ToDetail {
     void onScreenStarted();
+    void setToolbarVisibility(boolean visible);
+    void setItem(ShopItem item);
     void setShop(Shop shop);
   }
 
-  interface MapsTo extends State{
+  interface DetailTo extends State{
     Context getManagedContext();
     void destroyView();
     boolean isShopClicked();
     boolean isCalendarClicked();
-    boolean isChatClicked();
+    boolean isMapsClicked();
     void onScreenResumed();
+    ShopItem getItemToDelete();
+    //void setShop(Shop shop);
     Shop getShop();
   }
 
@@ -45,10 +48,10 @@ public interface Maps {
    */
   interface ViewToPresenter extends Presenter<PresenterToView> {
     void onShopButtonClicked();
-    void onChatButtonClicked();
+    void onMapsButtonClicked();
     void onCalendarButtonClicked();
-
-      void startLoadMarkerList();
+    ShopItem getItem();
+    void onDeleteActionClicked();
   }
 
   /**
@@ -56,23 +59,22 @@ public interface Maps {
    */
   interface PresenterToView extends ContextView {
     void finishScreen();
-    void setMarkersToMap(ArrayList<Shop> mapShopList);
-    void setCenterCamera(Shop shop);
+    void hideToolbar();
   }
 
   /**
    * Methods offered to MODEL to communicate with PRESENTER
    */
   interface PresenterToModel extends Model<ModelToPresenter> {
-
-    void loadMapMarker();
+    ShopItem getItem();
+    void setItem(ShopItem item);
   }
 
   /**
    * Required PRESENTER methods available to MODEL
    */
   interface ModelToPresenter {
-    void setMarkerList(ArrayList<Shop> mapShopList);
+
   }
 
 }
