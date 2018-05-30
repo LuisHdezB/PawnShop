@@ -50,8 +50,6 @@ public class MapsView
     ImageButton webMenuImage = (ImageButton) findViewById(R.id.m_shop);
     menuImage = (ImageButton) findViewById(R.id.m_maps);
 
-      //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-      //setSupportActionBar(toolbar);
 
      mapView = (MapView) findViewById(R.id.cm_mapview);
 
