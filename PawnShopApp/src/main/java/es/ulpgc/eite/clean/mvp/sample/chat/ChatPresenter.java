@@ -186,7 +186,6 @@ public class ChatPresenter
   public void onScreenStarted() {
     Log.d(TAG, "calling onScreenStarted()");
     setCurrentState();
-    //Log.d(TAG, "shop: ()" + shop.getName());
 
   }
 

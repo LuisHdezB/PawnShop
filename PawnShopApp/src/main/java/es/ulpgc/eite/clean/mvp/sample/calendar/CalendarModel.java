@@ -54,6 +54,12 @@ public class CalendarModel
   }
 
 
+  /**
+   * Método para asignar la cita previa.
+   *
+   * @param booking datos de la cita previa
+   * @param shop tienda en la que se reserva
+   */
   @Override
   public void setBooking(final Booking booking, Shop shop) {
     getPresenter().setAppointment();
@@ -61,6 +67,13 @@ public class CalendarModel
     // TODO: 26/5/18 Mandar mail
   }
 
+  /**
+   * Método para consultar las horas disponibles en una fecha concreta y una tienda concreta,
+   * luego llama al método checkTimetableOnDate para comprobar las horas ya reservadas.
+   *
+   * @param date fecha para comprobar
+   * @param shop tienda a comprobar
+   */
   @Override
   public void setTimetableList(final String date, final Shop shop) {
     connection.child("timetable").child(Integer.toString(shop.getTimetable())).child("timetable").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -79,8 +92,16 @@ public class CalendarModel
     });
   }
 
+  /**
+   * Método privado que se usa por limitaciones en consultas compuestas de Firebase, se utiliza para
+   * una vez obtenido en Firebase la lista de horas de ese día, compararlas con las reservas y eliminar
+   * aquellas horas que ya están reservadas.
+   *
+   * @param date fecha a consultar
+   * @param hours lista de horarios disponibles ese día.
+   * @param shop tienda para comparar las reservas sólo de esa tienda
+   */
   private void checkTimetableOnDate(final String date, final ArrayList<Timetable> hours, final Shop shop) {
-    Log.d(TAG, "checkTimetableOnDate: fecha a buscar: " + date);
     Query query = connection.child("booking").orderByChild("date").equalTo(date);
     query.addListenerForSingleValueEvent(new ValueEventListener() {
       @Override
@@ -88,17 +109,14 @@ public class CalendarModel
         if (dataSnapshot.exists()){
           GenericTypeIndicator<Booking> indicator = new GenericTypeIndicator<Booking>() {};
           Booking bookings;
-          Log.d(TAG, "onDataChange: tamaño hours 1: " + hours.size());
           for (DataSnapshot data : dataSnapshot.getChildren()) {
             bookings = data.getValue(indicator);
             if (bookings.getShopId() == shop.getId()){
               hours.remove(bookings.getHourId());
             }
           }
-          Log.d(TAG, "onDataChange: tamaño hours 2: " + hours.size());
           getPresenter().setAvailableHours(hours);
         } else {
-          Log.d(TAG, "onDataChange: no existe");
           getPresenter().setAvailableHours(hours);
         }
       }

@@ -36,7 +36,6 @@ public interface DetailChat {
     boolean isMapsClicked();
     void onScreenResumed();
     ShopItem getItemToDelete();
-    //void setShop(Shop shop);
     Shop getShop();
   }
 

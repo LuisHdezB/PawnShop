@@ -64,10 +64,11 @@ public class CalendarView
     phone = (EditText) findViewById(R.id.phone);
     mail = (EditText) findViewById(R.id.mail);
     date = (android.widget.CalendarView) findViewById(R.id.date);
+    // Listener del Calendar View, que identifica cada pulsación en los días.
     date.setOnDateChangeListener(new android.widget.CalendarView.OnDateChangeListener(){
       @Override
       public void onSelectedDayChange(@NonNull android.widget.CalendarView view, int year, int month, int dayOfMonth) {
-        month = month + 1;
+        month = month + 1; // En Calendar, van de 0-11
         getPresenter().changeDate(year + "-" + month + "-" + dayOfMonth);
       }
     });
@@ -116,11 +117,17 @@ public class CalendarView
     finish();
   }
 
+  /**
+   * Método que pone en el CalendarView la fecha que se introduce por parámetro
+   * y asigna como fecha mínima seleccionable la fecha del día de hoy.
+   *
+   * @param date fecha a seleccionar
+   */
   @Override
   public void setDateView(String date) {
     Log.d(TAG, "setDateView: calling setDateView");
     java.util.Calendar cal = java.util.Calendar.getInstance();
-    cal.add(java.util.Calendar.DATE, 1);
+    cal.add(java.util.Calendar.DATE, 1); // Se puede reservar con 24h de antelación
     long dateOld = cal.getTimeInMillis();
     this.date.setMinDate(dateOld);
 
@@ -137,6 +144,11 @@ public class CalendarView
     }
   }
 
+  /**
+   * Método que se usa para cambiar el desplegable de las horas disponibles en el día seleccionado
+   *
+   * @param hours ArrayList de String que tiene las horas disponibles
+   */
   @Override
   public void setHours(ArrayList<String> hours) {
     this.hours.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, hours));
@@ -238,11 +250,16 @@ public class CalendarView
     products.setEnabled(false);
   }
 
-    @Override
-    public void makeToast(String text) {
-        Toast.makeText(this, text, Toast.LENGTH_LONG).show();
-    }
+  @Override
+  public void makeToast(String text) {
+    Toast.makeText(this, text, Toast.LENGTH_LONG).show();
+  }
 
+  /**
+   * Método que se usa para asignar al desplegable de horarios disponibles la frase:
+   * Cargando horas disponibles...
+   *
+   */
   @Override
   public void setTempAdapterToHours() {
     final ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -261,7 +278,7 @@ public class CalendarView
     java.util.Calendar cal = java.util.Calendar.getInstance();
     String parts[] = date.split("-");
     int day = Integer.parseInt(parts[2]);
-    int month = Integer.parseInt(parts[1]) - 1;
+    int month = Integer.parseInt(parts[1]) - 1; // Los meses en Calendar van de 0-11
     int year = Integer.parseInt(parts[0]);
     cal.set(year, month, day);
     return cal;
@@ -276,7 +293,7 @@ public class CalendarView
   private String convertToString(java.util.Calendar cal) {
     int year, month, day;
     year = cal.get(java.util.Calendar.YEAR);
-    month = cal.get(java.util.Calendar.MONTH) + 1; // Los meses van de 0-11
+    month = cal.get(java.util.Calendar.MONTH) + 1; // Los meses en Calendar van de 0-11
     day = cal.get(java.util.Calendar.DAY_OF_MONTH);
     return year + "-" + month + "-" + day;
   }

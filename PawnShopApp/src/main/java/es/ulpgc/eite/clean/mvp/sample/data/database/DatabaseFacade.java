@@ -50,12 +50,6 @@ public class DatabaseFacade {
 
 
 
-//    public static void deleteAllDatabaseItems(){
-//        for(ModelDbItem item: getItemsFromDatabase()){
-//            deleteDatabaseItem(item);
-//        }
-//    }
-
     public static void deleteShop(Shop item) {
         final Integer id = item.getId();
         getDatabase().executeTransaction(new Realm.Transaction() {
@@ -129,27 +123,5 @@ public class DatabaseFacade {
         }
     }
 
-
-    /*
-    // Fill dummy contents of the database
-
-    private static final int ITEM_COUNT = 4;
-    
-    public static void setItemsFromJsonObjectArray(){
-        // Add some sample items
-        for (int count = 1; count <= ITEM_COUNT; count++) {
-            DatabaseFacade.saveFromJsonObject(DatabaseFacade.createJsonObject(count));
-        }
-    }
-
-    public static void saveFromJsonObject(final JSONObject json) {
-        getDatabase().executeTransaction(new Realm.Transaction() {
-            @Override
-            public void execute(Realm realm) {
-                realm.createObjectFromJson(ShopDbItem.class, json);
-            }
-        });
-    }
-    */
 
 }
