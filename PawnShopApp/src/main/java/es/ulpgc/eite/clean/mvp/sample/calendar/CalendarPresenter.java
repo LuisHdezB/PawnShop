@@ -132,6 +132,9 @@ public class CalendarPresenter
     mediator.goToNextScreen(this);
   }
 
+  /**
+   * Botón de reserva, se genera la cita previa y se pasa al modelo para guardar en Firebase
+   */
   @Override
   public void onSendButtonClicked() {
     if(isViewRunning()){
@@ -152,6 +155,12 @@ public class CalendarPresenter
     }
   }
 
+  /**
+   * Método usado para cambiar la fecha seleccionada, cada vez que se cambia, se carga de nuevo
+   * la lista de horas disponibles.
+   *
+   * @param date fecha a cambiar
+   */
   @Override
   public void changeDate(String date) {
     this.dateSelected = date;
@@ -174,22 +183,23 @@ public class CalendarPresenter
   public void onScreenStarted() {
     Log.d(TAG, "calling onScreenStarted()");
 
+    // Lectura en SharedPreferences de la reserva
     SharedPreferences sharedPref = getManagedContext().getSharedPreferences(APPOINTMENT, Context.MODE_PRIVATE);
     ifAppointment = sharedPref.getBoolean(APPOINTMENT,false);
-    Log.d(TAG, "onCreate: ifAppointment: " + ifAppointment);
+
+
     if (ifAppointment){
+      // Obtención de la fecha reservada, y comparación con la fecha de hoy para bloquear futuras reservas
       String appointment = sharedPref.getString(APPOINTMENT_DATE,null);
-      Log.d(TAG, "onCreate: dateSelected: " + dateSelected);
       java.util.Calendar appointmentCalendar = convertToCalendar(appointment);
       java.util.Calendar todayCalendar = java.util.Calendar.getInstance();
       if (todayCalendar.getTimeInMillis() >= appointmentCalendar.getTimeInMillis()){
         ifAppointment = false;
-        // TODO: 28/5/18 ELIMINAR SHAREDPREFERENCES 
+        // TODO: 28/5/18 ELIMINAR SHAREDPREFERENCES
       } else {
         dateSelected = appointment;
       }
     }
-
     setCurrentState();
   }
 
@@ -336,10 +346,11 @@ public class CalendarPresenter
 
     if (isViewRunning()) {
       if (dateSelected == null){
+        // Se genera la fecha seleccionada como la fecha mínima a reservar
         java.util.Calendar cal = java.util.Calendar.getInstance();
         int year, month, day;
         year = cal.get(java.util.Calendar.YEAR);
-        month = cal.get(java.util.Calendar.MONTH) + 1; // Los meses van de 0-11
+        month = cal.get(java.util.Calendar.MONTH) + 1;
         day = cal.get(java.util.Calendar.DAY_OF_MONTH) + 1;
         dateSelected = year + "-" + month + "-" + day;
         getModel().setTimetableList(dateSelected,shop);
@@ -355,6 +366,9 @@ public class CalendarPresenter
     checkButtonEnable();
   }
 
+  /**
+   * Método que comprueba si existe reserva para bloquear todas las interacciones.
+   */
   private void checkButtonEnable() {
     if (isViewRunning()) {
       if (!ifAppointment) {
@@ -372,6 +386,9 @@ public class CalendarPresenter
     }
   }
 
+  /**
+   * Método para asignar una reserva, para conservar los datos, se guarda en SharedPreferences.
+   */
   @Override
   public void setAppointment() {
     ifAppointment = true;

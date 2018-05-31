@@ -26,7 +26,6 @@ public interface Home {
   interface HomeTo extends State{
     Context getManagedContext();
     void destroyView();
-
     void onScreenResumed();
     Shop getShop();
   }

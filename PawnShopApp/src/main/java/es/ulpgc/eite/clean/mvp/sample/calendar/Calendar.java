@@ -76,7 +76,6 @@ public interface Calendar {
     void setMailText(String mail);
     void enableSendButton();
     void disableSendButon();
-
     String getNameInputText();
     String getMailInputText();
     int getInputPhoneText();
@@ -107,8 +106,6 @@ public interface Calendar {
    */
   interface ModelToPresenter {
     void setAppointment();
-
     void setAvailableHours(ArrayList<Timetable> hours);
   }
-
 }
