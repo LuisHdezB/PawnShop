@@ -204,7 +204,6 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
       toChatState = new ChatState();
       toChatState.shop = presenter.getShop();
       toChatState.hideToolbar = false;
-      //toChatState.validDatabase = true;
 
       Context view = presenter.getManagedContext();
       if (view != null) {
@@ -371,7 +370,6 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
       toChatState = new ChatState();
       toChatState.shop = presenter.getShop();
       toChatState.hideToolbar = false;
-      //toChatState.validDatabase = true;
 
       Context view = presenter.getManagedContext();
       if (view != null) {
@@ -433,7 +431,6 @@ public class MediatorApp extends Application implements Mediator.Lifecycle, Medi
       toChatState = new ChatState();
       toChatState.shop = presenter.getShop();
       toChatState.hideToolbar = false;
-      //toChatState.validDatabase = true;
 
       Context view = presenter.getManagedContext();
       if (view != null) {

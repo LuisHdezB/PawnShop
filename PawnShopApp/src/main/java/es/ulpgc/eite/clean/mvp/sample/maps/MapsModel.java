@@ -71,19 +71,6 @@ public class MapsModel
         GenericTypeIndicator<ArrayList<Shop>> indicator = new GenericTypeIndicator<ArrayList<Shop>>() {
         };
         shopList = dataSnapshot.getValue(indicator);
-        /*
-        Shop item;
-        ArrayList<Shop> mapShopList = new ArrayList<>();
-        if (shopList.size() > 0) {
-          for (int i = 0; i < shopList.size(); i++) {
-            item = new Shop(shopList.get(i).getName(), shopList.get(i).getLatitude(), shopList.get(i).getLongitude());
-            mapShopList.add(item);
-            Log.d(TAG, "onDataChange: Latitud: " + mapShopList.get(i).getLatitude());
-          }
-        } else {
-          item = new Shop("No hay tiendas.", 0, 0);
-          mapShopList.add(item);
-        }*/
         getPresenter().setMarkerList(shopList);
       }
 
@@ -92,21 +79,5 @@ public class MapsModel
         Log.d(TAG, "Error leyendo la BBDD. " + databaseError.toException());
       }
     });
-    /*
-    ArrayList<Shop> shopList = db.getAllItemsFromDatabase();
-    ArrayList<Shop> mapShopList = new ArrayList<>();
-    Shop item;
-    if (shopList.size() > 0){
-      for(int i = 0; i < shopList.size(); i++){
-        item = new Shop (shopList.get(i).getName(),shopList.get(i).getLatitude(),shopList.get(i).getLongitude());
-        mapShopList.add(item);
-      }
-    } else {
-      item = new Shop ("No hay tiendas.",0,0);
-      mapShopList.add(item);
-    }
-    getPresenter().setMarkerList(mapShopList);
-  }
-  */
   }
 }
