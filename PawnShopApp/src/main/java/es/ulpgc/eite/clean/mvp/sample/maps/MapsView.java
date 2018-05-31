@@ -51,18 +51,18 @@ public class MapsView
     menuImage = (ImageButton) findViewById(R.id.m_maps);
 
 
-     mapView = (MapView) findViewById(R.id.cm_mapview);
+    mapView = (MapView) findViewById(R.id.cm_mapview);
 
     mapView.onCreate(savedInstanceState);
 
     map = mapView.getMap();
-    map.getUiSettings().setMyLocationButtonEnabled(false);
-    map.getUiSettings().setMapToolbarEnabled(true);
-    map.getUiSettings().setZoomControlsEnabled(true);
-    map.getUiSettings().setZoomGesturesEnabled(true);
-    map.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
-    map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-    map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
+    map.getUiSettings().setMyLocationButtonEnabled(false); //Obtener tu ubicacion actual.
+    map.getUiSettings().setMapToolbarEnabled(true); //Toolbar que nos permite la obción de abrir la aplicación de google maps.
+    map.getUiSettings().setZoomControlsEnabled(true);// Herramienta de hacer zoom con el mas y con el menos.
+    map.getUiSettings().setZoomGesturesEnabled(true); //Herramienta que nos permite hacer zoom con gestos con los dedos.
+    map.setMapType(GoogleMap.MAP_TYPE_SATELLITE); //Vista de satelite del mapa
+    map.setMapType(GoogleMap.MAP_TYPE_NORMAL); // Vista normal del mapa
+    map.setMapType(GoogleMap.MAP_TYPE_HYBRID); // Vista hibrida
 
 
     MapsInitializer.initialize(this);
@@ -99,7 +99,7 @@ public class MapsView
     super.onResume(MapsPresenter.class, this);
     mapView.onResume();
     menuImage.setImageResource(R.drawable.ic_maps_icon_m);
-    getPresenter().startLoadMarkerList();
+    getPresenter().startLoadMarkerList(); //Obtener del presentador los marcadores para cargarlos
   }
 
   @Override
@@ -111,7 +111,7 @@ public class MapsView
   @Override
   protected void onDestroy() {
     super.onDestroy();
-    mapView.onDestroy();
+    mapView.onDestroy(); //Destruimos la vista del mapa
     Log.d(TAG, "calling onDestroy()");
   }
 
@@ -125,6 +125,10 @@ public class MapsView
     finish();
   }
 
+  /**
+   * Método que pone los marker en el mapa.
+   * @param ArrayList de tipo Shop mapShopList con las tiendas de CashConverters
+   */
     @Override
     public void setMarkersToMap(ArrayList<Shop> mapShopList) {
       LatLng latLng;
@@ -137,12 +141,16 @@ public class MapsView
         }
     }
 
+  /**
+   * Método que centra la camara en el marker de la tienda seleccionada.
+   * @param variable de tipo Shop
+   */
   @Override
   public void setCenterCamera(Shop shop) {
     LatLng latLng = new LatLng(shop.getLatitudeD(), shop.getLongitudeD());
     CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng,10);
-    CameraUpdate zoom = CameraUpdateFactory.zoomTo(15);
-    map.moveCamera(cameraUpdate);
-    map.animateCamera(zoom);
+    CameraUpdate zoom = CameraUpdateFactory.zoomTo(15); //valor del zoom que se le desea dar al zoom
+    map.moveCamera(cameraUpdate); //segun movemos la pantalla se nos desplaza el mapa
+    map.animateCamera(zoom); //El mapa se movera correctamente conforme a los nuevos atributos
   }
 }

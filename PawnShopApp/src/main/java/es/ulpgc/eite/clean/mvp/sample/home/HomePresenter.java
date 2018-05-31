@@ -96,7 +96,6 @@ public class HomePresenter
   @Override
   public void onButtonClicked(int position) {
     Log.d(TAG, "calling onButtonClicked()");
-
     getModel().getShopAsync(position);
 
 

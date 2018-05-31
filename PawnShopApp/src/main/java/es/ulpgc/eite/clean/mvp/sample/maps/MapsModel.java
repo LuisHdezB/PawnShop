@@ -59,6 +59,9 @@ public class MapsModel
   ///////////////////////////////////////////////////////////////////////////////////
   // Presenter To Model ////////////////////////////////////////////////////////////
 
+  /**
+   * Metodo que coge de firebase las coordenadas de la lista de tiendas y se las pasa al presentador
+   */
   @Override
   public void loadMapMarker() {
     Log.d(TAG, "calling loadMapMarker()");
